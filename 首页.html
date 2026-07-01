@@ -12,6 +12,8 @@ h1{font-size:24px;text-align:center;margin:30px 0 10px;color:#fff}
 .subtitle{text-align:center;color:#888;font-size:14px;margin-bottom:40px}
 .section{margin-bottom:30px}
 .section-title{font-size:18px;color:#fff;margin-bottom:15px;padding-left:12px;border-left:3px solid #6c5ce7}
+.section-title.news{border-left-color:#ff6b35}
+.section-title.weekly{border-left-color:#00b894}
 .card{background:#1a1a2e;border-radius:12px;padding:16px 20px;margin-bottom:10px;text-decoration:none;color:#e0e0e0;display:block;transition:transform .2s,background .2s}
 .card:hover{transform:translateY(-2px);background:#252540}
 .card-date{font-size:13px;color:#888;margin-bottom:4px}
@@ -24,8 +26,18 @@ h1{font-size:24px;text-align:center;margin:30px 0 10px;color:#fff}
 <body>
 <div class="container">
 <h1>🤖 AI日报 & 周榜</h1>
-<p class="subtitle">每日AI项目 · 每周GitHub涨星</p>
+<p class="subtitle">每日AI新闻 · AI项目 · 每周GitHub涨星</p>
 <p class="update-time">最近更新：2026年7月1日</p>
+
+<div class="section">
+<div class="section-title news">📰 AIHOT 晚报</div>
+<a class="card" href="日报/2026年07月01日/AI晚报.html">
+<div class="card-date">2026年7月1日</div>
+<div class="card-title">AI HOT 晚报</div>
+<div class="card-desc">今日AI圈最热新闻与动态</div>
+</a>
+</div>
+
 <div class="section">
 <div class="section-title">📊 AI项目TOP5 日报</div>
 <a class="card" href="日报/2026年07月01日/AI项目TOP5.html">
@@ -34,14 +46,16 @@ h1{font-size:24px;text-align:center;margin:30px 0 10px;color:#fff}
 <div class="card-desc">Cline · Vercel AI SDK · DeepAgents · OpenViking · Pydantic AI</div>
 </a>
 </div>
+
 <div class="section">
-<div class="section-title">📈 GitHub 周榜</div>
+<div class="section-title weekly">📈 GitHub 周榜</div>
 <a class="card" href="周榜/2026年第28周/GitHub周榜.html">
 <div class="card-date">2026年第28周（6.29—7.5）</div>
 <div class="card-title">AI智能体统治榜单，4项目一周涨4万星</div>
 <div class="card-desc">OpenMontage +15,353 · codebase-memory-mcp +10,031 · Agent-Reach +8,398</div>
 </a>
 </div>
+
 <div class="footer">由AI自动生成 · 每日更新</div>
 </div>
 </body>
