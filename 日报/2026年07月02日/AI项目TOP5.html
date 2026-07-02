@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI项目TOP5日报 · 2026年07月02日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0d1117;color:#c9d1d9;min-height:100vh;padding:20px}
+.container{max-width:720px;margin:0 auto}
+.header{text-align:center;padding:32px 0 24px}
+.header h1{font-size:24px;color:#f0f6fc;margin-bottom:8px}
+.header .date{color:#8b949e;font-size:14px}
+.header .topic{color:#58a6ff;font-size:15px;margin-top:4px}
+
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px 20px;margin-bottom:14px}
+.card-rank{display:inline-block;background:#1f6feb;color:#fff;font-size:12px;padding:2px 8px;border-radius:10px;margin-bottom:8px}
+.card-name{font-size:18px;color:#f0f6fc;font-weight:600;margin-bottom:6px}
+.card-name .star{color:#e3b341;font-size:14px;font-weight:400;margin-left:8px}
+.card-desc{color:#8b949e;font-size:13px;line-height:1.6;margin-bottom:12px}
+
+.card-info{display:flex;flex-wrap:wrap;gap:10px 16px}
+.card-info .item{font-size:13px;color:#c9d1d9}
+.card-info .label{color:#8b949e}
+.card-links{margin-top:12px;display:flex;gap:12px}
+.card-links a{color:#58a6ff;text-decoration:none;font-size:13px}
+.card-links a:hover{text-decoration:underline}
+
+.footer{text-align:center;color:#484f58;font-size:12px;margin-top:32px;padding:24px 0}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>📊 AI项目TOP5日报</h1>
+<div class="date">2026年7月2日</div>
+<div class="topic">本期主题：🤖 AI Agent 工具链 — 本周最实用的AI智能体开发与运行工具</div>
+</div>
+
+<div class="card">
+<div class="card-rank">🥇 No.1</div>
+<div class="card-name">OpenAI Codex CLI <span class="star">⭐ 94,910</span></div>
+<div class="card-desc">
+<b>是什么：</b>OpenAI官方的轻量级AI编程Agent，运行在终端中，能直接读懂代码库、修改文件、运行命令、调试Bug。<br>
+<b>解决什么：</b>GitHub Copilot只能补全代码，Codex CLI则像一个能动手的程序员——自动定位问题、写fix、跑测试，编程效率提升数倍。<br>
+<b>适用场景：</b>后端开发、脚本编写、代码重构、多项目间快速切换。适合已经习惯终端操作的开发者。<br>
+<b>怎么用：</b>终端里输入需求，Codex自动搜索代码库→生成方案→执行修改→验证。
+</div>
+<div class="card-info">
+<span class="item"><span class="label">语言：</span>Rust</span>
+<span class="item"><span class="label">本周：</span>CLI手册全面更新，Sub-agent支持增强</span>
+</div>
+<div class="card-links">
+<a href="https://github.com/openai/codex" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-rank">🥈 No.2</div>
+<div class="card-name">Headroom <span class="star">⭐ 55,265</span></div>
+<div class="card-desc">
+<b>是什么：</b>一个工具输出压缩库，能在LLM看到数据之前把工具返回的日志、文件、RAG检索结果压缩60-95%，答案质量不变。<br>
+<b>解决什么：</b>Agent调用工具后返回大量冗余信息（长日志、大文件），白白烧token。Headroom智能压缩，让Agent上下文窗口"变大"了2-20倍。<br>
+<b>适用场景：</b>任何调用多工具的AI Agent——特别是在处理大文件、长日志、批量查询时效果显著。<br>
+<b>怎么用：</b>在你的Agent工具函数外面套一层 `headroom.compress()`，几行代码接入。
+</div>
+<div class="card-info">
+<span class="item"><span class="label">语言：</span>Python</span>
+<span class="item"><span class="label">本周：</span>新增JSON/CSV结构化压缩、MCP协议原生适配</span>
+</div>
+<div class="card-links">
+<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-rank">🥉 No.3</div>
+<div class="card-name">Graphiti — Agent实时知识图谱 <span class="star">⭐ 28,239</span></div>
+<div class="card-desc">
+<b>是什么：</b>为AI Agent构建实时知识图谱的Python库。Agent对话过程中动态积累实体关系，形成可查询、可演进的知识网络。<br>
+<b>解决什么：</b>一般Agent靠向量检索+prompt做RAG，信息孤立且无关联。Graphiti建知识图谱后，Agent能推理实体间关系、追溯对话历史中的因果链。<br>
+<b>适用场景：</b>客服Agent、企业知识助手、多轮复杂对话Agent。每次对话自动"长记性"，越用越聪明。<br>
+<b>怎么用：</b>Agent每次输出结果传给Graphiti，自动抽取实体→保存关系图谱→下次对话可图谱查询。
+</div>
+<div class="card-info">
+<span class="item"><span class="label">语言：</span>Python</span>
+<span class="item"><span class="label">本周：</span>4.0版本发布，新增图嵌入+向量混合查询</span>
+</div>
+<div class="card-links">
+<a href="https://github.com/getzep/graphiti" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-rank">🏅 No.4</div>
+<div class="card-name">LMCache — LLM极速KV缓存层 <span class="star">⭐ 9,995</span></div>
+<div class="card-desc">
+<b>是什么：</b>一个让LLM推理加速3-10倍的KV缓存层。在多轮对话、重复前缀场景下，缓存之前算过的Key/Value，省去大量重复矩阵计算。<br>
+<b>解决什么：</b>每次Agent对话，LLM都把system prompt+历史对话完整算一遍Transformer，99%的计算是重复的。LMCache把缓存做在磁盘/内存，秒级恢复上下文。<br>
+<b>适用场景：</b>本地跑LLM的用户、RAG应用的多轮Q&A、API代理层（在服务端缓存节省上游成本）。<br>
+<b>怎么用：</b>pip安装，在vLLM或LlamaCpp前加上`LMCache`层，自动缓存/复用前缀KV。
+</div>
+<div class="card-info">
+<span class="item"><span class="label">语言：</span>Python</span>
+<span class="item"><span class="label">本周：</span>1.0正式版发布，支持多机共享缓存、S3持久化</span>
+</div>
+<div class="card-links">
+<a href="https://github.com/LMCache/LMCache" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-rank">🏅 No.5</div>
+<div class="card-name">Firecrawl MCP Server <span class="star">⭐ 6,778</span></div>
+<div class="card-desc">
+<b>是什么：</b>Firecrawl官方MCP服务器，让任何支持MCP协议的AI Agent都能一键获取强大网页抓取+搜索引擎能力。<br>
+<b>解决什么：</b>Agent需要上网查资料、抓页面，但自己实现爬虫太复杂（反爬、JS渲染、格式清洗）。Firecrawl MCP一行配置，Agent就获得Google级搜索+智能抓取。<br>
+<b>适用场景：</b>任何需要联网搜索的Agent（Cursor、Claude Code、Copilot）。也是目前增长最快的MCP工具之一。<br>
+<b>怎么用：</b>在Claude Desktop/Cursor的MCP配置里加一条firecrawl URL，Agent自动获得`search+scrape`工具。
+</div>
+<div class="card-info">
+<span class="item"><span class="label">语言：</span>TypeScript</span>
+<span class="item"><span class="label">本周：</span>新增深度搜索模式、自动翻页抓取</span>
+</div>
+<div class="card-links">
+<a href="https://github.com/firecrawl/firecrawl-mcp-server" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<div class="footer">
+AI项目TOP5日报 · 每日8点自动生成 · 筛选标准：本周重大更新 + 实用性
+</div>
+</div>
+</body>
+</html>
