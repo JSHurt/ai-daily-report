@@ -3,132 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI项目TOP5日报 · 2026年07月02日</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月2日</title>
 <style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0d1117;color:#c9d1d9;min-height:100vh;padding:20px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
 .container{max-width:720px;margin:0 auto}
-.header{text-align:center;padding:32px 0 24px}
-.header h1{font-size:24px;color:#f0f6fc;margin-bottom:8px}
-.header .date{color:#8b949e;font-size:14px}
-.header .topic{color:#58a6ff;font-size:15px;margin-top:4px}
-
-.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px 20px;margin-bottom:14px}
-.card-rank{display:inline-block;background:#1f6feb;color:#fff;font-size:12px;padding:2px 8px;border-radius:10px;margin-bottom:8px}
-.card-name{font-size:18px;color:#f0f6fc;font-weight:600;margin-bottom:6px}
-.card-name .star{color:#e3b341;font-size:14px;font-weight:400;margin-left:8px}
-.card-desc{color:#8b949e;font-size:13px;line-height:1.6;margin-bottom:12px}
-
-.card-info{display:flex;flex-wrap:wrap;gap:10px 16px}
-.card-info .item{font-size:13px;color:#c9d1d9}
-.card-info .label{color:#8b949e}
-.card-links{margin-top:12px;display:flex;gap:12px}
-.card-links a{color:#58a6ff;text-decoration:none;font-size:13px}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-detail{margin-top:10px;font-size:13px;color:var(--text-dim)}
+.card-detail-label{color:var(--accent3);font-weight:500}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
 .card-links a:hover{text-decoration:underline}
-
-.footer{text-align:center;color:#484f58;font-size:12px;margin-top:32px;padding:24px 0}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
 </style>
 </head>
 <body>
 <div class="container">
-<div class="header">
-<h1>📊 AI项目TOP5日报</h1>
-<div class="date">2026年7月2日</div>
-<div class="topic">本期主题：🤖 AI Agent 工具链 — 本周最实用的AI智能体开发与运行工具</div>
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月2日 · 本周AI智能体生态全面爆发</p>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI智能体基础设施升级</div>
+<div class="theme-desc">本周MCP协议全面普及，工作流自动化+跨平台智能体框架成焦点</div>
 </div>
 
-<div class="card">
-<div class="card-rank">🥇 No.1</div>
-<div class="card-name">OpenAI Codex CLI <span class="star">⭐ 94,910</span></div>
+<!-- 1. n8n -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">n8n</div>
+<div class="card-stars">⭐ 194k</div>
+</div>
 <div class="card-desc">
-<b>是什么：</b>OpenAI官方的轻量级AI编程Agent，运行在终端中，能直接读懂代码库、修改文件、运行命令、调试Bug。<br>
-<b>解决什么：</b>GitHub Copilot只能补全代码，Codex CLI则像一个能动手的程序员——自动定位问题、写fix、跑测试，编程效率提升数倍。<br>
-<b>适用场景：</b>后端开发、脚本编写、代码重构、多项目间快速切换。适合已经习惯终端操作的开发者。<br>
-<b>怎么用：</b>终端里输入需求，Codex自动搜索代码库→生成方案→执行修改→验证。
+<strong>是什么：</strong>开源工作流自动化平台，用可视化拖拽+代码方式编排400+集成。本周新增原生MCP全栈支持（既是客户端也是服务器），可直接串联AI模型、工具和数据源。<br>
+<strong>解决什么：</strong>传统自动化工具闭源收费、无法私部署、AI能力外挂式接入。n8n把AI原生嵌入工作流引擎，MCP让LLM直连任意API。<br>
+<strong>适用场景：</strong>开发者/团队需要私部署自动化+AI编排；企业希望用一个平台管CI/CD+数据分析+AI决策。<br>
+<strong>怎么用：</strong>自建Docker部署，拖拽节点构建工作流，MCP节点连接你的LLM即可自动执行任务。
 </div>
-<div class="card-info">
-<span class="item"><span class="label">语言：</span>Rust</span>
-<span class="item"><span class="label">本周：</span>CLI手册全面更新，Sub-agent支持增强</span>
-</div>
+<div class="card-update">🔥 本周更新：MCP全栈支持（client+server），AI节点可直接调用400+集成API</div>
 <div class="card-links">
-<a href="https://github.com/openai/codex" target="_blank">GitHub ↗</a>
-</div>
-</div>
-
-<div class="card">
-<div class="card-rank">🥈 No.2</div>
-<div class="card-name">Headroom <span class="star">⭐ 55,265</span></div>
-<div class="card-desc">
-<b>是什么：</b>一个工具输出压缩库，能在LLM看到数据之前把工具返回的日志、文件、RAG检索结果压缩60-95%，答案质量不变。<br>
-<b>解决什么：</b>Agent调用工具后返回大量冗余信息（长日志、大文件），白白烧token。Headroom智能压缩，让Agent上下文窗口"变大"了2-20倍。<br>
-<b>适用场景：</b>任何调用多工具的AI Agent——特别是在处理大文件、长日志、批量查询时效果显著。<br>
-<b>怎么用：</b>在你的Agent工具函数外面套一层 `headroom.compress()`，几行代码接入。
-</div>
-<div class="card-info">
-<span class="item"><span class="label">语言：</span>Python</span>
-<span class="item"><span class="label">本周：</span>新增JSON/CSV结构化压缩、MCP协议原生适配</span>
-</div>
-<div class="card-links">
-<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">GitHub ↗</a>
+<a href="https://github.com/n8n-io/n8n" target="_blank">GitHub ↗</a>
+<a href="https://n8n.io" target="_blank">官网 ↗</a>
 </div>
 </div>
 
-<div class="card">
-<div class="card-rank">🥉 No.3</div>
-<div class="card-name">Graphiti — Agent实时知识图谱 <span class="star">⭐ 28,239</span></div>
+<!-- 2. openclaw -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">openclaw</div>
+<div class="card-stars">⭐ 381k</div>
+</div>
 <div class="card-desc">
-<b>是什么：</b>为AI Agent构建实时知识图谱的Python库。Agent对话过程中动态积累实体关系，形成可查询、可演进的知识网络。<br>
-<b>解决什么：</b>一般Agent靠向量检索+prompt做RAG，信息孤立且无关联。Graphiti建知识图谱后，Agent能推理实体间关系、追溯对话历史中的因果链。<br>
-<b>适用场景：</b>客服Agent、企业知识助手、多轮复杂对话Agent。每次对话自动"长记性"，越用越聪明。<br>
-<b>怎么用：</b>Agent每次输出结果传给Graphiti，自动抽取实体→保存关系图谱→下次对话可图谱查询。
+<strong>是什么：</strong>跨平台个人AI助手，TypeScript构建，"任何系统、任何平台"。支持多模态交互，本地优先架构保证数据隐私。<br>
+<strong>解决什么：</strong>现有AI助手要么局限单一平台，要么数据被云端绑定。openclaw让你在任何设备上用同一个AI助手，数据留在本地。<br>
+<strong>适用场景：</strong>需要全平台统一的AI助手（Mac/Linux/Windows）；注重隐私、想把AI助手完全本地化的用户。<br>
+<strong>怎么用：</strong>npm/cli一键安装后直接用对话界面，后续会配MCP插件系统扩展能力。
 </div>
-<div class="card-info">
-<span class="item"><span class="label">语言：</span>Python</span>
-<span class="item"><span class="label">本周：</span>4.0版本发布，新增图嵌入+向量混合查询</span>
-</div>
+<div class="card-update">🔥 本周更新：持续高频迭代（push至Jul 2凌晨），社区38万星全球最高</div>
 <div class="card-links">
-<a href="https://github.com/getzep/graphiti" target="_blank">GitHub ↗</a>
+<a href="https://github.com/openclaw/openclaw" target="_blank">GitHub ↗</a>
 </div>
 </div>
 
-<div class="card">
-<div class="card-rank">🏅 No.4</div>
-<div class="card-name">LMCache — LLM极速KV缓存层 <span class="star">⭐ 9,995</span></div>
+<!-- 3. hermes-agent -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Hermes Agent</div>
+<div class="card-stars">⭐ 207k</div>
+</div>
 <div class="card-desc">
-<b>是什么：</b>一个让LLM推理加速3-10倍的KV缓存层。在多轮对话、重复前缀场景下，缓存之前算过的Key/Value，省去大量重复矩阵计算。<br>
-<b>解决什么：</b>每次Agent对话，LLM都把system prompt+历史对话完整算一遍Transformer，99%的计算是重复的。LMCache把缓存做在磁盘/内存，秒级恢复上下文。<br>
-<b>适用场景：</b>本地跑LLM的用户、RAG应用的多轮Q&A、API代理层（在服务端缓存节省上游成本）。<br>
-<b>怎么用：</b>pip安装，在vLLM或LlamaCpp前加上`LMCache`层，自动缓存/复用前缀KV。
+<strong>是什么：</strong>NousResearch的AI智能体框架，"会跟你一起成长的AI agent"。支持技能扩展、定时任务、跨平台连接（微信/Telegram/Discord）。<br>
+<strong>解决什么：</strong>大多数AI Agent框架过于工程化，上手门槛高。Hermes Agent用自然语言驱动，非技术人员也能配置自动化工作流。<br>
+<strong>适用场景：</strong>需要24小时待命的AI助手团队/个人；想通过微信/Telegram让AI自动处理日报、监控、提醒的开发者。<br>
+<strong>怎么用：</strong>pip安装后配config.yaml，像聊天一样告诉agent你需要什么功能，skill/cron自动编排运行。
 </div>
-<div class="card-info">
-<span class="item"><span class="label">语言：</span>Python</span>
-<span class="item"><span class="label">本周：</span>1.0正式版发布，支持多机共享缓存、S3持久化</span>
-</div>
+<div class="card-update">🔥 本周更新：Weixin/微信深度集成，移动端全功能可用</div>
 <div class="card-links">
-<a href="https://github.com/LMCache/LMCache" target="_blank">GitHub ↗</a>
+<a href="https://github.com/NousResearch/hermes-agent" target="_blank">GitHub ↗</a>
 </div>
 </div>
 
-<div class="card">
-<div class="card-rank">🏅 No.5</div>
-<div class="card-name">Firecrawl MCP Server <span class="star">⭐ 6,778</span></div>
+<!-- 4. superpowers -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Superpowers</div>
+<div class="card-stars">⭐ 243k</div>
+</div>
 <div class="card-desc">
-<b>是什么：</b>Firecrawl官方MCP服务器，让任何支持MCP协议的AI Agent都能一键获取强大网页抓取+搜索引擎能力。<br>
-<b>解决什么：</b>Agent需要上网查资料、抓页面，但自己实现爬虫太复杂（反爬、JS渲染、格式清洗）。Firecrawl MCP一行配置，Agent就获得Google级搜索+智能抓取。<br>
-<b>适用场景：</b>任何需要联网搜索的Agent（Cursor、Claude Code、Copilot）。也是目前增长最快的MCP工具之一。<br>
-<b>怎么用：</b>在Claude Desktop/Cursor的MCP配置里加一条firecrawl URL，Agent自动获得`search+scrape`工具。
+<strong>是什么：</strong>Agentic技能框架+软件开发方法论。核心思路：**先写spec→TDD测试→子agent并行开发**——把AI编程变成一套可复用的工业级流程。<br>
+<strong>解决什么：</strong>AI写代码容易跑偏（一次性生成全错，反复debug）。Superpowers用技能(skill)封装最佳实践，子agent分工协作，产出可控。<br>
+<strong>适用场景：</strong>团队/个人用AI辅助开发中大型项目；需要一套标准化AI编程流程替代散乱的prompt工程。<br>
+<strong>怎么用：</strong>把你的项目需求写成spec，启动superpowers orchestrator，分派多个subagent并行开发+测试。
 </div>
-<div class="card-info">
-<span class="item"><span class="label">语言：</span>TypeScript</span>
-<span class="item"><span class="label">本周：</span>新增深度搜索模式、自动翻页抓取</span>
-</div>
+<div class="card-update">🔥 本周更新：新增plan/spike模式，代码简化和TDD enforce能力</div>
 <div class="card-links">
-<a href="https://github.com/firecrawl/firecrawl-mcp-server" target="_blank">GitHub ↗</a>
+<a href="https://github.com/obra/superpowers" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 5. ADK Go 2.0 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">ADK Go 2.0</div>
+<div class="card-stars">⭐ 22k</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Google发布的Go语言AI Agent开发框架2.0版。核心新增：**图工作流引擎**（DAG编排多agent协作）、**人工参与循环**（Human-in-the-loop）、**动态编排**。<br>
+<strong>解决什么：</strong>现有agent框架大多是Python/TS，Go生态长期空白。ADK Go填补Go云原生场景下的agent开发需求。<br>
+<strong>适用场景：</strong>Go云原生团队需要高性能agent服务；需要图式工作流（非简单线性）编排多agent的场景。<br>
+<strong>怎么用：</strong>go get github.com/google/adk-go/v2，用图节点定义agent间的触发和依赖关系。
+</div>
+<div class="card-update">🔥 本周重大发布：2.0版全新图工作流引擎+HITL循环，Go生态首个成熟agent框架</div>
+<div class="card-links">
+<a href="https://github.com/google/adk-go" target="_blank">GitHub ↗</a>
 </div>
 </div>
 
 <div class="footer">
-AI项目TOP5日报 · 每日8点自动生成 · 筛选标准：本周重大更新 + 实用性
+由AI自动生成 · 每日更新 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
 </div>
 </div>
 </body>
