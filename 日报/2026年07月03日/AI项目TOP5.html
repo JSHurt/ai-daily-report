@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月3日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-detail{margin-top:10px;font-size:13px;color:var(--text-dim)}
+.card-detail-label{color:var(--accent3);font-weight:500}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月3日 · AI智能体框架格局重塑，本周五款重量级项目密集更新</p>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI智能体框架新格局</div>
+<div class="theme-desc">本周多款主流智能体框架集中发布重大版本——从字节跳动DeerFlow 2.0全线重写，到pydantic-ai接入智谱AI，到omnigent同时集成7个agent harness，智能体不再只是概念，成熟框架正在快速形成生态壁垒</div>
+</div>
+
+<!-- 1. deer-flow -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">DeerFlow</div>
+<div class="card-stars">⭐ 75,925</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>字节跳动开源的「超级智能体」框架，v2.0全线重写。核心架构：一个主智能体编排多个子智能体，搭配持久化记忆、沙箱执行环境和可扩展技能/工具链。能自主完成研究→编码→创作的长线任务。<br>
+<strong>解决什么：</strong>现有智能体框架多为"单次问答"，缺乏长线任务规划与多步骤协调能力。DeerFlow 2.0用生产级工程实践填补了这一空白——子智能体分工协作、记忆跨任务持久化、沙箱安全执行代码。<br>
+<strong>适用场景：</strong>企业级AI自动化（长周期任务如竞品分析+报告生成+代码落地）；需要多智能体协作完成复杂工作流的团队。<br>
+<strong>怎么用：</strong>pip安装后配置主智能体角色，定义子智能体技能树，通过自然语言下发长线任务即可自动拆解执行。
+</div>
+<div class="card-update">🔥 本周重大发布：6月25日v2.0.0全线重写，超级智能体架构上线，本周持续活跃推送至7月3日</div>
+<div class="card-links">
+<a href="https://github.com/bytedance/deer-flow" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 2. pydantic-ai -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">Pydantic AI</div>
+<div class="card-stars">⭐ 18,164</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Python生态最受欢迎的AI Agent框架，Pydantic团队出品。v2.3.0新增智谱AI（Z.AI/GLM系列）原生支持，支持thinking模式。内置类型安全、依赖注入、流式事件等企业级特性。<br>
+<strong>解决什么：</strong>Python开发者构建AI Agent时类型混乱、缺乏标准框架。Pydantic AI用Pydantic数据模型定义Agent输入输出，编译期就能校验类型，运行时依赖注入让测试和生产无缝切换。<br>
+<strong>适用场景：</strong>Python后端团队快速构建AI Agent服务；需要多模型切换（OpenAI/智谱/Anthropic等）统一接口的场景。<br>
+<strong>怎么用：</strong>pip install pydantic-ai，用Agent类定义智能体，Pydantic模型定义工具参数，一行代码切换模型provider。
+</div>
+<div class="card-update">🔥 本周重大更新：7月1日v2.3.0发布，新增智谱AI(Z.AI)原生支持+thinking模式，中国AI生态接入提速</div>
+<div class="card-links">
+<a href="https://github.com/pydantic/pydantic-ai" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 3. omnigent -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Omnigent</div>
+<div class="card-stars">⭐ 6,051</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>开源「元智能体框架」——在一套统一界面下编排多种AI Agent。v0.3.0一周内同时集成7个agent harness：Hermes Agent、GitHub Copilot、OpenCode、Goose、Qwen Code、Kiro、Kimi Code，Antigravity升级为完整SDK。<br>
+<strong>解决什么：</strong>开发者被迫在不同agent工具间切换（Claude Code写代码→Cursor审阅→Copilot补全），体验割裂。Omnigent在一个终端/UI里调度所有agent，统一上下文和记忆。<br>
+<strong>适用场景：</strong>重度AI编程用户需要多agent协作；团队希望统一管理不同agent的API配额和任务分配。<br>
+<strong>怎么用：</strong>uv tool install omnigent，配置各agent的API key，用统一CLI向不同agent分派任务。
+</div>
+<div class="card-update">🔥 本周重大更新：6月27日v0.3.0一口气集成7个agent harness，成多agent元编排第一选择</div>
+<div class="card-links">
+<a href="https://github.com/omnigent-ai/omnigent" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 4. headroom -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Headroom</div>
+<div class="card-stars">⭐ 55,832</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>LLM上下文压缩引擎——在工具输出、日志、文件、RAG片段进入LLM之前自动压缩，节省60-85%上下文窗口消耗。v0.28.0新增诊断工具headroom doctor，一键排查配置问题。<br>
+<strong>解决什么：</strong>AI应用中LLM上下文窗口是成本核心——长对话、大文件、多工具调用导致token消耗暴涨。Headroom透明插入压缩层，不改变应用代码即可大幅降本。<br>
+<strong>适用场景：</strong>所有使用LLM API的应用（RAG、代码助手、客服机器人）；token消耗大、需要降本增效的团队。<br>
+<strong>怎么用：</strong>pip install headroom，在你的LLM调用链前面加一行headroom.compress(content)即可。
+</div>
+<div class="card-update">🔥 本周更新：6月29日v0.28.0发布，新增doctor诊断模式，持续活跃至7月2日</div>
+<div class="card-links">
+<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 5. litellm -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">LiteLLM</div>
+<div class="card-stars">⭐ 52,437</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>AI网关/统一API代理——用OpenAI格式调用100+ LLM API（OpenAI、Anthropic、智谱、Google等）。支持负载均衡、速率限制、成本追踪、回退策略等生产级功能。本周密集发版v1.89.5+。<br>
+<strong>解决什么：</strong>多模型切换需改代码、无统一成本监控、API key散落各处。LiteLLM作为中间层统一所有LLM调用，一套代码切换任意模型，Dashboard实时监控token消耗和成本。<br>
+<strong>适用场景：</strong>需要多模型灾备的生产环境；想用统一接口管理所有LLM API调用的团队；需要成本归因和速率限制的企业。<br>
+<strong>怎么用：</strong>Docker部署litellm proxy，配置各模型API key，业务代码只调localhost:4000一个endpoint即可。
+</div>
+<div class="card-update">🔥 本周持续更新：7月2日v1.89.5发布，bedrock缓存注入优化等多处生产级修复</div>
+<div class="card-links">
+<a href="https://github.com/BerriAI/litellm" target="_blank">GitHub ↗</a>
+<a href="https://docs.litellm.ai" target="_blank">文档 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
