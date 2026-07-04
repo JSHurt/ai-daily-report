@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月4日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-detail{margin-top:10px;font-size:13px;color:var(--text-dim)}
+.card-detail-label{color:var(--accent3);font-weight:500}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月4日 · Agent框架之争下半场开启，运行时基础设施成为新战场</p>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI Agent运行时基础设施升级</div>
+<div class="theme-desc">当Agent框架百花齐放后，真正的竞争转向支撑Agent高效运行的底层基础设施——沙箱执行环境、多Agent插件编排、浏览器自动化引擎、LLM上下文压缩、团队协作UI。本周五款项目从不同维度重构了Agent的"操作系统层"</div>
+</div>
+
+<!-- 1. Hermes Agent -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">Hermes Agent</div>
+<div class="card-stars">⭐ 208,688</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Nous Research出品的开源AI Agent框架，本周发布v0.18.0 "The Judgment Release"——史上最大规模更新。累计1720次提交、998个合并PR、22万行新增代码、关闭949个issue。核心升级包括：全新的"判定"决策引擎、多模型仲裁机制、原生工具链深度集成。<br>
+<strong>解决什么：</strong>现有Agent框架在面对复杂决策时缺乏可靠的多模型交叉验证和"判定"机制——单一模型的判断容易出错且不可追溯。Hermes Agent v0.18.0引入判定引擎，让Agent可以对重要决策进行多模型投票表决，大幅提升可靠性。<br>
+<strong>适用场景：</strong>需要Agent做出关键决策的场景（代码审查、安全审计、金融分析）；已有Agent部署但缺乏可靠决策机制的团队；追求高可靠性AI自动化的企业。<br>
+<strong>怎么用：</strong>uv tool install hermes-agent，更新到v0.18.0后配置判定策略，Agent在关键节点自动触发多模型仲裁。
+</div>
+<div class="card-update">🔥 本周超级发布：7月1日v0.18.0，1720 commits + 998 PRs + 949 issues closed，史上最大版本</div>
+<div class="card-links">
+<a href="https://github.com/NousResearch/hermes-agent" target="_blank">GitHub ↗</a>
+<a href="https://hermes-agent.nousresearch.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. Omnigent -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">Omnigent</div>
+<div class="card-stars">⭐ 6,051</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>开源多Agent元编排框架。v0.4.0（7月3日发布）将harness体系升级为真正的插件平台——任何编码Agent都可以作为可安装的npm/uv包接入。一周之内从"集成7个agent harness"进化到"任何人都可以写自己的agent插件，发布到生态"。<br>
+<strong>解决什么：</strong>不同Agent工具之间切换割裂，技术栈被锁定在特定供应商。Omnigent将Agent本身变成可插拔的组件，用户自由组合最优Agent处理不同任务——同一个终端里，Hermes Agent写代码、Qwen Code审阅、Kiro补全——做到真正的"Agent自由市场"。<br>
+<strong>适用场景：</strong>重度AI编码用户需要多Agent协作；团队希望统一管理不同Agent的API配额和任务分配；想开发自己Agent插件并接入统一编排平台的开发者。<br>
+<strong>怎么用：</strong>uv tool install omnigent==0.4.0，配置各Agent的API key，通过统一CLI向不同Agent分派任务。开发者可通过插件SDK创建自己的harness包。
+</div>
+<div class="card-update">🔥 本周重大升级：7月3日v0.4.0，Agent harness变成插件平台——任何人都可发布Agent插件</div>
+<div class="card-links">
+<a href="https://github.com/omnigent-ai/omnigent" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 3. browser-use -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Browser Use</div>
+<div class="card-stars">⭐ 102,498</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>让AI Agent操控浏览器的开源引擎。v0.13.3（7月1日发布）带来三项重大升级：CLI 3.0（基于Browser Harness的全新命令行）、browser-use skill（编码Agent可直接安装的skill包）、Browser Harness 0.1.4稳定版。意味着Agent不再需要复杂的Selenium/Playwright集成，一句话就能操控浏览器。<br>
+<strong>解决什么：</strong>AI Agent与Web交互始终是痛点——网页抓取不稳定、动态渲染困难、登录态管理复杂。Browser Use提供统一的浏览器自动化层，Agent通过自然语言描述意图即可完成网页操作，底层由Browser Harness保证可靠性。<br>
+<strong>适用场景：</strong>需要Agent自动完成网页操作的任务（数据采集、表单填写、电商比价）；RAG系统需要动态抓取最新网页内容；测试自动化场景。<br>
+<strong>怎么用：</strong>pip install browser-use==0.13.3，在Agent代码中import browser_use，一行browser.use("打开GitHub搜索hermes-agent")即可。
+</div>
+<div class="card-update">🔥 本周重大发布：7月1日v0.13.3，CLI 3.0 + Browser Harness稳定版 + 可安装为Agent skill</div>
+<div class="card-links">
+<a href="https://github.com/browser-use/browser-use" target="_blank">GitHub ↗</a>
+<a href="https://browser-use.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 4. open-webui -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Open WebUI</div>
+<div class="card-stars">⭐ 144,078</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>最流行的开源LLM前端交互界面，支持Ollama、OpenAI API等后端。v0.10系列（6/29-7/1密集发布）带来两项核心升级：流式推理过程可视化（模型思考内容实时展示）、团队文件夹共享（按用户/组/全员分配读写权限）。<br>
+<strong>解决什么：</strong>团队使用LLM时缺乏协作机制——每个人的对话孤岛化，无法共享高质量prompt和对话上下文。Open WebUI的共享文件夹让团队可以共建知识库；流式推理可视化让用户看清模型的"思考过程"，增强信任和调试能力。<br>
+<strong>适用场景：</strong>团队共用LLM服务需要协作和权限管理；希望可视化模型推理过程的研究和调试场景；自托管LLM前端需求（数据不出企业内网）。<br>
+<strong>怎么用：</strong>Docker部署open-webui，连接Ollama或OpenAI API，在界面中创建共享文件夹，邀请团队成员加入。
+</div>
+<div class="card-update">🔥 本周密集更新：7月1日v0.10.2（流式推理显示），6/29 v0.10.0（团队文件夹共享），连续3天发版</div>
+<div class="card-links">
+<a href="https://github.com/open-webui/open-webui" target="_blank">GitHub ↗</a>
+<a href="https://openwebui.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. Headroom -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Headroom</div>
+<div class="card-stars">⭐ 55,832</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>LLM上下文智能压缩引擎——在工具输出、日志、文件、RAG片段进入LLM之前自动压缩，节省60-85%上下文窗口。本周7月3日一天内连发v0.29.0和v0.30.0两个版本：新增Agent Persona功能（为编码/通用场景提供专属压缩策略，节省更多token），以及content-router智能分流（无损/有损压缩自动选择）。<br>
+<strong>解决什么：</strong>AI应用随着Agent长线任务增加，上下文窗口消耗呈指数增长——一次多步骤Agent任务可能消耗上百万token。Headroom透明插入压缩层，不改变应用代码即可大幅降本。新的Persona功能让压缩策略适配不同场景（编码vs写作vs客服），精准度更高。<br>
+<strong>适用场景：</strong>所有使用LLM API的应用（Agent框架、RAG、代码助手、客服机器人）；token消耗大、需要降本增效的生产环境；希望"无感接入"不需要改代码的团队。<br>
+<strong>怎么用：</strong>pip install headroom==0.30.0，在LLM调用链前加一行headroom.compress(content, persona="coding")，即可自动压缩。
+</div>
+<div class="card-update">🔥 本周密集发版：7月3日v0.30.0（Agent Persona）+ v0.29.0（content-router），一天两版</div>
+<div class="card-links">
+<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
