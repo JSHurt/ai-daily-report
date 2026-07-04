@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI HOT 晚报 · 2026-07-05</title>
+<style>
+:root{--bg:#0f0a07;--surface:#1a1210;--card:#221a15;--card-hover:#2d2118;--border:#4d3e32;--text:#f5ebe0;--text-dim:#ffffff;--accent:#ff6b35;--accent2:#d4380d;--gradient:linear-gradient(135deg,#ff6b35 0%,#d4380d 50%,#a8071a 100%);--gradient-soft:linear-gradient(135deg,rgba(255,107,53,.15),rgba(212,56,13,.1));--font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+.hero{background:var(--gradient);padding:56px 32px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.1) 0%,transparent 60%);pointer-events:none}
+.hero-date{font-size:14px;opacity:.9;letter-spacing:2px}
+.hero-title{font-size:40px;font-weight:800;margin:12px 0;letter-spacing:-1px}
+.hero-sub{font-size:16px;opacity:.85;margin-bottom:28px;font-weight:300}
+.hero-stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.hero-stat{background:rgba(0,0,0,.25);backdrop-filter:blur(10px);border-radius:10px;padding:10px 18px;display:flex;flex-direction:column;align-items:center;border:1px solid rgba(255,255,255,.1);min-width:100px}
+.hero-stat-num{font-size:26px;font-weight:800}
+.hero-stat-label{font-size:11px;opacity:.7;margin-top:2px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(15,10,7,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.nav-pill{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--text-dim);text-decoration:none;font-size:13px;transition:all .2s;white-space:nowrap}
+.nav-pill:hover,.nav-pill:focus{background:var(--card);color:var(--text);border-color:var(--accent)}
+.pill-count{background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:1px 7px;border-radius:10px;min-width:20px;text-align:center}
+.main{max-width:1200px;margin:0 auto;padding:40px 24px 80px}
+.section{margin-bottom:48px}
+.section-title{font-size:22px;font-weight:700;padding-bottom:12px;border-bottom:2px solid var(--border);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-badge{background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:2px 10px;border-radius:10px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;transition:all .25s ease}
+.card.visible{opacity:1;transform:translateY(0)}
+.card:hover{background:var(--card-hover);border-color:var(--accent);box-shadow:0 4px 24px rgba(255,107,53,.08);transform:translateY(-2px)}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.card-idx{font-size:13px;font-weight:800;color:var(--accent);background:var(--gradient-soft);padding:2px 10px;border-radius:6px}
+.card-source{font-size:12px;color:var(--text-dim);background:rgba(255,255,255,.08);padding:2px 8px;border-radius:4px;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-title{font-size:16px;font-weight:700;line-height:1.4;margin-bottom:8px}
+.card-summary{font-size:14px;color:var(--text-dim);line-height:1.5;flex:1;margin-bottom:14px}
+.card-footer{display:flex;gap:8px;align-items:center}
+.card-link{font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;padding:6px 14px;border-radius:6px;border:1px solid var(--accent);transition:all .2s;white-space:nowrap;display:inline-block;min-height:32px;line-height:1.4}
+.card-link:hover{background:var(--accent);color:#fff}
+.card-permalink{color:var(--text-dim);border-color:var(--border);font-weight:400}
+.card-permalink:hover{background:var(--card);color:var(--text);border-color:var(--text-dim)}
+.footer{text-align:center;padding:40px 20px;color:var(--text-dim);font-size:13px;border-top:1px solid var(--border)}
+.footer a{color:var(--accent);text-decoration:none}
+/* ── 平板 (768px~1024px) ── */
+@media(max-width:1024px){.hero{padding:44px 24px 36px}.hero-title{font-size:34px}.card-grid{grid-template-columns:repeat(2,1fr);gap:14px}.main{padding:32px 16px 60px}}
+/* ── 手机 (<768px) ── */
+@media(max-width:767px){.hero{padding:32px 16px 24px}.hero-title{font-size:26px;letter-spacing:0}.hero-sub{font-size:14px;margin-bottom:20px}.hero-stats{gap:6px}.hero-stat{padding:6px 10px;min-width:68px}.hero-stat-num{font-size:20px}.hero-stat-label{font-size:10px}.card-grid{grid-template-columns:1fr;gap:12px}.card{padding:16px;border-radius:10px}.card-title{font-size:15px}.card-summary{font-size:13px;line-height:1.6;margin-bottom:12px}.card-footer{flex-wrap:wrap}.card-link{font-size:12px;padding:5px 12px;min-height:36px}.nav{padding:10px 12px;gap:5px}.nav-pill{font-size:12px;padding:4px 10px;gap:3px}.pill-count{font-size:10px;padding:1px 5px}.section-title{font-size:18px}.section{margin-bottom:32px}.main{padding:24px 12px 48px}.footer{padding:28px 16px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-date">周日 · 2026-07-05</div><h1 class="hero-title">AI HOT 晚报</h1><p class="hero-sub">实时 AI 行业资讯 · 一屏尽览</p><div class="hero-stats"><div class="hero-stat"><span class="hero-stat-num" style="color:var(--accent)">15</span><span class="hero-stat-label">总条数</span></div><div class="hero-stat"><span class="hero-stat-num">1</span><span class="hero-stat-label">🧠模型发布</span></div><div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">📦产品发布</span></div><div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">📰行业动态</span></div><div class="hero-stat"><span class="hero-stat-num">1</span><span class="hero-stat-label">📄论文研究</span></div><div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">💡技巧与观</span></div></div></header>
+<nav class="nav"><a href="#ai-models" class="nav-pill">🧠 模型发布/更新 <span class="pill-count">1</span></a>
+<a href="#ai-products" class="nav-pill">📦 产品发布/更新 <span class="pill-count">5</span></a>
+<a href="#industry" class="nav-pill">📰 行业动态 <span class="pill-count">3</span></a>
+<a href="#paper" class="nav-pill">📄 论文研究 <span class="pill-count">1</span></a>
+<a href="#tip" class="nav-pill">💡 技巧与观点 <span class="pill-count">5</span></a>
+</nav>
+<main class="main"><section id="ai-models" class="section"><h2 class="section-title">🧠 模型发布/更新<span class="section-badge">1</span></h2><div class="card-grid">
+<div class="card" data-section="ai-models"><div class="card-header"><span class="card-idx">#1</span><span class="card-source">公众号：生数科技（Vidu·视频）</span></div><h3 class="card-title">生数科技发布 Vidu S1，推动视频生成迈向“实时交互”新时代</h3><p class="card-summary">7月3日，生数科技在2026全球数字经济大会上发布Vidu S1实时交互模型，支持实时视频通话和语音控制视频走向，…</p><div class="card-footer"><a href="https://mp.weixin.qq.com/s/RuukpnoOA2tI0ERCNrLgtQ" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr53vzsc07l3sll5x8mfscz3" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+</div></section>
+<section id="ai-products" class="section"><h2 class="section-title">📦 产品发布/更新<span class="section-badge">5</span></h2><div class="card-grid">
+<div class="card" data-section="ai-products"><div class="card-header"><span class="card-idx">#2</span><span class="card-source">X：阿里云 / Alibaba Cloud (@alibaba_cloud)</span></div><h3 class="card-title">Wan Video 推出“音乐伴舞”新功能</h3><p class="card-summary">Wan Video 新功能：**音乐伴舞** 💃 上传一个角色，添加一首歌曲，让 Wan Video 生成与节奏同…</p><div class="card-footer"><a href="https://x.com/alibaba_cloud/status/2072967570441834771" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4psupf03zwsll57yggswsf" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="ai-products"><div class="card-header"><span class="card-idx">#3</span><span class="card-source">Hacker News 热门（buzzing.cc 中文翻译）</span></div><h3 class="card-title">面向 Web 开发者的 Safari MCP 服务器</h3><p class="card-summary">Safari Technology Preview 247 推出 Safari MCP 服务器，基于 Model …</p><div class="card-footer"><a href="https://webkit.org/blog/18136/introducing-the-safari-mcp-server-for-web-developers" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4s179804l5sll5u47j7031" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="ai-products"><div class="card-header"><span class="card-idx">#4</span><span class="card-source">公众号：京东JoyAI</span></div><h3 class="card-title">JoyAI App 上线 UGC 数字人功能，用户可“捏”出专属虚拟玩伴</h3><p class="card-summary">JoyAI App 近日上线 UGC 数字人功能，用户只需上传一张照片即可生成专属虚拟数字分身，支持一键复刻写实形…</p><div class="card-footer"><a href="https://mp.weixin.qq.com/s/XfpxdblzNWa5HxahRoT9pg" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr53w14307lfsll5fo2cq53p" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="ai-products"><div class="card-header"><span class="card-idx">#5</span><span class="card-source">公众号：面壁智能（MiniCPM）</span></div><h3 class="card-title">面壁智能发布AI全自动预训练框架ForgeTrain，8小时追平Megatron-LM</h3><p class="card-summary">面壁智能发布全球首个完全由AI编写、无人类干预的生产级大模型预训练框架ForgeTrain。该框架针对特定模型和硬…</p><div class="card-footer"><a href="https://mp.weixin.qq.com/s/JVBbqU1O967ktzfEPuDERQ" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4righa04d8sll54465w8z3" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="ai-products"><div class="card-header"><span class="card-idx">#6</span><span class="card-source">Claude Code：GitHub Releases（RSS）</span></div><h3 class="card-title">Claude Code v2.1.200 发布</h3><p class="card-summary">Claude Code v2.1.200 将 AskUserQuestion 对话框默认改为不自动继续，可通过 /…</p><div class="card-footer"><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.200" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr58a75u0054slc7ucu5gvhr" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+</div></section>
+<section id="industry" class="section"><h2 class="section-title">📰 行业动态<span class="section-badge">3</span></h2><div class="card-grid">
+<div class="card" data-section="industry"><div class="card-header"><span class="card-idx">#7</span><span class="card-source">IT之家（RSS）</span></div><h3 class="card-title">国家网信办就《互联网信息服务管理办法》再次征求意见，首设“智能信息服务”专章规范AI服务</h3><p class="card-summary">7月3日，国家互联网信息办公室就《互联网信息服务管理办法（修订草案征求意见稿）》再次公开征求意见。草案新增“智能信…</p><div class="card-footer"><a href="https://www.ithome.com/0/972/341.htm" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4rs02404h6sll50myozvz0" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="industry"><div class="card-header"><span class="card-idx">#8</span><span class="card-source">IT之家（RSS）</span></div><h3 class="card-title">全球首例 AI Agent 勒索攻击曝光，从漏洞利用到数据库加密全程自主完成</h3><p class="card-summary">安全厂商 Sysdig 首次记录到 AI Agent“JADEPUFFER”自动完成的勒索攻击。攻击利用暴露的 L…</p><div class="card-footer"><a href="https://www.ithome.com/0/972/424.htm" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4w2clt05kasll56e54tanx" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="industry"><div class="card-header"><span class="card-idx">#9</span><span class="card-source">Google DeepMind：Blog（RSS）</span></div><h3 class="card-title">Google DeepMind 与 A24 宣布首次研究合作伙伴关系</h3><p class="card-summary">Google DeepMind 与电影制作工作室 A24 达成一项首次研究合作，旨在帮助艺术家开发新工作流程和技术…</p><div class="card-footer"><a href="https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr51qvtr071esll5mtzhobuq" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+</div></section>
+<section id="paper" class="section"><h2 class="section-title">📄 论文研究<span class="section-badge">1</span></h2><div class="card-grid">
+<div class="card" data-section="paper"><div class="card-header"><span class="card-idx">#10</span><span class="card-source">IT之家（RSS）</span></div><h3 class="card-title">阿里达摩院发布超导材料发现AI智能体Elements Claw</h3><p class="card-summary">7月3日，阿里达摩院联合中国人民大学、中国科学院大学发布首个超导材料发现AI智能体Elements Claw。该智…</p><div class="card-footer"><a href="https://www.ithome.com/0/972/089.htm" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4ewvnu016msll54kwma7sx" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+</div></section>
+<section id="tip" class="section"><h2 class="section-title">💡 技巧与观点<span class="section-badge">5</span></h2><div class="card-grid">
+<div class="card" data-section="tip"><div class="card-header"><span class="card-idx">#11</span><span class="card-source">Hacker News 热门（buzzing.cc 中文翻译）</span></div><h3 class="card-title">pxpipe：通过图像化压缩输入token降低Claude Code成本</h3><p class="card-summary">pxpipe是一个本地代理，将系统提示、工具文档和历史记录等密集文本渲染为PNG图像，利用图像token成本取决于…</p><div class="card-footer"><a href="https://github.com/teamchong/pxpipe" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr5cef1q017islc779xjrcy6" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="tip"><div class="card-header"><span class="card-idx">#12</span><span class="card-source">Hacker News 热门（buzzing.cc 中文翻译）</span></div><h3 class="card-title">claude-real-video ─ 让任何大语言模型（LLM）都能观看视频</h3><p class="card-summary">claude-real-video 是一个开源工具，让大语言模型基于视频画面而非字幕进行理解。它通过场景变化检测提…</p><div class="card-footer"><a href="https://github.com/HUANGCHIHHUNGLeo/claude-real-video" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4hb6x001txsll5jfiiy9u3" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="tip"><div class="card-header"><span class="card-idx">#13</span><span class="card-source">X：歸藏 (@op7418)</span></div><h3 class="card-title">藏师傅PPT与Pencil结合使用技巧</h3><p class="card-summary">用户将藏师傅的AI生成PPT导入Pencil设计软件，可在Pencil中一次性浏览所有页面并手动调整AI常见的排版…</p><div class="card-footer"><a href="https://x.com/op7418/status/2073020264083050811" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4wyzef05r3sll5oxo52f8j" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="tip"><div class="card-header"><span class="card-idx">#14</span><span class="card-source">Simon Willison 博客</span></div><h3 class="card-title">Fable 的判断力：Simon Willison 从 Claude Code 团队获得的效率技巧</h3><p class="card-summary">Simon Willison 在 AIE 上与 Claude Code 团队交流后建议，让 Fable（以及 Op…</p><div class="card-footer"><a href="https://simonwillison.net/2026/Jul/3/judgement" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr5blxyu00ykslc7kiaaxqam" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+<div class="card" data-section="tip"><div class="card-header"><span class="card-idx">#15</span><span class="card-source">公众号：数字生命卡兹克</span></div><h3 class="card-title">Claude Fable 5 自主优化 AIHOT 网站 SEO/GEO 全记录</h3><p class="card-summary">作者用 Claude Fable 5 优化 AIHOT 网站的 SEO 与 GEO。模型自主启动 22 个 Age…</p><div class="card-footer"><a href="https://mp.weixin.qq.com/s/L6R_SPWlOBv6dI0wWWHQrg" target="_blank" rel="noopener noreferrer" class="card-link">原文 ↗</a><a href="https://aihot.virxact.com/items/cmr4768yq013qsl3g29wasjnp" target="_blank" rel="noopener noreferrer" class="card-link card-permalink">AI HOT ↗</a></div></div>
+</div></section>
+</main>
+<footer class="footer"><p>共 15 条资讯 · 数据源：<a href="https://aihot.virxact.com" target="_blank" rel="noopener noreferrer">AI HOT</a> · 2026-07-05</p></footer>
+<script>
+document.querySelectorAll('.nav-pill').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t){var n=document.querySelector('.nav').offsetHeight;window.scrollTo({top:t.offsetTop-n-12,behavior:'smooth'})}})});
+</script>
+</body>
+</html>
