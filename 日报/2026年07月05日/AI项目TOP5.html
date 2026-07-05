@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月5日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-detail{margin-top:10px;font-size:13px;color:var(--text-dim)}
+.card-detail-label{color:var(--accent3);font-weight:500}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月5日 · Agent集成与记忆层崛起：Harness操作系统、持久记忆、知识图谱、多Agent编排成新基建</p>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：Agent基础设施"中间层"大爆发</div>
+<div class="theme-desc">前两周各大Agent框架完成了核心升级，本周竞争焦点向下沉——Harness性能优化系统（ECC 22万星）、Agent跨会话记忆压缩（claude-mem连发两版）、代码→知识图谱skill（Graphify YC S26项目）、多Agent 7×24编排调度（LobeHub）、以及模型定义框架新一代模型支持（HuggingFace Transformers v5.13.0新增Kimi2-6）。五款项目从不同维度补齐Agent生态的"中间层"能力。</div>
+</div>
+
+<!-- 1. ECC -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">ECC — Agent Harness 操作系统</div>
+<div class="card-stars">⭐ 226,026</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Agent Harness（鞍具）性能优化系统——自称"Agent Harness操作系统"。为 Claude Code、Codex、OpenCode、Cursor、Gemini CLI 等主流编码Agent提供统一的技能(skills)、本能(instincts)、记忆(memory)、安全(security)和研究优先(research-first)开发框架。本周7月4日提交大量更新：新增 Hermes Agent 和 OpenClaw harness 安装目标、新增 Kimi Code CLI 适配器、修复 issue 集群（关闭 #2295/#2298/#2303-#2306/#2340/#2408）。累计 22.6 万星、3.4 万 fork。<br>
+<strong>解决什么：</strong>不同编码Agent各自有一套CLI、配置、skill系统，切换成本极高。ECC将Agent本身抽象为"Harness"（类似操作系统对硬件的抽象）——无论是Claude Code还是Hermes还是Cursor，用户只需要在ECC中切换Agent harness，skill/记忆/安全策略无缝复用。从根本上解决了"Agent切换时一切重来"的痛点。<br>
+<strong>适用场景：</strong>同时使用多个编码Agent的开发者；团队希望统一管理Agent skill和记忆策略；需要跨Agent复用的安全审查（ecc-agentshield组件）场景。<br>
+<strong>怎么用：</strong>npm install ecc-universal，ecc install hermes/opencode/claude-code，配置后所有Agent共享 skill/instincts/memory。npm周下载量极高（ecc-universal + ecc-agentshield）。
+</div>
+<div class="card-update">🔥 本周重大更新：7月4日新增 Hermes + OpenClaw harness + Kimi Code CLI + 修复9个issue，npm周下载量超百万</div>
+<div class="card-links">
+<a href="https://github.com/affaan-m/ECC" target="_blank">GitHub ↗</a>
+<a href="https://ecc.tools" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. claude-mem -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">Claude-Mem — Agent持久记忆系统</div>
+<div class="card-stars">⭐ 85,832</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>为所有AI Agent提供跨会话持久记忆的开源系统。捕获Agent会话中的所有内容（对话、代码、决策），用AI自动压缩为结构化记忆，在后续会话中自动注入相关上下文。本周7月4日一天内连发 v13.10.0 和 v13.10.1 两个版本：修复 Codex hook 输出的 JSON 解析问题、保留空字符串 additionalContext、session-start 无效 JSON fallback。已支持 Claude Code/Codex/OpenCode/Cursor/Gemini CLI 等主流Agent。<br>
+<strong>解决什么：</strong>Agent每次新会话都是"失忆状态"——之前的长线任务进度、关键决策、踩过的坑全部丢失。claude-mem在Agent底层透明插入记忆层：每次会话自动记录→AI压缩→下次会话自动注入。相比简单的对话历史，claude-mem做的是语义级别的记忆压缩（不是存原文，而是提取关键知识点），让Agent真正做到"越用越聪明"。v13.10系列修复了 Codex 场景下的多个记忆注入 bug。<br>
+<strong>适用场景：</strong>需要Agent执行长线任务的场景（多日项目开发、持续代码审查、客户服务）；任何希望Agent"记住上一次做了什么"的团队；安全审计需要追溯Agent历史决策的场景。<br>
+<strong>怎么用：</strong>npm install -g @thedotmack/claude-mem@13.10.1，启动记忆服务（Chromadb后端），Agent自动记录和注入上下文。Web UI 可查看记忆图谱。
+</div>
+<div class="card-update">🔥 本周密集发版：7月4日 v13.10.0 → v13.10.1（同日双版），修复 Codex hook session-start 记忆注入缺陷</div>
+<div class="card-links">
+<a href="https://github.com/thedotmack/claude-mem" target="_blank">GitHub ↗</a>
+<a href="https://claude-mem.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 3. Graphify -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Graphify — 代码到知识图谱 Skill</div>
+<div class="card-stars">⭐ 77,671</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>AI编码Agent的skill插件，将任意文件夹（代码、SQL schema、R脚本、Shell脚本、文档、论文、图片、视频）转换为可查询的知识图谱。支持 Claude Code、Codex、OpenCode、Cursor、Gemini CLI。YC S26入选项目。本周7月4日发布 v0.9.6：修复 Windows skill 名称兼容性、OpenCode 插件分隔符、文档语料库报告噪音（#1635/#1646/#1657）、增量检测 Office 文件源+长路径正确性（#1649/#1655/#1656）、JS/TS 跨文件调用门控（#1659，消除假跨包边）。<br>
+<strong>解决什么：</strong>大型代码库中Agent经常"找不到东西"——传统RAG只做文本检索，不理解代码的调用关系、依赖链、数据流。Graphify将代码按Leiden算法聚类为知识图谱节点，Agent可以通过图谱查询"这个函数被谁调用"、"修改这里会影响哪些文件"——让Agent真正理解代码结构而非仅做关键词匹配。<br>
+<strong>适用场景：</strong>大型代码库的Agent辅助开发（理解代码结构、重构影响分析）；复杂SQL schema的理解和查询生成；论文/文档的知识图谱化检索；多Agent协作时需要共享代码理解的场景。<br>
+<strong>怎么用：</strong>在 Agent skill 目录中安装 graphify skill（uv tool install graphify 或 npm），Agent 对话中说 "graphify this repo"，自动生成知识图谱并注入 Agent 上下文。
+</div>
+<div class="card-update">🔥 本周密集迭代：7月1日 v0.9.4 → 7月2日 v0.9.5 → 7月4日 v0.9.6，三天三版，修复 Windows/Office/JS-TS 跨文件调用</div>
+<div class="card-links">
+<a href="https://github.com/Graphify-Labs/graphify" target="_blank">GitHub ↗</a>
+<a href="https://graphifylabs.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 4. LobeHub -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">LobeHub — 首席Agent运维官 (CAO)</div>
+<div class="card-stars">⭐ 79,452</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>把你的Agent团队组织成 7×24 全天候自动化运营——负责"雇佣"Agent、"排班"调度、"汇报"整个AI团队的产出。7月4日一天内密集发布 3 个 canary 版本（v2.2.10-canary.27/28/29）：新增 Upstash 工作流指标、暴露 run guard webhook 路由（供外部监控）、run card 展示运行最后消息、修复 gateway 模式下单 Agent @mention 路由。<br>
+<strong>解决什么：</strong>拥有多个Agent后最大的问题是"谁来管这些Agent"——何时执行哪个Agent、如何分配任务、如何汇报产出。LobeHub充当"CAO（Chief Agent Operator）"角色：Agent变成可雇佣的"员工"，用户只需设定目标和审批，CAO负责派活、调度、验收和日报。用户不用一直在线盯着。<br>
+<strong>适用场景：</strong>AI团队管理者——拥有多个Agent但不想手动调度的场景；需要Agent 24小时自动运转的电商/客服/运维；希望Agent产出日报并在必要时@用户审批的工作流。<br>
+<strong>怎么用：</strong>Docker部署 LobeHub，连接各Agent API，创建Workflow定义任务链，设置调度策略，Agent自动按班次执行。Web Dashboard 查看所有Agent运行状态和产出。
+</div>
+<div class="card-update">🔥 本周高频迭代：7月4日连发3个canary版本（.27/.28/.29），workflow run guard webhook + Upstash指标</div>
+<div class="card-links">
+<a href="https://github.com/lobehub/lobehub" target="_blank">GitHub ↗</a>
+<a href="https://lobehub.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. transformers -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">HuggingFace Transformers</div>
+<div class="card-stars">⭐ 162,234</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>全球最主流的模型定义框架——文本/视觉/音频/多模态模型的推理和训练标准库。7月3日发布 v5.13.0：新增 Kimi2-6 模型支持（Moonshot AI的Kimi-K2.6系列）、Gemma4 集成测试更新、Qwen3 变体 TP plan 修复。这是 Kimi 系列模型首次被纳入 HuggingFace 官方 Transformers 库。<br>
+<strong>解决什么：</strong>新模型发布后开发者面临"怎么加载、怎么推理、怎么微调"的集成难题。Transformers 库提供标准化的模型定义——模型厂商只需提交一份模型定义 PR，全球开发者就能用统一的 from_pretrained() 接口加载、推理和微调。v5.13.0 纳入 Kimi2-6 意味着 Kimi 开源模型正式进入全球主流 AI 开发生态。<br>
+<strong>适用场景：</strong>任何需要加载、推理、微调最新AI模型的开发场景；从HuggingFace Hub选模型进行实验的研究场景；需要统一模型接口的生产部署场景。<br>
+<strong>怎么用：</strong>pip install transformers==5.13.0，from transformers import AutoModelForCausalLM; model = AutoModelForCausalLM.from_pretrained("moonshotai/Kimi-K2.6") 即可加载推理。
+</div>
+<div class="card-update">🔥 本周里程碑：7月3日 v5.13.0，Kimi-K2.6 首次进入 HuggingFace 官方模型库！Gemma4 + Qwen3 同步修复</div>
+<div class="card-links">
+<a href="https://github.com/huggingface/transformers" target="_blank">GitHub ↗</a>
+<a href="https://huggingface.co/transformers" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
