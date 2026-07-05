@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>GitHub周榜 — 2026年第27周</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+    color: #c9d1d9;
+    min-height: 100vh;
+    padding: 20px;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(22, 27, 34, 0.8);
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    padding: 40px 30px;
+    backdrop-filter: blur(10px);
+}
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #30363d;
+}
+.header h1 {
+    font-size: 2em;
+    background: linear-gradient(90deg, #58a6ff, #3fb950);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+.header .subtitle {
+    color: #8b949e;
+    font-size: 1em;
+}
+.header .date {
+    color: #58a6ff;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+.intro {
+    background: linear-gradient(135deg, #1a2332, #1c2128);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    line-height: 1.8;
+}
+.intro p {
+    color: #8b949e;
+    font-size: 0.95em;
+}
+.domain-section {
+    margin-bottom: 28px;
+}
+.domain-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.domain-icon {
+    font-size: 1.4em;
+}
+.domain-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #58a6ff;
+}
+.repo-card {
+    background: rgba(13, 17, 23, 0.6);
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.repo-card:hover {
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+}
+.repo-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.repo-name a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+.repo-name a:hover {
+    text-decoration: underline;
+}
+.repo-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 0.85em;
+    color: #8b949e;
+    margin-bottom: 8px;
+}
+.repo-meta .stars {
+    color: #d29922;
+    font-weight: 600;
+}
+.repo-meta .lang {
+    color: #3fb950;
+}
+.repo-desc {
+    color: #c9d1d9;
+    font-size: 0.92em;
+    line-height: 1.6;
+}
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #30363d;
+    color: #484f58;
+    font-size: 0.85em;
+}
+.footer a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+    <h1>🐙 GitHub 周榜</h1>
+    <div class="subtitle">2026年第27周 · AI 开源项目涨星排行</div>
+    <div class="date">统计截止 2026年07月05日</div>
+</div>
+
+<div class="intro">
+    <p>📊 本周精选 14 个 AI 领域代表性开源项目，覆盖 <strong>AI智能体、编程工具、大模型推理、数据知识、搜索抓取、工作流自动化、对话创作</strong> 七大方向。排序兼顾总星数与近期活跃度，帮你快速掌握 AI 开源生态最新动态。</p>
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">🤖</span>
+    <span class="domain-title">AI智能体</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">openclaw/openclaw</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 381,794</span>
+        <span class="lang">🔧 TypeScript</span>
+        <span>🔀 Fork 80,058</span>
+    </div>
+    <div class="repo-desc">Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 </div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 209,436</span>
+        <span class="lang">🔧 Python</span>
+        <span>🔀 Fork 38,244</span>
+    </div>
+    <div class="repo-desc">The agent that grows with you</div>
+</div>
+
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">💻</span>
+    <span class="domain-title">AI编程工具</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 85,912</span>
+        <span class="lang">🔧 JavaScript</span>
+        <span>🔀 Fork 7,436</span>
+    </div>
+    <div class="repo-desc">Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relev...</div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener">JuliusBrussee/caveman</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 84,448</span>
+        <span class="lang">🔧 JavaScript</span>
+        <span>🔀 Fork 4,707</span>
+    </div>
+    <div class="repo-desc">🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman</div>
+</div>
+
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">🧠</span>
+    <span class="domain-title">大模型与推理</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 175,504</span>
+        <span class="lang">🔧 Go</span>
+        <span>🔀 Fork 16,844</span>
+    </div>
+    <div class="repo-desc">Get up and running with Kimi-K2.6, GLM-5.1, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.</div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">vllm-project/vllm</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 85,408</span>
+        <span class="lang">🔧 Python</span>
+        <span>🔀 Fork 18,960</span>
+    </div>
+    <div class="repo-desc">A high-throughput and memory-efficient inference and serving engine for LLMs</div>
+</div>
+
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">📚</span>
+    <span class="domain-title">AI数据与知识</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">infiniflow/ragflow</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 84,320</span>
+        <span class="lang">🔧 Go</span>
+        <span>🔀 Fork 9,808</span>
+    </div>
+    <div class="repo-desc">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superi...</div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/mem0ai/mem0" target="_blank" rel="noopener">mem0ai/mem0</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 60,122</span>
+        <span class="lang">🔧 Python</span>
+        <span>🔀 Fork 6,968</span>
+    </div>
+    <div class="repo-desc">Universal memory layer for AI Agents</div>
+</div>
+
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">🕸️</span>
+    <span class="domain-title">AI搜索与抓取</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener">firecrawl/firecrawl</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 144,759</span>
+        <span class="lang">🔧 TypeScript</span>
+        <span>🔀 Fork 8,332</span>
+    </div>
+    <div class="repo-desc">The API to search, scrape, and interact with the web at scale. 🔥</div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/D4Vinci/Scrapling" target="_blank" rel="noopener">D4Vinci/Scrapling</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 68,139</span>
+        <span class="lang">🔧 Python</span>
+        <span>🔀 Fork 6,746</span>
+    </div>
+    <div class="repo-desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
+</div>
+
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">⚙️</span>
+    <span class="domain-title">AI工作流</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">n8n-io/n8n</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 195,255</span>
+        <span class="lang">🔧 TypeScript</span>
+        <span>🔀 Fork 59,076</span>
+    </div>
+    <div class="repo-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.</div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/FlowiseAI/Flowise" target="_blank" rel="noopener">FlowiseAI/Flowise</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 54,291</span>
+        <span class="lang">🔧 TypeScript</span>
+        <span>🔀 Fork 24,645</span>
+    </div>
+    <div class="repo-desc">Build AI Agents, Visually</div>
+</div>
+
+</div>
+
+<div class="domain-section">
+<div class="domain-header">
+    <span class="domain-icon">💬</span>
+    <span class="domain-title">AI对话创作</span>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 144,257</span>
+        <span class="lang">🔧 Python</span>
+        <span>🔀 Fork 20,842</span>
+    </div>
+    <div class="repo-desc">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</div>
+</div>
+
+<div class="repo-card">
+    <div class="repo-name">
+        <a href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noopener">CherryHQ/cherry-studio</a>
+    </div>
+    <div class="repo-meta">
+        <span class="stars">⭐ 48,176</span>
+        <span class="lang">🔧 TypeScript</span>
+        <span>🔀 Fork 4,572</span>
+    </div>
+    <div class="repo-desc">AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs</div>
+</div>
+
+</div>
+
+<div class="footer">
+    <p>📊 GitHub 周榜 · 2026年第27周 · AI 开源生态速览</p>
+    <p>数据来源：GitHub Search API · 生成时间 2026年07月05日</p>
+    <a href="../首页.html" class="back-link">← 返回首页</a>
+</div>
+</div>
+</body>
+</html>
