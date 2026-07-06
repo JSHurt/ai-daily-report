@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月6日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-detail{margin-top:10px;font-size:13px;color:var(--text-dim)}
+.card-detail-label{color:var(--accent3);font-weight:500}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月6日 · Agent工具链进化：浏览器操控、Token瘦身、PPT原生图表、Agent记忆系统全面升级</p>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI Agent 实用工具集中爆发</div>
+<div class="theme-desc">本周从6月29日到7月6日，AI Agent 生态的工具链迎来密集升级——不是Agent框架本身，而是让Agent更好用的周边工具：Browser Use CLI 3.0 让Agent可操控浏览器执行任务；caveman v1.9.1 将Agent Token消耗砍掉65%；ppt-master 连发三版实现原生PPT图表/表格；Kilo Code 7.4 全栈Agent工程平台+JetBrains支持；claude-mem 持续打磨跨会话记忆。五个项目从操控、省本、输出、集成、记忆五个维度做实Agent的"最后一公里"。</div>
+</div>
+
+<!-- 1. Browser Use -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">Browser Use — AI Agent 的浏览器操控平台</div>
+<div class="card-stars">⭐ 102,901</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>让 AI Agent 能够像人类一样操控网页浏览器的开源平台。本周7月1日发布 v0.13.3：全新 Browser Use CLI 3.0（基于 Browser Harness 引擎重写），新增 browser-use skill（让 Claude Code/Codex 等编码 Agent 一键安装浏览器操控能力），并固定 Browser Harness 依赖至 0.1.4。累计 10.3 万星。<br>
+<strong>解决什么：</strong>传统 Agent 调用网页只能通过 API，无法处理需要登录、填表、点击、翻页的真实网页交互。Browser Use 给 Agent 装上"手和眼睛"——Agent 能打开真实浏览器，看页面截图、理解DOM结构，然后点击按钮、填写表单、滚动翻页，完成人在浏览器里做的任何事。CLI 3.0 + skill 插件让这一切只需一句话即可启动。<br>
+<strong>适用场景：</strong>让 Agent 自动填报销单/注册账号/预约服务/爬取需要登录的动态页面；自动化测试 web 应用；Agent 替用户完成在线购物、订票等含多步交互的任务。<br>
+<strong>怎么用：</strong>pip install browser-use，然后在 Agent 中安装 browser-use skill，Agent 对话说"帮我登录XX网站提交订单"，Agent 自动打开浏览器执行操作链。
+</div>
+<div class="card-update">🔥 本周里程碑：7月1日 CLI 3.0 + browser-use skill，Agent 可一键安装浏览器操控能力</div>
+<div class="card-links">
+<a href="https://github.com/browser-use/browser-use" target="_blank">GitHub ↗</a>
+<a href="https://browser-use.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. ppt-master -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">PPT Master — AI 生成可编辑原生 PowerPoint</div>
+<div class="card-stars">⭐ 36,832</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>从任意文档用 AI 生成真实可编辑的 PowerPoint 文件——不是截图拼凑，而是原生形状、动画、可编辑图表和表格。本周7月2-4日三天连发 v2.13.0 → v3.0.0 → v3.1.0：v3.0 里程碑——原生 PPT 表格和图表从实验功能毕业为正式导出路径（SVG fallback 样式继承到原生图表，三阶段转换管道重排）；v3.1 进一步导出原生图表元数据（标题、轴标签等）。累计 3.7 万星。<br>
+<strong>解决什么：</strong>AI 生成 PPT 的传统方案输出的是图片拼成的伪 PPT——无法编辑文字、图表不可交互、动画丢失。PPT Master 生成的是真正的 .pptx 文件：原生 PowerPoint 形状、可编辑文本框、原生图表（可双击改数据）、原生表格、保留的动画效果。拿到文件后可以用 PowerPoint/Keynote 正常编辑。<br>
+<strong>适用场景：</strong>从 Word 文档/Markdown 笔记/网页文章一键转 PPT；教师快速生成课件；职场人将报告转为演示文稿；咨询/金融行业的数据图表转 PPT。<br>
+<strong>怎么用：</strong>npx ppt-master "输入文档路径或URL"，自动分析内容结构、提取图表数据、生成原生 PPTX 文件。v3.0 后默认导出原生图表。
+</div>
+<div class="card-update">🔥 本周里程碑：7月2日 v2.13 → 7月3日 v3.0.0（原生图表正式毕业）→ 7月4日 v3.1.0（图表元数据），三天三版</div>
+<div class="card-links">
+<a href="https://github.com/hugohe3/ppt-master" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 3. caveman -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Caveman — Agent Token 削减 65% 技能</div>
+<div class="card-stars">⭐ 84,843</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Claude Code skill——改变 Agent 的"说话方式"，把冗长的技术英语压缩成极简"穴居人风格"（caveman speak），平均削减 65% token 消耗，不影响代码正确性。本周7月3日发布 v1.9.1：50 个变更集中在 hook 加固、安装器安全增强（安装锁定 + 完整性校验）、以及"诚实地报告省了多少 token"——不再夸大节省数值。累计 8.5 万星。<br>
+<strong>解决什么：</strong>编码 Agent 最大的隐性成本是 token 消耗——Agent 在对话中输出的解释、描述、确认信息占了大量 token（经常比代码本身还多）。Caveman 把 Agent 的输出风格改成极简模式："use few token when few token do trick"——能5个词说完的绝不用50个词。实测 7.5 万 token 的任务只用 2.7 万。v1.9.1 重点修复安装安全问题：curl|bash 安装不再从 main 分支拉取（改为不可变 release tag），安装后校验文件完整性。<br>
+<strong>适用场景：</strong>任何使用 Claude Code/Codex/OpenCode 的开发者；长期项目高频 Agent 交互场景（token 账单敏感）；团队统一配置 Agent 话术风格。<br>
+<strong>怎么用：</strong>在 Claude Code 的 skills 目录安装 caveman skill，Agent 自动切换为极简输出模式。npm 全局安装或 curl|bash 一键装。
+</div>
+<div class="card-update">🔥 本周安全加固：7月3日 v1.9.1，50变更集中在安装安全（锁定release tag+完整性校验）+诚实报告节省率</div>
+<div class="card-links">
+<a href="https://github.com/JuliusBrussee/caveman" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 4. Kilo Code -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Kilo Code — 全栈 AI 工程平台</div>
+<div class="card-stars">⭐ 25,617</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>一体化 AI 工程平台——最受欢迎的开源编码 Agent 之一，集编码、调试、部署、迭代于一身。本周7月3日发布 v7.4.0 → v7.4.1：v7.4.0 新增自动 MCP 服务器发现（Agent 能自动找到项目中的 MCP 工具服务器并集成）、任务通知系统（Agent 完成后主动通知用户）；v7.4.1 即日 patch 修复聊天文件引用和上下文压缩。同时 JetBrains 版发布 7.0.1-rc.14（新增 Agent 行为设置、模型选择器增强、Kilo Pass 额度/续期/用量排行榜）。累计 2.6 万星。<br>
+<strong>解决什么：</strong>编码 Agent 的碎片化——有的只管补全，有的只管聊天，有的只管调试。Kilo Code 做的是"全栈 Agent"：从理解需求→规划方案→写代码→调试→部署→迭代，整个工程流程在 Agent 内部闭环。JetBrains 版意味着 IntelliJ/PyCharm/WebStorm 等 IDE 用户也能用上同样的 Agent。<br>
+<strong>适用场景：</strong>个人开发者用 VS Code/JetBrains 的全流程 AI 辅助；团队用统一 Agent 平台管理编码规范；需要 Agent 自动发现并调用 MCP 工具的复杂项目。<br>
+<strong>怎么用：</strong>VS Code 装 Kilo Code 插件（或 JetBrains 装对应插件），选择模型，Agent 对话，自动 MCP 发现、写完通知用户。
+</div>
+<div class="card-update">🔥 本周双线发版：7月3日 v7.4.0（自动MCP发现+通知）→ v7.4.1（patch），JetBrains版 rc14</div>
+<div class="card-links">
+<a href="https://github.com/Kilo-Org/kilocode" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 5. claude-mem -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Claude-Mem — Agent 跨会话持久记忆</div>
+<div class="card-stars">⭐ 85,984</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>为所有 AI Agent 提供跨会话持久记忆的开源系统——Agent 每次对话自动记录、AI 压缩为结构化记忆、下次会话自动注入相关上下文。支持 Claude Code/Codex/OpenCode/Cursor/Gemini CLI 等主流 Agent。本周持续活跃更新（7月5日 pushed），此前 7月4日连发 v13.10.0 → v13.10.1 修复 Codex hook 的记忆注入缺陷。累计 8.6 万星。<br>
+<strong>解决什么：</strong>Agent 每次新会话都是"失忆"状态——之前的任务进度、踩坑经验、项目上下文全部丢失。claude-mem 在 Agent 底层透明插入记忆层：语义级压缩（不是存原文而是提取知识点），让 Agent "越用越聪明"。比如昨天的重构决策、上周修的 bug 根因，新会话的 Agent 能自动回忆。<br>
+<strong>适用场景：</strong>需要 Agent 执行多天长线任务的开发场景；持续代码审查需要追溯历史决策；安全审计需要查看 Agent 的历史行为和决策记录。<br>
+<strong>怎么用：</strong>npm install -g @thedotmack/claude-mem@latest，启动记忆服务（Chromadb 后端），Agent 自动记录和注入上下文。Web UI 可查看记忆图谱。
+</div>
+<div class="card-update">🔥 本周持续打磨：7月4日同日双版（v13.10.0/v13.10.1）修复 Codex hook 记忆注入，累计 8.6 万星</div>
+<div class="card-links">
+<a href="https://github.com/thedotmack/claude-mem" target="_blank">GitHub ↗</a>
+<a href="https://claude-mem.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
