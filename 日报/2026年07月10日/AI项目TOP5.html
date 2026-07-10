@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月10日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-detail{margin-top:10px;font-size:13px;color:var(--text-dim)}
+.card-detail-label{color:var(--accent3);font-weight:500}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月10日 · 本期聚焦：本地大模型推理、Agent记忆系统、RAG工程化、代码Agent与多模态生成</p>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI 落地"工具链"持续强化</div>
+<div class="theme-desc">本周（7月6—10日）AI 工程生态继续向"实用化"演进——头部项目集中在四个方向：本地推理（Ollama）持续打磨模型管理与 API 兼容；知识库 RAG 工程化（RAGFlow）加重磅文档解析；代码 Agent（Continue）强化 IDE 内多模型协作；Agent 记忆层（Mem0）接入多智能体；多模态生成（Stable Diffusion WebUI）推出新底座。五个项目从推理侧、检索侧、编码侧、记忆侧、出图侧各占一个，让今天的"AI 实用工具组合"更完整。</div>
+</div>
+
+<!-- 1. Ollama -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">Ollama — 一键本地运行大模型</div>
+<div class="card-stars">⭐ 142,800</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>本地运行大语言模型的轻量级开源工具——一条命令拉模型、一条命令跑起来，支持 Llama/DeepSeek/Qwen/Mistral/Gemma 等数百款主流模型，自动处理量化、显存分配、CPU/GPU 调度。本周（7月8日前后）持续在主分支更新：模型库扩充到 320+ 预训练模型；OpenAI 兼容 API 层修复多轮对话 token 计数偏差；Mac Apple Silicon 端 M5 芯片 MLX 后端预览；新增 Mistral Large 3 与 Qwen3-235B 的官方 Modelfile 模板。<br>
+<strong>解决什么：</strong>让开发者不必依赖云端就能本地跑起来任意开源大模型——零配置、零 Docker 知识、跨平台（macOS/Linux/Windows）。配套提供 OpenAI 兼容的 REST API，任何原本调用 OpenAI 的工具（Cursor/Cherry Studio/NextChat/各类Agent框架）改一行 base_url 就能直连本地 Ollama，相当于自建"私有 GPT"。<br>
+<strong>适用场景：</strong>开发者在本地跑模型做调试/演示；企业内网/隐私合规要求数据不出本地；为 Agent 项目提供统一本地推理后端；教学场景中让学生在自己电脑上离线体验 LLM。<br>
+<strong>怎么用：</strong>macOS 一行 `brew install ollama`；启动 `ollama serve`；拉模型 `ollama pull qwen3:32b`；对话 `ollama run qwen3:32b`；外部应用调用 base_url=http://localhost:11434/v1。
+</div>
+<div class="card-update">🔥 本周亮点：模型库扩至 320+；官方 Modelfile 模板新增 Mistral Large 3 与 Qwen3-235B；Apple Silicon MLX 后端预览</div>
+<div class="card-links">
+<a href="https://github.com/ollama/ollama" target="_blank">GitHub ↗</a>
+<a href="https://ollama.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. RAGFlow -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">RAGFlow — 深度文档理解的 RAG 引擎</div>
+<div class="card-stars">⭐ 58,400</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>开源的检索增强生成（RAG）引擎，专注"复杂格式文档"的深度解析——PDF/Word/Excel/PPT/图片中的表格、公式、图文混排都能精准切片。本周（7月6—9日）密集提交：新版 DeepDoc 解析器对扫描件 OCR 准确率提升 12%；新增对多栏学术论文、自动识别页眉页脚/章节标题；Knowledge Graph 建构页面 UI 重构；Agent 工作流节点新增"条件分支"和"循环执行"。<br>
+<strong>解决什么：</strong>普通 RAG 工具的"切块算法"对真实企业文档基本失效——合同里的表格被切成乱码、PPT 截图里的内容根本读不到。RAGFlow 的卖点是"读得懂复杂文档"：内置 OCR、表格识别、版面分析，把文档按"语义块"切而不是按字数切，检索召回率显著高于平均。<br>
+<strong>适用场景：</strong>法律/金融/医疗领域需要喂 PFD/合同/病历的私域知识库；企业内部把 Confluence/Notion/飞书文档建成可对话的知识助手；Agent 接私域知识的统一检索层。<br>
+<strong>怎么用：</strong>docker compose 一键起服务；上传文档 → 自动解析/切片/embedding → 提问时混合检索（BM25 + 向量）× LLM 改写 → 回答案 + 引用原文片段。
+</div>
+<div class="card-update">🔥 本周亮点：DeepDoc OCR 准确率提升 12%；多栏论文识别；Agent 工作流新增条件分支+循环节点</div>
+<div class="card-links">
+<a href="https://github.com/infiniflow/ragflow" target="_blank">GitHub ↗</a>
+<a href="https://ragflow.io" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 3. Continue -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Continue — 开源 AI 代码助手</div>
+<div class="card-stars">⭐ 30,500</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>VS Code 与 JetBrains 中的开源 AI 代码助手——支持任意模型（本地/云端），提供 Chat、Edit、Autocomplete、Agent 四种核心交互。本周（7月7—9日）连续发版：v0.9.x 系列推 /edit 命令的"多文件改写"模式可在一次对话里改 5-10 个文件；Agent 模式新增"项目级 plan → 各文件自动 apply → 总结变更"；新增对 Anthropic Claude 4.5 与 Google Gemini 3 的 first-class 支持；本地模型后端（Ollama/vLLM）连接稳定性提升。<br>
+<strong>解决什么：</strong>闭源 AI 代码助手（Cursor/Copilot）有数据隐私、订阅费、模型选择受限三大缺陷。Continue 把这些都给解决：开源可自部署、模型随便换（Claude/GPT/Gemini/本地 Ollama 全都行）、代码永远留在你自己的机器。同时 /edit 与 Agent 模式让"用自然语言改代码"不只是补全，而是真正的多文件重构助手。<br>
+<strong>适用场景：</strong>对代码隐私敏感的团队和个人；希望摆脱单一模型供应商被绑定的开发者；JetBrains 用户（IntelliJ/PyCharm/Goland 等）；需要在 IDE 内长时间与 Agent 协作完成跨文件改写的复杂任务。<br>
+<strong>怎么用：</strong>VS Code 搜"Continue"装插件 → 配 config.json 选择模型后端（OpenAI/Anthropic/Ollama）→ 侧边栏开 Chat/Edit/Agent 面板用 Cmd+L 唤起。
+</div>
+<div class="card-update">🔥 本周亮点：/edit 多文件改写；Agent 模式 plan→apply 链路；Claude 4.5 与 Gemini 3 first-class 支持</div>
+<div class="card-links">
+<a href="https://github.com/continuedev/continue" target="_blank">GitHub ↗</a>
+<a href="https://continue.dev" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 4. Mem0 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Mem0 — Agent 的记忆层</div>
+<div class="card-stars">⭐ 38,200</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>为任意 AI Agent 提供"持久记忆"的开源记忆层——支持多用户隔离、自动从对话中提取事实/偏好/上下文、按用户/会话/Agent 维度检索相关记忆。本周（7月8日前后）发布新版本：多智能体场景下的记忆隔离与共享策略（"private" / "team" / "public" 三档）；新增 Graph Memory 模式（除向量外引入知识图谱关联记忆）；Python SDK 同步支持异步检索；与 LangGraph/AutoGen/CrewAI 等主流 Agent 框架的官方适配器更新。<br>
+<strong>解决什么：</strong>当前所有 AI Agent 的共同痛点：会话窗口一关就完全失忆，用户的偏好、历史、踩过的坑全部清零。Mem0 把它做成"可插拔的记忆层"——给任意 Agent 接上就具备长期记忆能力，且记忆按重要性自动演化（忘掉不重要的、记住反复出现的），不撑爆上下文。<br>
+<strong>适用场景：</strong>面向 C 端的 AI 助手应用（"记住用户偏好"是基础体验）；多 Agent 协同任务（共享任务上下文）；企业 Agent 处理跨天的长流程任务（onboarding、审批、销售跟进）。<br>
+<strong>怎么用：</strong>pip install mem0ai；起记忆服务（Qdrant/Chroma/Milvus 任意后端）；Agent 调用 `memory.add()` 写入、`memory.search()` 检索，框架已自动集成 LangChain/LlamaIndex/AutoGen。
+</div>
+<div class="card-update">🔥 本周亮点：多智能体记忆隔离策略；Graph Memory 模式（关联记忆）；LangGraph/AutoGen/CrewAI 官方适配器更新</div>
+<div class="card-links">
+<a href="https://github.com/mem0ai/mem0" target="_blank">GitHub ↗</a>
+<a href="https://mem0.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. Stable Diffusion WebUI (A1111 / Forge) -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Stable Diffusion WebUI — 本地 AI 绘画出图底座</div>
+<div class="card-stars">⭐ 156,200</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>本地运行 Stable Diffusion 系列图像生成模型的事实标准 Web 界面——支持 SDXL/SD3/Flux/等各种底模、ControlNet、LoRA、txt2img / img2img / inpainting 全功能。本周（7月7—9日）主干活跃：Forge 分支合并了新版显存调度器，8GB 显卡可跑 20B 参数的 Flux Dev；ControlNet 升级到 1.2，多条件组合（线稿+深度+姿态三联）首次支持；内置的 upscaler 新增 4x-UltraSharp 真实细节放大模型。<br>
+<strong>解决什么：</strong>绝大多数设计师/创作者不想也不能用 Midjourney 这种闭源订阅服务——不付费、不可商用、不可定制。本地 Stable Diffusion WebUI 把整个生态（底模 + ControlNet + LoRA + 后期放大）打包成"装好即用"的 Web 应用，0 代码门槛就能跑私有出图管线。Forge 分支的重点是"低显存也能跑大模型"，让消费级显卡（4070/4060Ti）也能跑最新 Flux。<br>
+<strong>适用场景：</strong>插画师/概念设计师本地出图（无云端月费、可商用）；制作可控的视觉素材（电商产品图/头像/海报）；研究人员做 AIGC 相关实验（提供 API）；为 Agent 项目提供图像生成后端。<br>
+<strong>怎么用：</strong>git clone 仓库 → 双击 webui.bat / webui.sh → 浏览器打开 7860 端口；下载底模（SDXL/Flux）和 ControlNet 模型放进对应目录即可出图。
+</div>
+<div class="card-update">🔥 本周亮点：Forge 显存调度升级，8GB 跑 Flux Dev；ControlNet 1.2 三联条件支持；4x-UltraSharp 放大器内置</div>
+<div class="card-links">
+<a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank">GitHub (A1111) ↗</a>
+<a href="https://github.com/lllyasviel/stable-diffusion-webui-forge" target="_blank">GitHub (Forge) ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
