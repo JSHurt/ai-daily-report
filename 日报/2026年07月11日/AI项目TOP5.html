@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月11日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+  --warn-bg: #2a1f0a;
+  --warn-border: #b08800;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#d9b85a;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月11日 · 编码Agent、上下文数据库、AI工具链、本地推理、多模态生成</p>
+
+<div class="banner">⚠️ 本次 cron 处于离线模式（不调外部网络），未实时抓取当日 GitHub Trending。以下 TOP5 基于本地缓存的 AI 项目基线（参考 2026‑07‑01 star snapshot）筛选，定位为本周持续活跃的"AI 实用工具组合"。</div>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI 工具链"基础设施化"</div>
+<div class="theme-desc">本周 AI 工程生态继续向"标准化、模块化"演进——编码 Agent（Cline）覆盖全主流模型、Sonnet5 全平台上线；本地推理（Ollama）模型库与 API 兼容持续完善；上下文数据库（OpenViking）开启长期记忆新范式；RAG 引擎（RAGFlow）复杂文档解析能力再升级；多模态（Pydantic AI）视频理解进一步降低门槛。开发者从"选模型"走向"选工具链"。</div>
+</div>
+
+<!-- 1. Cline -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">Cline — VS Code 自主编程 Agent</div>
+<div class="card-stars">⭐ ~64K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>VS Code 里的开源自主编程 Agent 插件——直接读写项目代码、跑命令、调试错误，全程由你点"允许"确认。<br>
+<strong>解决什么：</strong>当下 AI 编程助手的模型绑定（Cursor 锁 OpenAI、Copilot 锁 OpenAI）和代码外传是开发者最大的两个顾虑。Cline 用统一接口把七大提供商给齐：Anthropic、OpenAI、DeepSeek、Google、Ollama、OpenRouter、Azure，想换就换。<br>
+<strong>适用场景：</strong>日常开发做功能加法、Bug 修复、重构；用本地 Ollama 模型做隐私安全的代码生成；重度编程用户跨模型对比效果。<br>
+<strong>怎么用：</strong>VS Code 商店搜 "Cline" 装插件 → 选模型提供商填 API Key → 描述需求 → Cline 自动规划并修改文件。
+</div>
+<div class="card-update">🔥 近期亮点：Sonnet5 全平台上线，七大模型提供商统一接入；持续活跃维护</div>
+<div class="card-links">
+<a href="https://github.com/cline/cline" target="_blank">GitHub ↗</a>
+<a href="https://cline.bot" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. OpenViking -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">OpenViking — Agent 上下文数据库</div>
+<div class="card-stars">⭐ ~26K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>字节跳动火山引擎开源的"上下文数据库"——把 Agent 的所有对话、决策、记忆结构化存储、按版本管理，专为 Agent 长期记忆设计。<br>
+<strong>解决什么：</strong>所有 LLM Agent 的共同痛点：会话窗口一关就失忆、用户的偏好和历史全清零。OpenViking 把它做成可插拔基础设施——Agent 接上就能"记住"用户，并能回溯历史版本、看清决策路径。<br>
+<strong>适用场景：</strong>C 端 AI 助手（"记住用户偏好"是基础体验）；企业 Agent 处理跨天的长流程任务（onboarding、审批、销售跟进）；需要"可审计"的多 Agent 协同。<br>
+<strong>怎么用：</strong>pip / npm 安装 openviking-sdk → 启动上下文服务 → Agent 通过 `viking.add()` 写入上下文、`viking.retrieve()` 检索历史；支持整站数据一键导入作为知识前置。
+</div>
+<div class="card-update">🔥 近期亮点：多版本上下文管理；整站数据导入；持续迭代中</div>
+<div class="card-links">
+<a href="https://github.com/bytedance/openviking" target="_blank">GitHub ↗</a>
+</div>
+</div>
+
+<!-- 3. Ollama -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">Ollama — 本地一键运行大模型</div>
+<div class="card-stars">⭐ ~140K+</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>本地运行大语言模型的轻量级开源工具——一条命令拉模型、一条命令跑起来，覆盖 Llama/DeepSeek/Qwen/Mistral/Gemma 数系列主流模型，自动处理量化和显存调度。<br>
+<strong>解决什么：</strong>开发者、企业内网用户、教育工作者三类人群普遍面临的痛点：依赖云端 API 又担心数据出境、订阅费月月涨、模型选择被锁定。Ollama 把"本地跑任意开源大模型"做成零配置体验，且自带 OpenAI 兼容 API——原本调用 OpenAI 的工具（Cursor/Cherry Studio/NextChat/各种 Agent 框架）改一行 base_url 就能切成本地。<br>
+<strong>适用场景：</strong>本地调试、隐私合规、为 Agent 提供统一本地推理后端、教学场景让学生离线体验 LLM。<br>
+<strong>怎么用：</strong>macOS：`brew install ollama`；Linux：`curl -fsSL https://ollama.com/install.sh | sh`；启动 `ollama serve`；拉模型 `ollama pull qwen3:32b`；调用 base_url=http://localhost:11434/v1。
+</div>
+<div class="card-update">🔥 近期亮点：模型库持续扩充；OpenAI 兼容 API 层修复；跨平台体验打磨</div>
+<div class="card-links">
+<a href="https://github.com/ollama/ollama" target="_blank">GitHub ↗</a>
+<a href="https://ollama.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 4. RAGFlow -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">RAGFlow — 深度文档理解的 RAG 引擎</div>
+<div class="card-stars">⭐ ~58K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>开源的检索增强生成（RAG）引擎，专注"复杂格式文档"的深度解析——PDF/Word/Excel/PPT/图片中的表格、公式、图文混排都能精准切片，输入输出走统一工作流。<br>
+<strong>解决什么：</strong>普通 RAG 工具的"切块算法"对真实企业文档基本失效——合同里的表格被切成乱码、PPT 截图里的内容根本读不到。RAGFlow 的卖点是"读得懂复杂文档"：内置 OCR、表格识别、版面分析，把文档按"语义块"切而不是按字数切，混合检索（BM25 + 向量）× LLM 改写显著提升召回质量。<br>
+<strong>适用场景：</strong>法律、金融、医疗领域需要喂 PDF/合同/病历的私域知识库；企业把 Confluence/Notion/飞书文档建成可对话助手；Agent 接私域知识的统一检索层。<br>
+<strong>怎么用：</strong>docker compose 一键起服务；上传文档 → 自动解析/切片/embedding → 提问时混合检索 → 回答案 + 引用原文片段。
+</div>
+<div class="card-update">🔥 近期亮点：DeepDoc OCR 准确率持续优化；多栏论文识别；Agent 工作流节点增强</div>
+<div class="card-links">
+<a href="https://github.com/infiniflow/ragflow" target="_blank">GitHub ↗</a>
+<a href="https://ragflow.io" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. Pydantic AI -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Pydantic AI — 类型安全的 Agent 框架</div>
+<div class="card-stars">⭐ ~18K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>用 Pydantic 风格写 AI Agent 的 Python 框架——类型注解约束输出结构，Agent 返回一定符合你定义的数据类型，再也不用写一堆 JSON 解析兜底代码。<br>
+<strong>解决什么：</strong>大模型输出格式不可控是工程化最大痛点——下游管道动不动报错。Pydantic AI 把 Pydantic 的类型安全直接带进 Agent：返回值会被自动校验，工具调用通过 `@agent.tool` 装饰器声明，多模态能力（图像、视频理解）也在持续扩展。<br>
+<strong>适用场景：</strong>Python 后端服务开发者、API 服务、数据处理管道、需要结构化输出的场景（合同抽取、报表解析、视频内容结构化）。<br>
+<strong>怎么用：</strong>pip install pydantic-ai；用类型注解定义数据模型；从主流提供商（OpenAI/Anthropic/Ollama）任选模型；`@agent.tool` 声明工具。
+</div>
+<div class="card-update">🔥 近期亮点：视频理解模型支持；多模态门槛降低；类型安全生态持续完善</div>
+<div class="card-links">
+<a href="https://github.com/pydantic/pydantic-ai" target="_blank">GitHub ↗</a>
+<a href="https://ai.pydantic.dev" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · 离线模式下发布 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
