@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月12日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+  --warn-bg: #2a1f0a;
+  --warn-border: #b08800;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#d9b85a;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月12日 · 长期记忆、高性能推理、工作流编排、数据采集、多模型客户端</p>
+
+<div class="banner">⚠️ 本次 cron 处于离线模式（不调外部网络），未实时抓取当日 GitHub Trending。以下 TOP5 基于本地累计的 AI 项目基线（多期日报候选池 + 周榜 star 历史）筛选，定位本周仍在快速演化中的「AI 应用栈落地件」组合。</div>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：AI 应用栈从「能跑」到「能落地」</div>
+<div class="theme-desc">今年 AI 工具链明显分化出两条赛道——「Agent 基础设施」（编码、记忆、上下文）和「应用堆栈」（部署、采集、工作流、客户端）。本期聚焦后者：mem0 解决 Agent 长期记忆的工程痛点；vLLM 把高吞吐推理做成 PagedAttention 工业级方案；n8n 用可视化流把大模型嵌入业务系统；Firecrawl 让整站爬取直接产 LLM-ready 内容；Cherry Studio 把多模型聚合做成普通人也会用的桌面客户端。开发者从 「凑 prompt」 走向 「搭全栈」 。</div>
+</div>
+
+<!-- 1. mem0 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">mem0 — Agent 可插拔长期记忆层</div>
+<div class="card-stars">⭐ ~38K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>面向 AI Agent / LLM 应用的开源「记忆中间层」——以 SDK + 服务两种形态提供长期记忆的存取、检索、衰减与多用户/多会话隔离。<br>
+<strong>解决什么：</strong>几乎所有 LLM 应用都会撞上同一面墙：会话结束就失忆、用户偏好记不住、多轮上下文爆 token。mem0 通过「提取 → 存储 → 检索」三步把记忆做成可插拔中间件，替换 ChatHistory 中的 static prompt 拼接，配合向量库 + LLM 摘要，调用一次 API 即可让 Agent 跨会话记住用户。<br>
+<strong>适用场景：</strong>C 端 AI 助手（个性化陪聊、教育辅导、健身指导）；企业 Agent（CRM 跟进、客服回访、跨天审批）；多 Agent 协同中的共享记忆层。<br>
+<strong>怎么用：</strong>pip install mem0ai；初始化 memory 客户端 → 在每次对话结束时调 `memory.add()` 写入；下一次对话调 `memory.search(query)` 取回相关记忆自动拼入 prompt。
+</div>
+<div class="card-update">🔥 近期亮点：跨会话记忆准确率持续优化；多租户隔离；支持自定义 LLM / 向量库后端</div>
+<div class="card-links">
+<a href="https://github.com/mem0ai/mem0" target="_blank">GitHub ↗</a>
+<a href="https://mem0.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. vLLM -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">vLLM — 高吞吐大模型推理引擎</div>
+<div class="card-stars">⭐ ~32K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>UC Berkeley 出品的开源大模型推理与服务引擎——以 PagedAttention（类似操作系统虚拟内存的分页机制）出名，把 GPU 显存利用率推到工业级 80%+，吞吐量比原生 HuggingFace Transformers 高 14–24 倍。<br>
+<strong>解决什么：</strong>推理贵、并发低、首 token 慢是私有化部署大模型的三大拦路虎。传统框架一次只能服务几个并发请求，显存大量碎片化浪费；vLLM 通过细粒度 KV cache 分页 + 连续批处理，把同一张 A100 / H100 服务几十路并发且 P99 延迟可控，自带 OpenAI 兼容 API，零代码迁移现有调用。<br>
+<strong>适用场景：</strong>AI 创业公司自建推理服务；大模型私有化部署（政企、医院、券商）；高并发在线 Agent 后端（同时服务上千用户）。<br>
+<strong>怎么用：</strong>pip install vllm；`vllm serve Qwen/Qwen3-32B --tensor-parallel-size 2` 启动服务；客户端按 OpenAI Chat Completions 协议对接 base_url=http://localhost:8000/v1。
+</div>
+<div class="card-update">🔥 近期亮点：Speculative decoding、Prefix caching、量化（AWQ/GPTQ）持续完善；多 LoRA 热加载</div>
+<div class="card-links">
+<a href="https://github.com/vllm-project/vllm" target="_blank">GitHub ↗</a>
+<a href="https://blog.vllm.ai" target="_blank">博客 ↗</a>
+</div>
+</div>
+
+<!-- 3. n8n -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">n8n — 可视化工作流 + AI Agent 编排</div>
+<div class="card-stars">⭐ ~80K+</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>「可拼装的工作流引擎」——开源自托管的 Zapier 替代品，但多了代码节点、AI Agent 节点、HTTP/Webhook/数据库/Slack/Notion 等 400+ 集成，把任意系统的输入输出「可视化连」起来。<br>
+<strong>解决什么：</strong>业务方提需求、研发去对接系统、点数周写不完？n8n 把「触发 → 处理 → 条件分支 → AI 改写 → 写入」画成流程图，非工程也能搭。AI 用例：监听飞书消息 → 调 LLM 总结 → 写回 Notion；定时拉 GitHub Issue → Agent 分析 → 推企业微信。<br>
+<strong>适用场景：</strong>中小公司无人值守数据流（订单、客服、监控）；研发自建轻量 ETL / 告警；个人把碎片工具链成自动化中枢。<br>
+<strong>怎么用：</strong>docker run -d n8nio/n8n 或 npx n8n；浏览器访问 :5678；从节点面板拖拽「GitHub Trigger」「OpenAI」「Slack」等节点连线；导出 JSON 可做 CI/CD 复用。
+</div>
+<div class="card-update">🔥 近期亮点：原生 MCP（Model Context Protocol）节点；AI Agent 节点；社区 1万+ 模板</div>
+<div class="card-links">
+<a href="https://github.com/n8n-io/n8n" target="_blank">GitHub ↗</a>
+<a href="https://n8n.io" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 4. Firecrawl -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Firecrawl — 把任意网页变成 LLM-ready 数据</div>
+<div class="card-stars">⭐ ~25K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>开源「网页 → Markdown / JSON」爬取与结构化引擎——专为下游接 LLM 设计：自动处理 JS 渲染、反爬绕过、按 CSS 选择器或自然语言描述抓字段、批量整站抓取后输出干净的 LLM-readable 内容。<br>
+<strong>解决什么：</strong>RAG / Agent 项目 60% 的工程时间花在「把网页脏数据洗成模型能吃的格式」——传统爬虫 BeautifulSoup 在动态页面前失效、Scrapy 配置复杂、抽取规则脆弱。Firecrawl 一行 API 拿到结构化结果，配合 OpenAI / Ollama 还能让「自然语言描述抽取字段」取代手写 selector。<br>
+<strong>适用场景：</strong>RAG 知识库批量构建（电商详情页、行业资讯、技术博客）；Agent 联网搜索的数据采集层；企业内部系统对接（合规审计、竞品监控）。<br>
+<strong>怎么用：</strong>开源自托管 `docker compose up firecrawl` 或云服务 firecrawl.dev；调 `/scrape` 单页 / `/crawl` 整站；可选 `extract` 用 LLM 输出结构化 JSON。
+</div>
+<div class="card-update">🔥 近期亮点：JS 渲染稳定性；LLM Extract 自然语言抽取；批量并发提升</div>
+<div class="card-links">
+<a href="https://github.com/firecrawl/firecrawl" target="_blank">GitHub ↗</a>
+<a href="https://firecrawl.dev" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. Cherry Studio -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Cherry Studio — 多模型聚合桌面 AI 客户端</div>
+<div class="card-stars">⭐ ~20K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>国产生开源 AI 桌面客户端——一个窗口聚合 OpenAI / Anthropic / Gemini / DeepSeek / Qwen / Ollama / 各类国产大模型 API、内置知识库、Prompt 库、AI 绘画、MCP 服务发现；Win / Mac / Linux 全平台。<br>
+<strong>解决什么：</strong>普通用户在「ChatGPT 网页 + Claude 网页 + 文心一言 App + DeepSeek 网页 + 截图 OCR」之间反复切换，记不住 prompt、答完不知道存在哪。Cherry Studio 把多模型做成「一个窗口多 TAB」，本地 Markdown 知识库 + 跨服务对话历史，找到答案顺直接进笔记。<br>
+<strong>适用场景：</strong>个人把多模型当瑞士军刀（写作 / 翻译 / 编程 / 画图）；小团队统一调用多家模型做评估；学生 / 研究人员跨模型对比回答质量。<br>
+<strong>怎么用：</strong>GitHub Release 下载安装包 → 添加「服务商 API Key」或多模型 base_url → 任意模型开聊 → 拖入文档进「知识库」随时检索引用。
+</div>
+<div class="card-update">🔥 近期亮点：MCP 服务可视化发现；多模型对话历史合并视图；本地知识库增强</div>
+<div class="card-links">
+<a href="https://github.com/CherryHQ/cherry-studio" target="_blank">GitHub ↗</a>
+<a href="https://cherry-ai.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · 离线模式下发布 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
