@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月14日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+  --warn-bg: #2a1f0a;
+  --warn-border: #b08800;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#d9b85a;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月14日 · 终端 Agent · MCP 工具生态 · 私有化推理 · 模型微调 · 实时文档检索</p>
+
+<div class="banner">⚠️ 本次 cron 处于离线模式（不调外部网络），未实时抓取当日 GitHub Trending。以下 TOP5 基于本地累计候选池（7/5 抓取的 trending 缓存 + 多期日报候选）筛选，定位「Agent 落地手脚 + 私有化基础设施全栈」，与昨日「带 Agent 写代码」互补。</div>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：Agent 的「手与脚」+ 私有化基础设施补齐</div>
+<div class="theme-desc">昨天讲了 Agent 怎么写代码，今天把镜头拉远：Agent 要真正跑在企业里，靠的是「给它工具、给它数据、给它模型、让它可以私有化运行」这套基础设施。goose 是一个不只补全、可以真的「安装—执行—改你电脑」的本地 Rust Agent；context7 把会过时的 GitHub README 实时拉成 LLM 能直接读的最新文档；awesome-mcp-servers 把 Model Context Protocol 的 1500+ 服务集成成一个统一目录；LocalAI 是 OpenAI/Anthropic 接口的本地多模态替代品，把图像、语音、视频推理也包进自己机房；Unsloth 让 4 张消费级显卡就能微调 Gemma4 / Qwen3.6 / DeepSeek，私有模型不再是大厂专属。一句话：Agent 实现闭环能力的全部周边，2026 年中段已经凑齐。</div>
+</div>
+
+<!-- 1. goose -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">goose — 可执行、可扩展的本地 AI Agent</div>
+<div class="card-stars">⭐ ~51K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Block（前 Square）出品的开源本地 AI Agent 框架——Rust 单二进制，定位「不只给代码补全，而是真的能 install / execute / edit 你的电脑 / 浏览器 / IDE」，走 Anthropic / OpenAI / Ollama / 本地模型全兼容；同时配套桌面 GUI、CLI、与 MCP 工具调用。<br>
+<strong>解决什么：</strong>当前 99% 的 Copilot/Cursor/Continue 类工具停留在「建议补全」阶段，要它们「跨文件规划任务、装环境、跑命令、修 bug」就要靠用户手搭。goose 把 Agent 拉到 CLI/桌面一层，给它 MCP 工具、有 plan/edit/test 三段循环、有「会话可审计」机制——OpenAI Operator / Anthropic Computer Use 那一套的高可控、私有部署版。<br>
+<strong>适用场景：</strong>需要让 LLM 真的「能动键盘鼠标」做运维/SRE 私活的企业 IT；想做「Agent 同事」的本地第一方；想做 IDE 工作流之外的 GUI/TUI Agent 跨端操作。<br>
+<strong>怎么用：</strong>安装 goose CLI → `goose configure` 选供应商 → 桌面/CLI 任一入口对话；自带 MCP 客户端，可 `add` MCP server 工具到对话上下文；会话自动落盘可回放。
+</div>
+<div class="card-update">🔥 近期亮点：Rust 单文件部署；MCP 原生工具调用；Operator-like 本地化</div>
+<div class="card-links">
+<a href="https://github.com/block/goose" target="_blank">GitHub ↗</a>
+<a href="https://block.github.io/goose/" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 2. context7 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">context7 — 让 LLM 拿到「最新」的代码文档</div>
+<div class="card-stars">⭐ ~59K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Upstash 推出的「实时文档上下文服务」——专门解决「LLM 训练数据滞后导致它给你写 2023 年 API」这个老毛病。context7 自动拉各语言库/框架最新版 release-notes、源码注释、API 签名，向 MCP 客户端（Cursor / Claude Code / Cline / Continue）暴露「按需注入 ★最新★ 文档上下文」的能力。<br>
+<strong>解决什么：</strong>开发者每天被 LLM 写的「看起来对、跑起来报错」的过期 API 坑——Next.js 17、React 19、LangChain 1.x、Kubernetes 1.32 的 API 变了它不知道。RAG 自建成本高、维护累；context7 把这件事做成一行 MCP server，注册一次，所有 IDE 通吃。<br>
+<strong>适用场景：</strong>任何「用 LLM Coding 且项目依赖活跃更新的库」的工程师；做企业内 LLM 编码助手的运维（不用再为每个框架单独训练/RAG）；给多 IDE 团队统一一份「文档真相源」。<br>
+<strong>怎么用：</strong>在 Cursor/Claude Code 的 MCP 配置里加 `npx -y context7-mcp`；提示词里加 `use context7`；Agent 调用工具自动拉最新文档示例嵌入上下文；也可在 SaaS 上注册私有库。
+</div>
+<div class="card-update">🔥 近期亮点：覆盖 2000+ 仓库最新版；Cursor / Claude Code / Cline / Codex 全兼容；私有库可注册</div>
+<div class="card-links">
+<a href="https://github.com/upstash/context7" target="_blank">GitHub ↗</a>
+<a href="https://context7.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 3. awesome-mcp-servers -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">awesome-mcp-servers — MCP 工具生态目录</div>
+<div class="card-stars">⭐ ~90K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>MCP（Model Context Protocol，Anthropic 提出的「Agent 工具调用开放协议」）的官方级 awesome-list 仓库——聚合了 1500+ 公开 MCP server，覆盖 GitHub / Slack / Notion / Jira / Postgres / Figma / Playwright / 浏览器自动化 / 数据库 / 设计软件 / 内部业务 API 等所有 Agent 可能要插的工具端。<br>
+<strong>解决什么：</strong>当 Agent 框架越做越多，「每个 Agent 都是工具孤岛」——Claude Code、Cursor、Cline、Continue、OpenHands 想用同一套工具就重复接一坨。MCP 把工具能力抽象成统一协议，awesome-mcp-servers 把这个生态的目录维护成可发现形态。让「Agent 能用的工具」第一次有了事实标准与一张地图。<br>
+<strong>适用场景：</strong>要为自家 Agent 接数据库 / 内部 API / SaaS 平台的开发者；想发现「国内外都有哪些可用的 MCP 工具」的架构师；构建多 IDE / 多框架统一工具链的团队。<br>
+<strong>怎么用：</strong>浏览 README 按目录找；复制对应 server 的 npx / docker / python 安装命令 → 粘到 Agent（MCP 客户端）的 `mcp.json` 配置 → Agent 直接获得工具能力。
+</div>
+<div class="card-update">🔥 近期亮点：1500+ 服务官方收录；按场景分类清晰；周更 PR</div>
+<div class="card-links">
+<a href="https://github.com/punkpeye/awesome-mcp-servers" target="_blank">GitHub ↗</a>
+<a href="https://modelcontextprotocol.io/" target="_blank">MCP 协议 ↗</a>
+</div>
+</div>
+
+<!-- 4. LocalAI -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">LocalAI — 全模态本地 AI 推理引擎</div>
+<div class="card-stars">⭐ ~47K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>与 Ollama 「同品类但更偏全模态」的本地推理引擎——除了文本 LLM，还原生支持语音（TTS/ASR）、图像（SDXL / Flux）、视频、嵌入向量，多模型可同时加载，提供与 OpenAI / Anthropic / ElevenLabs 全兼容的 REST API；Go 单二进制 + CPU/GPU 通吃。<br>
+<strong>解决什么：</strong>Ollama 做文本推理已经够用，但要在家跑「LLM + SD + TTS + ASR + 视频生成」一套多模态管线，要么自己拼一坨（diffusers + whisper + cosyvoice + llama.cpp），要么买云服务泄露隐私。LocalAI 把这一套包成一个统一服务，模型切换 / 路由 / 排队都内置——「私有化全栈 AI 推理」的一站方案。<br>
+<strong>适用场景：</strong>家庭实验室 / 中小企业想搭本地「多模态 AI 服务集群」；做 private LLM gateway 给客户演示用兼容 OpenAI 接口；科研机构批量跑视觉/语音/文本多模态评测。<br>
+<strong>怎么用：</strong>curl/brew/docker 装 → `local-ai run` 起服务 → 直接使用 `http://localhost:8080/v1` 的 OpenAI 兼容接口，多模态走 `/v1/images/generations` 等扩展端点；模型从 YAML Gallery 拉。
+</div>
+<div class="card-update">🔥 近期亮点：语音/图像/视频/嵌入全模态；OpenAI/Anthropic API 全兼容；Go 单二进制</div>
+<div class="card-links">
+<a href="https://github.com/mudler/LocalAI" target="_blank">GitHub ↗</a>
+<a href="https://localai.io" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. Unsloth -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Unsloth — 让消费级显卡也能微调大模型</div>
+<div class="card-stars">⭐ ~68K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>「速度和显存砍半」的 LLM / VLM 微调框架——基于 PyTorch + bitsandbytes，写了高度优化的 kernels：同一个 70B 模型，传统方案要 8×H100，Unsloth 4×A100 搞定；消费级 4090 / 5090 也能微调 7B~32B；同步支持 LoRA / QLoRA / 全参微调，覆盖 Gemma 4 / Qwen 3.6 / DeepSeek / Llama 4 / Phi-4 一众主流开源模型。<br>
+<strong>解决什么：</strong>大模型微调的第一步永远卡在「门槛」：搞环境、配 deepspeed、写 SFT 文件、OOM、调半天跑不起来。Unsloth 把「训练前的所有摩擦」抹平：Notebook 一行启动、显存减半、速度 2-5 倍、内置 GRPO/DPO/SFT/RLHF 配方——让「自己训一个企业专属模型」不再是只有大厂才能做的事。<br>
+<strong>适用场景：</strong>个人研究者用单卡做研究级实验；中小企业在合规场景里训「行业模型 / 客服模型 / 法律模型」；Agent 团队训「Agent 自己的策略模型」做本地化对齐；教学场景快速 demo 微调原理。<br>
+<strong>怎么用：</strong>`pip install unsloth` → 选 `FastLanguageModel.from_pretrained` 加载 4-bit 量化版本；用 `SFTTrainer` / `GRPO` 内置 trainer 配数据；训练完可直接导出 GGUF 给 Ollama、vLLM、LocalAI 部署，也可以 LoRA 合并回原模型走 Hugging Face 推理。
+</div>
+<div class="card-update">🔥 近期亮点：Gemma 4 / Qwen 3.6 / DeepSeek 全支持；GRPO 内置；单 4090 微调 32B</div>
+<div class="card-links">
+<a href="https://github.com/unslothai/unsloth" target="_blank">GitHub ↗</a>
+<a href="https://unsloth.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · 离线模式下发布 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
