@@ -52,24 +52,26 @@ body{
   background:linear-gradient(var(--bg) 75%, rgba(7,8,12,0));
   padding:8px 0 12px;
 }
-.search-row{display:flex; gap:8px; align-items:center}
-.search-input{
-  flex:1; min-height:44px; border-radius:12px; border:1px solid var(--line);
-  background:var(--card); color:var(--text); padding:10px 12px; font-size:15px; outline:none;
+.pick-grid{display:grid; grid-template-columns:1fr; gap:10px}
+@media(min-width:560px){.pick-grid{grid-template-columns:1fr 1fr}}
+.pick-field{display:flex; flex-direction:column; gap:6px}
+.pick-label{font-size:12px; color:var(--mute); font-weight:600}
+.pick-select{
+  width:100%; min-height:46px; border-radius:12px; border:1px solid var(--line);
+  background:var(--card); color:var(--text); padding:10px 12px; font-size:15px;
+  outline:none; appearance:none; -webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,#9aa3b5 50%),linear-gradient(135deg,#9aa3b5 50%,transparent 50%);
+  background-position:calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+  background-size:6px 6px,6px 6px; background-repeat:no-repeat;
 }
-.search-input:focus{border-color:#4b5d86}
-.search-input::placeholder{color:var(--mute)}
-.btn-ghost{
-  min-height:44px; border-radius:12px; border:1px solid var(--line);
-  background:var(--card2); color:var(--dim); padding:0 12px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap;
-}
+.pick-select:focus{border-color:#4b5d86}
 .rel-row{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
 .rel-row::-webkit-scrollbar{display:none}
 .rchip{
   flex:0 0 auto; border:1px solid var(--line); background:var(--card);
   color:var(--dim); border-radius:999px; padding:8px 12px; font-size:12px; font-weight:600; cursor:pointer; min-height:36px;
 }
-.rchip:active{background:var(--card2);color:#fff}
+.rchip:active,.rchip.active{background:#232a3d;color:#fff;border-color:#3a4560}
 .filters{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
 .tab{
@@ -147,11 +149,11 @@ body.filter-evening .chip.top5{display:none}
 <div class="container">
   <header class="hero">
     <h1>🤖 AI 日报导航</h1>
-    <p class="sub">按日期折叠 · 可搜索 · 支持锚点直达</p>
-    <p class="upd">最近更新：2026年7月15日 10:34</p>
+    <p class="sub">下拉选日期/周次 · 按日期折叠</p>
+    <p class="upd">最近更新：2026年7月15日 10:42</p>
   </header>
 
-  <p class="tip">示例：搜 <b>今天</b> / <b>昨天</b> / <b>2026-07-14</b> / <b>第29周</b>；链接可带 <b>#2026-07-14</b>。</p>
+  <p class="tip">不手输：用下拉选<strong>日报日期</strong>或<strong>周榜周次</strong>，精确跳转。</p>
   <div class="quick-grid">
     <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
     <a class="quick q-news" href="日报/2026年07月14日/AI晚报.html"><div class="q-icon">📰</div><div class="q-label">最新晚报</div><div class="q-sub">2026年7月14日</div><div class="q-title">AI HOT 晚报</div></a>
@@ -159,51 +161,44 @@ body.filter-evening .chip.top5{display:none}
   </div>
 
   <div class="search-box">
-    <div class="search-row">
-      <input id="q" class="search-input" type="search" enterkeyhint="search" autocomplete="off"
-        list="date-options" placeholder="搜日期：今天 / 昨天 / 2026-07-14 / 第29周">
-      <button type="button" class="btn-ghost" id="clear">清空</button>
+    <div class="pick-grid">
+      <label class="pick-field">
+        <span class="pick-label">📅 日报日期</span>
+        <select id="day-select" class="pick-select" aria-label="选择日报日期">
+          <option value="" selected>选择日报日期</option>
+<option value="2026-07-15">2026年7月15日（TOP5）</option>
+<option value="2026-07-14">2026年7月14日（TOP5、晚报）</option>
+<option value="2026-07-13">2026年7月13日（TOP5）</option>
+<option value="2026-07-12">2026年7月12日（TOP5、晚报）</option>
+<option value="2026-07-11">2026年7月11日（TOP5、晚报）</option>
+<option value="2026-07-10">2026年7月10日（TOP5、晚报）</option>
+<option value="2026-07-09">2026年7月9日（TOP5、晚报）</option>
+<option value="2026-07-08">2026年7月8日（晚报）</option>
+<option value="2026-07-07">2026年7月7日（晚报）</option>
+<option value="2026-07-06">2026年7月6日（TOP5、晚报）</option>
+<option value="2026-07-05">2026年7月5日（TOP5、晚报）</option>
+<option value="2026-07-04">2026年7月4日（TOP5、晚报）</option>
+<option value="2026-07-03">2026年7月3日（TOP5、晚报）</option>
+<option value="2026-07-02">2026年7月2日（TOP5、晚报）</option>
+<option value="2026-07-01">2026年7月1日（TOP5、晚报）</option>
+        </select>
+      </label>
+      <label class="pick-field">
+        <span class="pick-label">📈 周榜周次</span>
+        <select id="week-select" class="pick-select" aria-label="选择周榜">
+          <option value="" selected>选择周榜</option>
+<option value="2026年第29周">2026年第29周 · 8领域 · skills · agent-ski</option>
+<option value="2026年第28周">2026年第28周 · 🤖 AI智能体 — 一周涨4万星</option>
+<option value="2026年第27周">2026年第27周 · AI智能体</option>
+        </select>
+      </label>
     </div>
-    <datalist id="date-options">
-      <option value="2026-07-15">2026年7月15日</option>
-<option value="2026年07月15日"></option>
-<option value="2026-07-14">2026年7月14日</option>
-<option value="2026年07月14日"></option>
-<option value="2026-07-13">2026年7月13日</option>
-<option value="2026年07月13日"></option>
-<option value="2026-07-12">2026年7月12日</option>
-<option value="2026年07月12日"></option>
-<option value="2026-07-11">2026年7月11日</option>
-<option value="2026年07月11日"></option>
-<option value="2026-07-10">2026年7月10日</option>
-<option value="2026年07月10日"></option>
-<option value="2026-07-09">2026年7月9日</option>
-<option value="2026年07月09日"></option>
-<option value="2026-07-08">2026年7月8日</option>
-<option value="2026年07月08日"></option>
-<option value="2026-07-07">2026年7月7日</option>
-<option value="2026年07月07日"></option>
-<option value="2026-07-06">2026年7月6日</option>
-<option value="2026年07月06日"></option>
-<option value="2026-07-05">2026年7月5日</option>
-<option value="2026年07月05日"></option>
-<option value="2026-07-04">2026年7月4日</option>
-<option value="2026年07月04日"></option>
-<option value="2026-07-03">2026年7月3日</option>
-<option value="2026年07月03日"></option>
-<option value="2026-07-02">2026年7月2日</option>
-<option value="2026年07月02日"></option>
-<option value="2026-07-01">2026年7月1日</option>
-<option value="2026年07月01日"></option>
-<option value="2026年第29周"></option>
-<option value="2026年第28周"></option>
-<option value="2026年第27周"></option>
-    </datalist>
-    <div class="rel-row" aria-label="相对日期">
-      <button type="button" class="rchip" data-q="今天">今天</button>
-      <button type="button" class="rchip" data-q="昨天">昨天</button>
-      <button type="button" class="rchip" data-q="前天">前天</button>
-      <button type="button" class="rchip" data-q="周榜">周榜</button>
+    <div class="rel-row" aria-label="快捷">
+      <button type="button" class="rchip" data-jump-day="2026-07-15">今天</button>
+      <button type="button" class="rchip" data-jump-day="2026-07-14">昨天</button>
+      <button type="button" class="rchip" data-jump-day="2026-07-13">前天</button>
+      <button type="button" class="rchip" id="btn-week-latest">最新周榜</button>
+      <button type="button" class="rchip" id="btn-show-all">显示全部</button>
     </div>
     <div class="filters" aria-label="分类">
       <button type="button" class="tab active" data-filter="all">全部</button>
@@ -221,7 +216,7 @@ body.filter-evening .chip.top5{display:none}
     </div>
   </div>
 
-  <div class="empty" id="empty">没有匹配的日期，换个写法试试</div>
+  <div class="empty" id="empty">没有匹配项</div>
 
   <section class="section day-section">
     <h2 class="section-title t-day">📅 按日期</h2>
@@ -291,161 +286,182 @@ body.filter-evening .chip.top5{display:none}
   var TODAY = '2026-07-15';
   var YDAY = '2026-07-14';
   var BDAY = '2026-07-13';
-  var q = document.getElementById('q');
-  var clearBtn = document.getElementById('clear');
+  var daySelect = document.getElementById('day-select');
+  var weekSelect = document.getElementById('week-select');
   var empty = document.getElementById('empty');
   var meta = document.getElementById('result-meta');
   var groups = Array.prototype.slice.call(document.querySelectorAll('.group'));
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   var filter = 'all';
+  var focusKey = ''; // date iso or week label
 
-  function pad2(n){ return (n < 10 ? '0' : '') + n; }
+  function setTab(f){
+    filter = f || 'all';
+    document.body.className = filter === 'all' ? '' : ('filter-' + filter);
+    tabs.forEach(function(t){ t.classList.toggle('active', (t.getAttribute('data-filter')||'all') === filter); });
+  }
 
-  function norm(s){
-    s = (s || '').toLowerCase().trim();
-    if (!s) return '';
-    if (s === '今天' || s === '今日' || s === 'today') return TODAY;
-    if (s === '昨天' || s === '昨日' || s === 'yesterday') return YDAY;
-    if (s === '前天' || s === 'day before yesterday') return BDAY;
-    s = s.replace(/[\/\.]/g, '-');
-    var m = s.match(/(?:(\d{4})[-年])?\s*(\d{1,2})[-月](\d{1,2})日?/);
-    if (m) {
-      var y = m[1] || TODAY.slice(0,4);
-      return y + '-' + pad2(parseInt(m[2],10)) + '-' + pad2(parseInt(m[3],10));
+  function flash(g){
+    if (!g) return;
+    groups.forEach(function(x){ x.classList.remove('flash'); });
+    g.open = true;
+    g.classList.add('flash');
+    try { g.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { g.scrollIntoView(true); }
+    setTimeout(function(){ g.classList.remove('flash'); }, 1400);
+  }
+
+  function findGroup(key){
+    if (!key) return null;
+    for (var i=0;i<groups.length;i++){
+      var el = groups[i];
+      if (el.getAttribute('data-date') === key || el.getAttribute('data-date-cn') === key || el.id === ('d-'+key) || el.id === ('w-'+key)) return el;
     }
-    var w = s.match(/(?:(\d{4})年)?第?(\d{1,2})周/);
-    if (w) {
-      var yy = w[1] || TODAY.slice(0,4);
-      return yy + '年第' + parseInt(w[2],10) + '周';
-    }
-    return s;
+    return null;
   }
 
   function apply(opts){
     opts = opts || {};
-    var raw = q.value || '';
-    var n = norm(raw);
-    var rawL = raw.toLowerCase().trim();
     var shown = 0;
     var firstMatch = null;
     groups.forEach(function(g){
-      var search = g.getAttribute('data-search') || '';
+      var kind = g.getAttribute('data-kind');
       var date = g.getAttribute('data-date') || '';
       var dateCn = g.getAttribute('data-date-cn') || '';
-      var kind = g.getAttribute('data-kind');
       var okFilter = true;
       if (filter === 'weekly') okFilter = kind === 'week';
       else if (filter === 'top5' || filter === 'evening') okFilter = kind === 'day';
 
-      var okSearch = true;
-      if (rawL) {
-        okSearch = (
-          search.indexOf(rawL) >= 0 ||
-          search.indexOf(n) >= 0 ||
-          date.indexOf(n) >= 0 ||
-          dateCn.indexOf(rawL) >= 0 ||
-          dateCn.indexOf(n) >= 0 ||
-          (date && n && date === n) ||
-          (dateCn && n && dateCn === n)
-        );
+      var okFocus = true;
+      if (focusKey) {
+        okFocus = (date === focusKey || dateCn === focusKey);
       }
-      var show = okFilter && okSearch;
+      var show = okFilter && okFocus;
       if (show && filter === 'top5') show = !!g.querySelector('.card[data-kind="top5"]');
       if (show && filter === 'evening') show = !!g.querySelector('.card[data-kind="evening"]');
       g.hidden = !show;
       if (show) {
         shown += 1;
         if (!firstMatch) firstMatch = g;
-        if (rawL || opts.forceOpen) g.open = true;
+        if (focusKey || opts.forceOpen) g.open = true;
       }
     });
     empty.classList.toggle('show', shown === 0);
-    meta.textContent = (rawL || filter !== 'all') ? ('显示 ' + shown + ' 组') : ('共 15 天 · 3 周');
-    if (opts.scroll && firstMatch) {
-      groups.forEach(function(g){ g.classList.remove('flash'); });
-      firstMatch.classList.add('flash');
-      firstMatch.open = true;
-      try { firstMatch.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { firstMatch.scrollIntoView(true); }
-      setTimeout(function(){ firstMatch.classList.remove('flash'); }, 1600);
-    }
+    if (focusKey) meta.textContent = '已定位：' + focusKey + '（' + shown + '）';
+    else if (filter !== 'all') meta.textContent = '显示 ' + shown + ' 组';
+    else meta.textContent = '共 15 天 · 3 周';
+    if (opts.scroll && firstMatch) flash(firstMatch);
     return firstMatch;
   }
 
-  function jumpTo(key){
-    if (!key) return;
-    var k = norm(key) || key;
-    // 直接匹配 data-date / data-date-cn / id
-    var g = null;
-    for (var i=0;i<groups.length;i++){
-      var el = groups[i];
-      if (el.getAttribute('data-date') === k || el.getAttribute('data-date-cn') === key || el.getAttribute('data-date-cn') === k || el.id === ('d-'+k) || el.id === ('w-'+k)) {
-        g = el; break;
-      }
+  function jumpDay(iso){
+    if (!iso) return;
+    focusKey = iso;
+    if (daySelect) daySelect.value = iso;
+    // 若该日不在下拉（无报告），仍尝试定位
+    var has = false;
+    if (daySelect) {
+      for (var i=0;i<daySelect.options.length;i++) if (daySelect.options[i].value === iso) has = true;
+      if (!has) daySelect.value = '';
     }
+    if (weekSelect) weekSelect.value = '';
+    setTab(filter === 'weekly' ? 'all' : filter);
+    if (filter === 'weekly') setTab('all');
+    var g = apply({forceOpen:true, scroll:true});
     if (!g) {
-      q.value = key;
-      g = apply({forceOpen:true, scroll:true});
-      return g;
+      // 无对应日报
+      meta.textContent = '该日暂无日报：' + iso;
+      empty.classList.add('show');
     }
-    // 清筛选干扰
-    filter = 'all';
-    document.body.className = '';
-    tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-filter')==='all'); });
-    groups.forEach(function(x){ x.hidden = false; x.classList.remove('flash'); });
-    g.hidden = false;
-    g.open = true;
-    g.classList.add('flash');
-    try { g.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { g.scrollIntoView(true); }
-    setTimeout(function(){ g.classList.remove('flash'); }, 1600);
-    meta.textContent = '已定位：' + (g.getAttribute('data-date-cn') || key);
-    return g;
   }
 
-  q.addEventListener('input', function(){ apply(); });
-  q.addEventListener('search', function(){ apply({scroll:true}); });
-  clearBtn.addEventListener('click', function(){
-    q.value = '';
+  function jumpWeek(label){
+    if (!label) return;
+    focusKey = label;
+    if (weekSelect) weekSelect.value = label;
+    if (daySelect) daySelect.value = '';
+    setTab('weekly');
+    apply({forceOpen:true, scroll:true});
+  }
+
+  function showAll(){
+    focusKey = '';
+    if (daySelect) daySelect.value = '';
+    if (weekSelect) weekSelect.value = '';
+    setTab('all');
+    groups.forEach(function(g){ g.open = false; });
+    // 默认展开最近一天/一周
+    var firstDay = document.querySelector('.day-group');
+    var firstWeek = document.querySelector('.week-group');
+    if (firstDay) firstDay.open = true;
+    if (firstWeek) firstWeek.open = true;
     apply();
-    q.focus();
+  }
+
+  if (daySelect) daySelect.addEventListener('change', function(){
+    if (!daySelect.value) { showAll(); return; }
+    jumpDay(daySelect.value);
   });
+  if (weekSelect) weekSelect.addEventListener('change', function(){
+    if (!weekSelect.value) { showAll(); return; }
+    jumpWeek(weekSelect.value);
+  });
+
   tabs.forEach(function(btn){
     btn.addEventListener('click', function(){
-      tabs.forEach(function(t){ t.classList.remove('active'); });
-      btn.classList.add('active');
-      filter = btn.getAttribute('data-filter') || 'all';
-      document.body.className = filter === 'all' ? '' : ('filter-' + filter);
-      apply();
+      setTab(btn.getAttribute('data-filter') || 'all');
+      // 分类筛选时保留 focus；若筛选周榜且当前 focus 是日，则清 focus
+      if (filter === 'weekly' && focusKey && focusKey.indexOf('周') < 0 && focusKey.indexOf('W') < 0) {
+        // keep day focus only if week? clear
+        // 周榜 tab 下只看周
+        focusKey = weekSelect && weekSelect.value ? weekSelect.value : '';
+      }
+      apply({forceOpen: !!focusKey, scroll: !!focusKey});
     });
   });
+
   document.getElementById('expand-all').addEventListener('click', function(){
     groups.forEach(function(g){ if (!g.hidden) g.open = true; });
   });
   document.getElementById('collapse-all').addEventListener('click', function(){
     groups.forEach(function(g){ g.open = false; });
   });
-  Array.prototype.forEach.call(document.querySelectorAll('.rchip'), function(btn){
+
+  Array.prototype.forEach.call(document.querySelectorAll('.rchip[data-jump-day]'), function(btn){
     btn.addEventListener('click', function(){
-      var v = btn.getAttribute('data-q') || '';
-      if (v === '周榜') {
-        filter = 'weekly';
-        document.body.className = 'filter-weekly';
-        tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-filter')==='weekly'); });
-        q.value = '';
-        apply({forceOpen:true, scroll:true});
-        return;
-      }
-      q.value = v;
-      apply({forceOpen:true, scroll:true});
+      jumpDay(btn.getAttribute('data-jump-day') || '');
     });
   });
+  var btnWeek = document.getElementById('btn-week-latest');
+  if (btnWeek) btnWeek.addEventListener('click', function(){
+    var latest = weekSelect && weekSelect.options.length > 1 ? weekSelect.options[1].value : '';
+    if (latest) jumpWeek(latest);
+  });
+  var btnAll = document.getElementById('btn-show-all');
+  if (btnAll) btnAll.addEventListener('click', showAll);
 
-  // 锚点直达：#2026-07-14 / #2026年07月14日 / #2026年第29周 / #d-2026-07-14
   function applyHash(){
     var h = (location.hash || '').replace(/^#/, '');
     if (!h) return;
-    h = decodeURIComponent(h);
-    h = h.replace(/^d-/, '').replace(/^w-/, '');
-    jumpTo(h);
+    h = decodeURIComponent(h).replace(/^d-/, '').replace(/^w-/, '');
+    if (h.indexOf('周') >= 0 || /^\d{4}-W\d{2}$/.test(h)) {
+      // week label or iso week
+      if (h.indexOf('周') >= 0) jumpWeek(h);
+      else {
+        var g = findGroup(h);
+        if (g) jumpWeek(g.getAttribute('data-date-cn') || h);
+      }
+    } else {
+      // normalize partial dates not needed: expect ISO or 中文
+      // map 中文日期
+      var m = h.match(/(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日/);
+      if (m) {
+        var y = m[1] || TODAY.slice(0,4);
+        var iso = y + '-' + ('0'+m[2]).slice(-2) + '-' + ('0'+m[3]).slice(-2);
+        jumpDay(iso);
+      } else {
+        jumpDay(h);
+      }
+    }
   }
   window.addEventListener('hashchange', applyHash);
   applyHash();
