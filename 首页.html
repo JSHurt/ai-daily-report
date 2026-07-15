@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -277,7 +277,10 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 .cal-mask{position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px)}
 .cal-sheet{
   position:fixed; left:0; right:0; bottom:0; z-index:90; max-width:560px; margin:0 auto;
-  border-radius:24px 24px 0 0; padding:10px 16px calc(18px + env(safe-area-inset-bottom));
+  width:100%;
+  max-height:min(88dvh, 640px);
+  overflow-x:hidden; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  border-radius:24px 24px 0 0; padding:10px 14px calc(16px + env(safe-area-inset-bottom));
   background:linear-gradient(180deg, rgba(24,22,56,.98), rgba(10,12,28,.99));
   border:1px solid rgba(170,190,255,.22); border-bottom:none;
   box-shadow:0 -20px 60px rgba(0,0,0,.5), 0 0 40px rgba(122,92,255,.15);
@@ -291,8 +294,13 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 .cal-nav:active{background:rgba(0,240,255,.12)}
 .cal-weeks{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px}
 .cal-weeks span{text-align:center;font-size:11px;color:var(--mute);font-weight:800;padding:6px 0}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.cal-cell{aspect-ratio:1;border-radius:14px;border:1px solid transparent;background:rgba(255,255,255,.03);color:var(--dim);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:14px;font-weight:800;cursor:pointer;position:relative}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:100%}
+.cal-cell{
+  min-height:40px; height:clamp(38px, 11.5vw, 48px);
+  border-radius:12px;border:1px solid transparent;background:rgba(255,255,255,.03);color:var(--dim);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  font-size:13px;font-weight:800;cursor:pointer;position:relative; padding:0;
+}
 .cal-cell.mute{opacity:.28;cursor:default}
 .cal-cell.has-day{color:#dffbff;border-color:rgba(0,240,255,.18);background:rgba(0,240,255,.08)}
 .cal-cell.has-week{box-shadow:inset 0 0 0 1px rgba(94,255,168,.18)}
@@ -312,6 +320,53 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 .cal-btn.primary{color:#041018;border:none;background:linear-gradient(135deg,#7af7ff,#b28bff);box-shadow:0 8px 22px rgba(122,92,255,.28)}
 .cal-btn:active{transform:scale(.98)}
 
+
+/* ===== 手机适配：看全、可滚动、不裁切 ===== */
+html,body{width:100%; max-width:100%; overflow-x:hidden}
+.container{width:100%; max-width:780px; padding:0 2px}
+.hero h1{font-size:clamp(22px, 7vw, 30px)}
+.quick{min-height:108px}
+.q-title,.card-title,.card-desc{word-break:break-word; overflow-wrap:anywhere}
+.pick-panel{padding:12px}
+.date-trigger{min-height:54px; padding:10px 12px}
+.dt-title{font-size:15px}
+.dt-sub{font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.stats{gap:6px}
+.stat{min-width:0; flex:1 1 30%}
+.stat .n{font-size:17px}
+.cal-mask{overscroll-behavior:contain}
+.cal-sheet{
+  max-height:min(88dvh, 640px) !important;
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+.cal-grid{gap:4px !important}
+.cal-cell{
+  aspect-ratio:auto !important;
+  min-height:38px !important;
+  height:clamp(36px, 10.8vw, 46px) !important;
+  font-size:12.5px !important;
+}
+.cal-actions{position:sticky; bottom:0; padding-top:8px;
+  background:linear-gradient(180deg, transparent, rgba(10,12,28,.96) 30%);
+}
+.cal-legend{font-size:10px; gap:8px}
+.group summary{padding:12px 12px; min-height:52px}
+.sum-date{font-size:14px}
+.card{padding:12px 12px 12px 14px}
+@media (max-width:400px){
+  body{padding:12px 10px calc(28px + env(safe-area-inset-bottom))}
+  .hero-inner{padding:16px 14px 14px}
+  .quick-grid{gap:10px}
+  .rchip,.tab{padding:8px 11px; min-height:36px; font-size:11px}
+  .cal-nav{width:36px;height:36px}
+}
+@media (max-height:700px){
+  .cal-sheet{max-height:92dvh !important}
+  .cal-cell{height:clamp(32px, 9.5vw, 40px) !important; min-height:32px !important}
+  .cal-legend{margin:8px 2px 2px}
+}
+
 @media (prefers-reduced-motion:reduce){
   .orb,.scan,.stars,.hero,.hero h1,.hero-inner::after,.live b,.q-icon,.quick{animation:none !important}
 }
@@ -328,7 +383,7 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
       <div class="live"><b></b> AI DAILY LIVE</div>
       <h1>AI 日报导航</h1>
       <p class="sub">一个日期选完：当天日报 + 当周周榜</p>
-      <p class="upd">最近更新：2026年7月15日 12:24</p>
+      <p class="upd">最近更新：2026年7月15日 12:29</p>
       <div class="stats">
         <div class="stat"><div class="n">15</div><div class="l">日报天数</div></div>
         <div class="stat"><div class="n">3</div><div class="l">周榜期数</div></div>
@@ -537,10 +592,14 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     viewY = p.y; viewM = p.m;
     renderCal();
     calMask.hidden = false; calSheet.hidden = false;
+    document.body.style.overflow = 'hidden';
+    // 滚到顶部，避免小屏只看到下半截
+    try { calSheet.scrollTop = 0; } catch(e) {}
   }
   function closeCal(){
     if (calMask) calMask.hidden = true;
     if (calSheet) calSheet.hidden = true;
+    document.body.style.overflow = '';
   }
   function renderCal(){
     if (!calGrid || !calTitle) return;
