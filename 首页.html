@@ -266,8 +266,8 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     <div class="hero-inner">
       <div class="live"><b></b> AI DAILY LIVE</div>
       <h1>AI 日报导航</h1>
-      <p class="sub">日期组件选日 · 周次选周榜 · 直达报告</p>
-      <p class="upd">最近更新：2026年7月15日 11:14</p>
+      <p class="sub">一个日期选完：当天日报 + 当周周榜</p>
+      <p class="upd">最近更新：2026年7月15日 11:23</p>
       <div class="stats">
         <div class="stat"><div class="n">15</div><div class="l">日报天数</div></div>
         <div class="stat"><div class="n">3</div><div class="l">周榜期数</div></div>
@@ -276,7 +276,7 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     </div>
   </header>
 
-  <p class="tip">📅 用系统日期组件选日期；📈 周榜用周次选择。</p>
+  <p class="tip">📅 选一个日期：显示当天日报；若该周有周榜（尤其周日），一并显示。</p>
 
   <div class="quick-grid">
     <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><span class="ring"></span><span class="glow"></span><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
@@ -286,29 +286,20 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 
   <div class="search-box">
     <div class="pick-panel">
-      <div class="pick-grid">
+      <div class="pick-grid pick-grid-one">
         <label class="pick-field">
-          <span class="pick-label">📅 选择日期</span>
+          <span class="pick-label">📅 选择日期（含当天日报 + 当周周榜）</span>
           <input id="day-select" class="pick-select date-input" type="date"
-            min="2026-07-01" max="2026-07-15" value="2026-07-15"
-            data-available="2026-07-15,2026-07-14,2026-07-13,2026-07-12,2026-07-11,2026-07-10,2026-07-09,2026-07-08,2026-07-07,2026-07-06,2026-07-05,2026-07-04,2026-07-03,2026-07-02,2026-07-01"
+            min="2026-06-29" max="2026-07-19" value="2026-07-15"
+            data-available="2026-07-19,2026-07-18,2026-07-17,2026-07-16,2026-07-15,2026-07-14,2026-07-13,2026-07-12,2026-07-11,2026-07-10,2026-07-09,2026-07-08,2026-07-07,2026-07-06,2026-07-05,2026-07-04,2026-07-03,2026-07-02,2026-07-01,2026-06-30,2026-06-29"
             aria-label="选择日期">
-        </label>
-        <label class="pick-field">
-          <span class="pick-label">📈 选择周次</span>
-          <select id="week-select" class="pick-select" aria-label="选择周次">
-            <option value="" selected>选择周次</option>
-<option value="2026年第29周">2026年第29周</option>
-<option value="2026年第28周">2026年第28周</option>
-<option value="2026年第27周">2026年第27周</option>
-          </select>
         </label>
       </div>
       <div class="rel-row" aria-label="快捷">
         <button type="button" class="rchip" data-jump-day="2026-07-15">今天</button>
         <button type="button" class="rchip" data-jump-day="2026-07-14">昨天</button>
         <button type="button" class="rchip" data-jump-day="2026-07-13">前天</button>
-        <button type="button" class="rchip" id="btn-week-latest">最新周榜</button>
+        <button type="button" class="rchip" id="btn-week-latest">最近周日</button>
         <button type="button" class="rchip" id="btn-show-all">显示全部</button>
       </div>
       <div class="filters" aria-label="分类">
@@ -381,11 +372,11 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
   <section class="section week-section">
     <h2 class="section-title t-week">按周榜</h2>
     <div id="week-list">
-      <details class="group week-group" id="w-2026-W29" data-kind="week" data-date="2026-W29" data-date-cn="2026年第29周" data-search="2026年第29周 周榜 8领域 · skills · agent-skills · superpowers top涨星 +31,567⭐ 等 · skills · agent-skills · superpowers" open><summary><span class="sum-left"><span class="sum-date">2026年第29周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第29周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">8领域 · skills · agent-skills · superpowers</div><div class="card-desc">TOP涨星 +31,567⭐ 等 · skills · agent-skills · superpowers</div></a>
+      <details class="group week-group" id="w-2026-W29" data-kind="week" data-date="2026-W29" data-date-cn="2026年第29周" data-week-dates="2026-07-13,2026-07-14,2026-07-15,2026-07-16,2026-07-17,2026-07-18,2026-07-19" data-search="2026年第29周 周榜 8领域 · skills · agent-skills · superpowers top涨星 +31,567⭐ 等 · skills · agent-skills · superpowers 2026-07-13 2026-07-14 2026-07-15 2026-07-16 2026-07-17 2026-07-18 2026-07-19" open><summary><span class="sum-left"><span class="sum-date">2026年第29周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第29周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">8领域 · skills · agent-skills · superpowers</div><div class="card-desc">TOP涨星 +31,567⭐ 等 · skills · agent-skills · superpowers</div></a>
 </div></details>
-<details class="group week-group" id="w-2026-W28" data-kind="week" data-date="2026-W28" data-date-cn="2026年第28周" data-search="2026年第28周 周榜 🤖 ai智能体 — 一周涨4万星 一周涨星分领域榜"><summary><span class="sum-left"><span class="sum-date">2026年第28周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第28周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">🤖 AI智能体 — 一周涨4万星</div><div class="card-desc">一周涨星分领域榜</div></a>
+<details class="group week-group" id="w-2026-W28" data-kind="week" data-date="2026-W28" data-date-cn="2026年第28周" data-week-dates="2026-07-06,2026-07-07,2026-07-08,2026-07-09,2026-07-10,2026-07-11,2026-07-12" data-search="2026年第28周 周榜 🤖 ai智能体 — 一周涨4万星 一周涨星分领域榜 2026-07-06 2026-07-07 2026-07-08 2026-07-09 2026-07-10 2026-07-11 2026-07-12"><summary><span class="sum-left"><span class="sum-date">2026年第28周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第28周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">🤖 AI智能体 — 一周涨4万星</div><div class="card-desc">一周涨星分领域榜</div></a>
 </div></details>
-<details class="group week-group" id="w-2026-W27" data-kind="week" data-date="2026-W27" data-date-cn="2026年第27周" data-search="2026年第27周 周榜 ai智能体 一周涨星分领域榜"><summary><span class="sum-left"><span class="sum-date">2026年第27周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第27周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">AI智能体</div><div class="card-desc">一周涨星分领域榜</div></a>
+<details class="group week-group" id="w-2026-W27" data-kind="week" data-date="2026-W27" data-date-cn="2026年第27周" data-week-dates="2026-06-29,2026-06-30,2026-07-01,2026-07-02,2026-07-03,2026-07-04,2026-07-05" data-search="2026年第27周 周榜 ai智能体 一周涨星分领域榜 2026-06-29 2026-06-30 2026-07-01 2026-07-02 2026-07-03 2026-07-04 2026-07-05"><summary><span class="sum-left"><span class="sum-date">2026年第27周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第27周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">AI智能体</div><div class="card-desc">一周涨星分领域榜</div></a>
 </div></details>
 
     </div>
@@ -399,7 +390,6 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
   var YDAY = '2026-07-14';
   var BDAY = '2026-07-13';
   var daySelect = document.getElementById('day-select');
-  var weekSelect = document.getElementById('week-select');
   var available = {};
   if (daySelect && daySelect.getAttribute('data-available')) {
     daySelect.getAttribute('data-available').split(',').forEach(function(d){ if(d) available[d]=true; });
@@ -449,7 +439,14 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 
       var okFocus = true;
       if (focusKey) {
-        okFocus = (date === focusKey || dateCn === focusKey);
+        if (kind === 'day') {
+          okFocus = (date === focusKey || dateCn === focusKey);
+        } else if (kind === 'week') {
+          var wd = (g.getAttribute('data-week-dates') || '').split(',');
+          okFocus = wd.indexOf(focusKey) >= 0 || date === focusKey || dateCn === focusKey;
+        } else {
+          okFocus = (date === focusKey || dateCn === focusKey);
+        }
       }
       var show = okFilter && okFocus;
       if (show && filter === 'top5') show = !!g.querySelector('.card[data-kind="top5"]');
@@ -473,32 +470,48 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     if (!iso) return;
     focusKey = iso;
     if (daySelect) daySelect.value = iso;
-    if (weekSelect) weekSelect.value = '';
-    if (filter === 'weekly') setTab('all');
-    else setTab(filter);
+    // 选日期时不过度锁分类；若在周榜 tab 也允许看到当周
+    if (filter === 'weekly') { /* keep */ }
     var g = apply({forceOpen:true, scroll:true});
+    // 统计命中：日报 + 周榜
+    var hitDay = 0, hitWeek = 0;
+    groups.forEach(function(x){
+      if (x.hidden) return;
+      if (x.getAttribute('data-kind') === 'day') hitDay++;
+      if (x.getAttribute('data-kind') === 'week') hitWeek++;
+    });
     if (!g) {
-      meta.textContent = available[iso] ? ('已定位：' + iso) : ('该日暂无日报：' + iso);
+      meta.textContent = '📅 ' + iso + ' 暂无内容';
       empty.classList.add('show');
-      empty.textContent = available[iso] ? '没有匹配项' : ('📅 ' + iso + ' 没有报告');
+      empty.textContent = '📅 ' + iso + ' 没有日报/周榜';
     } else {
       empty.textContent = '没有匹配项';
+      meta.textContent = '已定位 ' + iso + ' · 日报' + hitDay + ' · 周榜' + hitWeek;
     }
   }
 
-  function jumpWeek(label){
-    if (!label) return;
-    focusKey = label;
-    if (weekSelect) weekSelect.value = label;
-    if (daySelect) daySelect.value = '';
-    setTab('weekly');
+  function jumpWeek(labelOrIso){
+    if (!labelOrIso) return;
+    // 若是周标签，定位到该周周日日期再统一走 jumpDay
+    var g = null;
+    for (var i=0;i<groups.length;i++){
+      var el = groups[i];
+      if (el.getAttribute('data-kind') !== 'week') continue;
+      if (el.getAttribute('data-date-cn') === labelOrIso || el.getAttribute('data-date') === labelOrIso) { g = el; break; }
+    }
+    if (g) {
+      var dates = (g.getAttribute('data-week-dates') || '').split(',');
+      // 周日 = 最后一天
+      var sun = dates.length ? dates[dates.length-1] : '';
+      if (sun) { jumpDay(sun); return; }
+    }
+    focusKey = labelOrIso;
     apply({forceOpen:true, scroll:true});
   }
 
   function showAll(){
     focusKey = '';
     if (daySelect) daySelect.value = daySelect.getAttribute('max') || '2026-07-15';
-    if (weekSelect) weekSelect.value = '';
     setTab('all');
     groups.forEach(function(g){ g.open = false; });
     // 默认展开最近一天/一周
@@ -519,20 +532,12 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
       try { if (daySelect.showPicker) daySelect.showPicker(); } catch(e) {}
     });
   }
-  if (weekSelect) weekSelect.addEventListener('change', function(){
-    if (!weekSelect.value) { showAll(); return; }
-    jumpWeek(weekSelect.value);
-  });
 
   tabs.forEach(function(btn){
     btn.addEventListener('click', function(){
       setTab(btn.getAttribute('data-filter') || 'all');
       // 分类筛选时保留 focus；若筛选周榜且当前 focus 是日，则清 focus
-      if (filter === 'weekly' && focusKey && focusKey.indexOf('周') < 0 && focusKey.indexOf('W') < 0) {
-        // keep day focus only if week? clear
-        // 周榜 tab 下只看周
-        focusKey = weekSelect && weekSelect.value ? weekSelect.value : '';
-      }
+      // 分类筛选保留当前日期 focusKey（周榜 tab 下仍按该日所在周过滤）
       apply({forceOpen: !!focusKey, scroll: !!focusKey});
     });
   });
@@ -551,8 +556,12 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
   });
   var btnWeek = document.getElementById('btn-week-latest');
   if (btnWeek) btnWeek.addEventListener('click', function(){
-    var latest = weekSelect && weekSelect.options.length > 1 ? weekSelect.options[1].value : '';
-    if (latest) jumpWeek(latest);
+    // 最近一个有周榜的周日
+    var weeks = document.querySelectorAll('.week-group');
+    if (!weeks.length) return;
+    var dates = (weeks[0].getAttribute('data-week-dates') || '').split(',');
+    var sun = dates.length ? dates[dates.length-1] : '';
+    if (sun) jumpDay(sun);
   });
   var btnAll = document.getElementById('btn-show-all');
   if (btnAll) btnAll.addEventListener('click', showAll);
