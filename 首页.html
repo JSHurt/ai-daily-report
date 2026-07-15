@@ -250,7 +250,8 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 
 
 
-/* ===== 日历组件（居中 + 固定格子，兼容微信） ===== */
+
+/* ===== 日历组件（默认隐藏，.open 才显示；兼容微信） ===== */
 .date-trigger{
   width:100%; display:flex; align-items:center; gap:12px;
   min-height:56px; padding:12px 14px; border-radius:16px; cursor:pointer;
@@ -272,91 +273,95 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
   flex:0 0 auto;font-size:12px;font-weight:900;color:#061018;padding:9px 14px;border-radius:999px;
   background:linear-gradient(135deg,#79f6ff,#b48cff);
 }
+/* 关键：默认必须 none，只有 .open 才 flex，避免 hidden 被覆盖导致日历铺进页面 */
 .cal-root{
-  position:fixed; inset:0; z-index:200;
-  display:flex; align-items:center; justify-content:center;
+  display:none !important;
+  position:fixed !important;
+  left:0; top:0; right:0; bottom:0;
+  z-index:99999 !important;
+  align-items:center;
+  justify-content:center;
   padding:16px;
   box-sizing:border-box;
 }
-.cal-root[hidden]{display:none !important}
-.cal-mask{position:absolute; inset:0; background:rgba(0,0,0,.68)}
+.cal-root.open{
+  display:flex !important;
+}
+.cal-mask{
+  position:absolute; left:0; top:0; right:0; bottom:0;
+  background:rgba(0,0,0,.72);
+}
 .cal-panel{
   position:relative; z-index:1;
-  width:100%; max-width:340px;
+  width:100%; max-width:320px;
   background:#14172e;
-  border:1px solid rgba(160,180,255,.28);
+  border:1px solid rgba(160,180,255,.3);
   border-radius:18px;
-  box-shadow:0 22px 50px rgba(0,0,0,.55);
-  padding:12px 12px 10px;
+  box-shadow:0 22px 50px rgba(0,0,0,.6);
+  padding:14px 12px 12px;
   box-sizing:border-box;
 }
-.cal-head{display:flex; align-items:center; gap:8px; margin-bottom:8px}
-.cal-head-title{flex:1; text-align:center; font-size:16px; font-weight:900}
+.cal-head{display:flex; align-items:center; gap:8px; margin-bottom:10px}
+.cal-head-title{flex:1; text-align:center; font-size:16px; font-weight:900; color:#fff}
 .cal-nav{
-  width:36px; height:36px; border-radius:12px; border:1px solid rgba(160,180,255,.22);
-  background:rgba(255,255,255,.05); color:#fff; font-size:22px; line-height:1; cursor:pointer;
+  width:36px; height:36px; border-radius:12px; border:1px solid rgba(160,180,255,.25);
+  background:rgba(255,255,255,.06); color:#fff; font-size:22px; line-height:1; cursor:pointer;
 }
-.cal-weeknames{
-  display:flex; width:100%; margin-bottom:4px;
-}
+.cal-weeknames{display:flex; width:100%; margin-bottom:6px}
 .cal-weeknames span{
-  flex:1 1 0; text-align:center; font-size:11px; color:var(--mute); font-weight:800; padding:4px 0;
+  width:14.285%; text-align:center; font-size:11px; color:#8b95b8; font-weight:800; padding:4px 0;
+  box-sizing:border-box;
 }
-.cal-body{
-  width:100%;
-  /* JS 会写入 --cell 尺寸 */
-}
+.cal-body{width:100%;}
 .cal-row{display:flex; width:100%;}
 .cal-day{
-  flex:1 1 0;
-  height:var(--cell, 40px);
-  margin:2px;
+  width:14.285%;
+  height:40px;
+  margin:0;
   border:0; border-radius:10px;
-  background:rgba(255,255,255,.04); color:#d5dcf5;
+  background:rgba(255,255,255,.045); color:#d7def6;
   font-size:13px; font-weight:800; cursor:pointer;
   position:relative;
-  display:flex; align-items:center; justify-content:center;
-  -webkit-tap-highlight-color:transparent;
+  display:inline-flex; align-items:center; justify-content:center;
+  box-sizing:border-box;
+  flex:0 0 14.285%;
+  max-width:14.285%;
 }
+.cal-row .cal-day{margin:2px 1.5px}
 .cal-day.blank{background:transparent; cursor:default; pointer-events:none}
-.cal-day.disabled{opacity:.28; cursor:default}
-.cal-day.has-day{background:rgba(0,240,255,.12); color:#eafcff}
-.cal-day.has-week{box-shadow:inset 0 0 0 1px rgba(94,255,168,.45)}
+.cal-day.disabled{opacity:.3; cursor:default}
+.cal-day.has-day{background:rgba(0,240,255,.14); color:#eafcff}
+.cal-day.has-week{box-shadow:inset 0 0 0 1px rgba(94,255,168,.5)}
 .cal-day.has-day.has-week{
-  background:linear-gradient(160deg, rgba(122,92,255,.32), rgba(0,240,255,.14));
+  background:linear-gradient(160deg, rgba(122,92,255,.34), rgba(0,240,255,.16));
   color:#fff;
 }
-.cal-day.today{outline:1px dashed rgba(94,255,168,.7); outline-offset:-2px}
+.cal-day.today{box-shadow:inset 0 0 0 1px rgba(94,255,168,.85)}
 .cal-day.selected{
   background:linear-gradient(135deg,#79f6ff,#b48cff) !important;
   color:#071018 !important;
-  box-shadow:0 6px 14px rgba(100,110,255,.3) !important;
+  box-shadow:0 6px 14px rgba(100,110,255,.35) !important;
 }
 .cal-day .dot{
   position:absolute; left:50%; bottom:4px; transform:translateX(-50%);
-  width:4px; height:4px; border-radius:50%;
+  width:4px; height:4px; border-radius:50%; pointer-events:none;
 }
 .cal-day.has-day .dot{background:#00eaff}
 .cal-day.has-week .dot{background:#5effa8}
 .cal-day.has-day.has-week .dot{width:8px; border-radius:99px; background:linear-gradient(90deg,#00eaff,#ff5ec8)}
-.cal-foot{margin-top:8px}
-.cal-legend{
-  text-align:center; font-size:11px; color:var(--mute); font-weight:700; margin-bottom:8px;
-}
+.cal-foot{margin-top:10px}
+.cal-legend{text-align:center; font-size:11px; color:#8b95b8; font-weight:700; margin-bottom:8px}
 .cal-legend i{display:inline-block; width:8px; height:8px; border-radius:50%; margin:0 4px 0 8px; vertical-align:middle}
 .cal-legend .ld{background:#00eaff}
 .cal-legend .lw{background:#5effa8}
 .cal-legend .lb{background:linear-gradient(90deg,#7a5cff,#00eaff)}
 .cal-actions{display:flex; gap:8px}
 .cal-btn{
-  flex:1; min-height:40px; border-radius:12px; border:1px solid rgba(160,180,255,.22);
-  background:rgba(255,255,255,.05); color:#d5dcf5; font-size:13px; font-weight:800; cursor:pointer;
+  flex:1; min-height:42px; border-radius:12px; border:1px solid rgba(160,180,255,.25);
+  background:rgba(255,255,255,.06); color:#d7def6; font-size:13px; font-weight:800; cursor:pointer;
 }
-.cal-btn.primary{
-  border:0; color:#071018; background:linear-gradient(135deg,#79f6ff,#b48cff);
-}
+.cal-btn.primary{border:0; color:#071018; background:linear-gradient(135deg,#79f6ff,#b48cff)}
 .cal-btn:active{transform:scale(.98)}
-
 /* ===== 手机适配：看全、可滚动、不裁切 ===== */
 html,body{width:100%; max-width:100%; overflow-x:hidden}
 .container{width:100%; max-width:780px; padding:0 2px}
@@ -400,7 +405,7 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
       <div class="live"><b></b> AI DAILY LIVE</div>
       <h1>AI 日报导航</h1>
       <p class="sub">一个日期选完：当天日报 + 当周周榜</p>
-      <p class="upd">最近更新：2026年7月15日 14:48</p>
+      <p class="upd">最近更新：2026年7月15日 14:53</p>
       <div class="stats">
         <div class="stat"><div class="n">15</div><div class="l">日报天数</div></div>
         <div class="stat"><div class="n">3</div><div class="l">周榜期数</div></div>
@@ -432,7 +437,7 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
         <input id="day-select" type="hidden" value="2026-07-15" data-available="2026-07-19,2026-07-18,2026-07-17,2026-07-16,2026-07-15,2026-07-14,2026-07-13,2026-07-12,2026-07-11,2026-07-10,2026-07-09,2026-07-08,2026-07-07,2026-07-06,2026-07-05,2026-07-04,2026-07-03,2026-07-02,2026-07-01,2026-06-30,2026-06-29" data-min="2026-06-29" data-max="2026-07-19">
       </div>
 
-      <div class="cal-root" id="cal-root" hidden>
+      <div class="cal-root" id="cal-root" hidden aria-hidden="true">
         <div class="cal-mask" id="cal-mask"></div>
         <div class="cal-panel" id="cal-sheet" role="dialog" aria-modal="true" aria-label="日历">
           <div class="cal-head">
@@ -619,23 +624,22 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
     var p = parseIso(cur) || parseIso(TODAY);
     viewY = p.y; viewM = p.m;
     calRoot.hidden = false;
+    calRoot.classList.add('open');
+    calRoot.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    // 等显示后再量宽画格子
     setTimeout(renderCal, 0);
   }
   function closeCal(){
-    if (calRoot) calRoot.hidden = true;
+    if (!calRoot) return;
+    calRoot.classList.remove('open');
+    calRoot.hidden = true;
+    calRoot.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
   function renderCal(){
     if (!calGrid || !calTitle) return;
     calTitle.textContent = viewY + '年' + (viewM + 1) + '月';
     // 固定格子边长，避免 aspect-ratio 在微信里崩
-    var width = calGrid.clientWidth || 300;
-    var cell = Math.floor((width - 4 * 7) / 7); // margin 左右约 2px*2
-    if (cell < 32) cell = 32;
-    if (cell > 44) cell = 44;
-    calGrid.style.setProperty('--cell', cell + 'px');
     calGrid.innerHTML = '';
 
     var firstDow = new Date(viewY, viewM, 1).getDay(); // 0=Sun
@@ -722,6 +726,8 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
     if (calRoot && !calRoot.hidden) renderCal();
   });
   updateTrigger(selectedIso);
+  // 强制初始关闭，防止样式泄漏到页面
+  if (calRoot) { calRoot.classList.remove('open'); calRoot.hidden = true; }
 
   var empty = document.getElementById('empty');
   var meta = document.getElementById('result-meta');
