@@ -6,258 +6,325 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<meta name="theme-color" content="#04040c">
 <meta name="format-detection" content="telephone=no">
-<meta name="theme-color" content="#070814">
 <title>AI日报 & GitHub周榜</title>
 <style>
-:root {
-  --bg0:#05060f; --bg1:#0b1024; --card:rgba(22,28,48,.72); --card2:rgba(30,38,64,.9);
-  --line:rgba(140,160,255,.16); --line2:rgba(140,160,255,.28);
-  --text:#eef2ff; --dim:#a8b3d6; --mute:#7c87a8;
-  --top:#5aa8ff; --news:#ff8a4c; --week:#3ee0a0; --violet:#9b7bff;
-  --shadow:0 18px 50px rgba(0,0,0,.35); --radius:18px;
+:root{
+  --bg:#04040c; --text:#f4f6ff; --dim:#a9b4d8; --mute:#7480a5;
+  --c1:#6d5cff; --c2:#00e5ff; --c3:#ff4ecd; --c4:#7cffb2; --c5:#ffb14a;
+  --glass:rgba(16,18,40,.55); --line:rgba(160,180,255,.18);
+  --r:22px;
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  color:var(--text); min-height:100vh; line-height:1.5;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(91,124,255,.28), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(255,107,203,.18), transparent 50%),
-    radial-gradient(800px 500px at 50% 100%, rgba(62,224,160,.10), transparent 45%),
-    linear-gradient(180deg, var(--bg0), var(--bg1) 40%, #070a16);
-  padding:18px 14px calc(34px + env(safe-area-inset-bottom));
+  min-height:100vh; color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  padding:16px 12px calc(36px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
 }
-body::before{
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35;
+/* animated aurora */
+.bg{
+  position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+}
+.bg .orb{
+  position:absolute; border-radius:50%; filter:blur(40px); opacity:.55;
+  animation:float 12s ease-in-out infinite;
+}
+.bg .o1{width:340px;height:340px;left:-80px;top:-60px;background:radial-gradient(circle,rgba(109,92,255,.8),transparent 70%);animation-duration:14s}
+.bg .o2{width:300px;height:300px;right:-70px;top:10%;background:radial-gradient(circle,rgba(0,229,255,.55),transparent 70%);animation-duration:16s;animation-delay:-3s}
+.bg .o3{width:280px;height:280px;left:20%;bottom:-80px;background:radial-gradient(circle,rgba(255,78,205,.45),transparent 70%);animation-duration:18s;animation-delay:-6s}
+.bg .grid{
+  position:absolute; inset:0; opacity:.22;
   background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size:28px 28px; mask-image:radial-gradient(circle at 50% 20%, #000 20%, transparent 75%);
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse at 50% 0%, #000 25%, transparent 75%);
 }
-.container{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.bg .scan{
+  position:absolute; left:0; right:0; height:120px; top:-120px;
+  background:linear-gradient(180deg, transparent, rgba(0,229,255,.08), transparent);
+  animation:scan 7s linear infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(28px) scale(1.06)}}
+@keyframes scan{0%{top:-120px}100%{top:110%}}
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,255,178,.55)}70%{box-shadow:0 0 0 10px rgba(124,255,178,0)}100%{box-shadow:0 0 0 0 rgba(124,255,178,0)}}
+@keyframes borderflow{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+.container{max-width:780px;margin:0 auto;position:relative;z-index:1}
+
+/* hero */
 .hero{
-  position:relative; overflow:hidden; border-radius:24px; padding:22px 18px 18px;
-  background:linear-gradient(145deg, rgba(34,42,78,.85), rgba(16,20,40,.92));
-  border:1px solid var(--line2); box-shadow:var(--shadow); margin-bottom:16px;
+  position:relative; border-radius:28px; padding:1px; margin-bottom:16px;
+  background:linear-gradient(120deg,var(--c1),var(--c2),var(--c3),var(--c1));
+  background-size:300% 300%; animation:borderflow 8s linear infinite;
+  box-shadow:0 20px 60px rgba(0,0,0,.45), 0 0 40px rgba(109,92,255,.15);
 }
-.hero::before{
-  content:""; position:absolute; width:220px; height:220px; right:-40px; top:-60px; border-radius:50%;
-  background:radial-gradient(circle, rgba(155,123,255,.45), transparent 65%); filter:blur(2px);
+.hero-inner{
+  border-radius:27px; padding:22px 18px 18px;
+  background:
+    linear-gradient(160deg, rgba(20,16,48,.92), rgba(8,10,24,.96) 55%, rgba(10,14,30,.98));
+  position:relative; overflow:hidden;
 }
-.hero::after{
-  content:""; position:absolute; width:160px; height:160px; left:-30px; bottom:-50px; border-radius:50%;
-  background:radial-gradient(circle, rgba(90,168,255,.35), transparent 65%);
+.hero-inner::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.08) 48%, transparent 62%);
+  transform:translateX(-120%); animation:heroShine 4.5s ease-in-out infinite;
 }
-.badge-live{
-  display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; letter-spacing:.4px;
-  color:#cfe0ff; background:rgba(90,168,255,.12); border:1px solid rgba(90,168,255,.28);
-  border-radius:999px; padding:4px 10px; margin-bottom:10px;
+@keyframes heroShine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.live{
+  display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:800;
+  letter-spacing:.8px; color:#d7fff0; padding:5px 11px; border-radius:999px;
+  background:rgba(124,255,178,.08); border:1px solid rgba(124,255,178,.28); margin-bottom:12px;
 }
-.badge-live i{width:7px;height:7px;border-radius:50%;background:#3ee0a0;box-shadow:0 0 0 0 rgba(62,224,160,.7);animation:pulse 1.8s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,224,160,.55)}70%{box-shadow:0 0 0 8px rgba(62,224,160,0)}100%{box-shadow:0 0 0 0 rgba(62,224,160,0)}}
+.live b{width:8px;height:8px;border-radius:50%;background:#7cffb2;animation:pulse 1.6s infinite}
 .hero h1{
-  position:relative; font-size:26px; font-weight:800; letter-spacing:.2px;
-  background:linear-gradient(90deg,#fff 10%, #b7c7ff 45%, #ff9ad8 100%);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
+  font-size:28px; font-weight:900; line-height:1.15; letter-spacing:.3px;
+  background:linear-gradient(90deg,#fff,#c6d4ff 35%,#7ef9ff 60%,#ff8ae2 100%);
+  background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:shine 6s linear infinite;
 }
-.hero .sub{position:relative; color:var(--dim); font-size:13px; margin-top:8px}
-.hero .upd{position:relative; color:var(--mute); font-size:12px; margin-top:10px}
+.hero .sub{color:var(--dim); font-size:13px; margin-top:10px}
+.hero .upd{color:var(--mute); font-size:12px; margin-top:10px}
+.stats{
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;
+}
+.stat{
+  flex:1 1 90px; min-width:90px; border-radius:14px; padding:10px 12px;
+  background:rgba(255,255,255,.04); border:1px solid var(--line);
+}
+.stat .n{font-size:18px; font-weight:900; color:#fff}
+.stat .l{font-size:11px; color:var(--mute); margin-top:2px}
+
 .tip{
-  font-size:12px; color:var(--dim); margin:0 0 12px; padding:10px 12px; border-radius:12px;
-  background:rgba(255,255,255,.03); border:1px dashed var(--line);
+  font-size:12px; color:var(--dim); margin:0 0 12px; padding:11px 12px; border-radius:14px;
+  background:rgba(0,229,255,.05); border:1px solid rgba(0,229,255,.15);
 }
-.quick-grid{display:grid; grid-template-columns:1fr; gap:12px; margin:0 0 14px}
+
+/* quick cards */
+.quick-grid{display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:14px}
 @media(min-width:560px){.quick-grid{grid-template-columns:repeat(3,1fr)}}
 .quick{
   position:relative; display:block; text-decoration:none; color:inherit; overflow:hidden;
-  background:var(--card); border:1px solid var(--line); border-radius:20px;
-  padding:16px 14px 14px; min-height:118px; box-shadow:var(--shadow);
-  backdrop-filter:blur(14px); transition:transform .18s ease, border-color .18s ease;
+  border-radius:22px; min-height:126px; padding:16px 14px 14px;
+  background:var(--glass); border:1px solid var(--line);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 14px 40px rgba(0,0,0,.28);
+  transition:transform .16s ease, box-shadow .16s ease;
 }
-.quick:active{transform:scale(.98)}
-.quick.disabled{opacity:.42}
-.quick.q-top{border-color:rgba(90,168,255,.35)}
-.quick.q-news{border-color:rgba(255,138,76,.35)}
-.quick.q-week{border-color:rgba(62,224,160,.35)}
-.quick.q-top .glow{background:radial-gradient(circle, rgba(90,168,255,.35), transparent 70%)}
-.quick.q-news .glow{background:radial-gradient(circle, rgba(255,138,76,.35), transparent 70%)}
-.quick.q-week .glow{background:radial-gradient(circle, rgba(62,224,160,.3), transparent 70%)}
-.glow{position:absolute; width:120px; height:120px; right:-20px; top:-30px; filter:blur(8px); opacity:.9}
-.q-icon{position:relative; font-size:20px; margin-bottom:8px}
-.q-label{position:relative; font-size:16px; font-weight:800}
+.quick:active{transform:scale(.975)}
+.quick.disabled{opacity:.4}
+.quick .ring{
+  position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+  background:linear-gradient(135deg, transparent, rgba(255,255,255,.2), transparent 60%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+}
+.quick .glow{position:absolute; width:140px; height:140px; right:-30px; top:-40px; filter:blur(10px); opacity:.9}
+.q-top .glow{background:radial-gradient(circle, rgba(0,229,255,.5), transparent 70%)}
+.q-news .glow{background:radial-gradient(circle, rgba(255,177,74,.5), transparent 70%)}
+.q-week .glow{background:radial-gradient(circle, rgba(124,255,178,.45), transparent 70%)}
+.q-top{border-color:rgba(0,229,255,.28)}
+.q-news{border-color:rgba(255,177,74,.28)}
+.q-week{border-color:rgba(124,255,178,.28)}
+.q-icon{position:relative; font-size:22px; margin-bottom:8px; filter:drop-shadow(0 0 8px rgba(255,255,255,.25))}
+.q-label{position:relative; font-size:16px; font-weight:900}
 .q-sub{position:relative; font-size:12px; color:var(--dim); margin-top:6px}
 .q-title{position:relative; font-size:12px; color:var(--mute); margin-top:8px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+
+/* sticky picker */
 .search-box{
-  position:sticky; top:0; z-index:30; padding:10px 0 12px;
-  background:linear-gradient(var(--bg0) 70%, rgba(5,6,15,0));
+  position:sticky; top:0; z-index:40; padding:8px 0 12px;
+  background:linear-gradient(180deg, rgba(4,4,12,.96) 55%, rgba(4,4,12,0));
+}
+.pick-panel{
+  border-radius:20px; padding:12px; border:1px solid var(--line);
+  background:rgba(12,14,32,.78); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 12px 36px rgba(0,0,0,.28);
 }
 .pick-grid{display:grid; grid-template-columns:1fr; gap:10px}
 @media(min-width:560px){.pick-grid{grid-template-columns:1fr 1fr}}
 .pick-field{display:flex; flex-direction:column; gap:6px}
-.pick-label{font-size:12px; color:var(--mute); font-weight:700; letter-spacing:.2px}
+.pick-label{font-size:12px; color:var(--mute); font-weight:800}
 .pick-select{
-  width:100%; min-height:48px; border-radius:14px; border:1px solid var(--line);
-  background:rgba(18,24,44,.92); color:var(--text); padding:10px 36px 10px 12px; font-size:15px;
+  width:100%; min-height:50px; border-radius:14px; border:1px solid rgba(160,180,255,.22);
+  background:linear-gradient(180deg, rgba(24,28,56,.95), rgba(14,16,34,.98));
+  color:var(--text); padding:12px 38px 12px 14px; font-size:15px; font-weight:700;
   outline:none; appearance:none; -webkit-appearance:none;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
-  background-image:linear-gradient(45deg,transparent 50%,#a8b3d6 50%),linear-gradient(135deg,#a8b3d6 50%,transparent 50%);
-  background-position:calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
-  background-size:6px 6px,6px 6px; background-repeat:no-repeat;
+  background-image:
+    linear-gradient(45deg,transparent 50%,#9fb0ff 50%),
+    linear-gradient(135deg,#9fb0ff 50%,transparent 50%),
+    linear-gradient(180deg, rgba(24,28,56,.95), rgba(14,16,34,.98));
+  background-position:calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px), 0 0;
+  background-size:6px 6px,6px 6px,auto;
+  background-repeat:no-repeat;
 }
-.pick-select:focus{border-color:rgba(155,123,255,.55); box-shadow:0 0 0 3px rgba(155,123,255,.15)}
-.rel-row{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
-.rel-row::-webkit-scrollbar{display:none}
-.rchip{
-  flex:0 0 auto; border:1px solid var(--line); background:rgba(20,26,46,.9);
-  color:var(--dim); border-radius:999px; padding:9px 13px; font-size:12px; font-weight:700; cursor:pointer; min-height:38px;
+.pick-select:focus{border-color:rgba(0,229,255,.55); box-shadow:0 0 0 3px rgba(0,229,255,.14), 0 0 24px rgba(109,92,255,.18)}
+.rel-row,.filters{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
+.rel-row::-webkit-scrollbar,.filters::-webkit-scrollbar{display:none}
+.rchip,.tab{
+  flex:0 0 auto; min-height:38px; border-radius:999px; padding:9px 14px; cursor:pointer;
+  font-size:12px; font-weight:800; color:var(--dim);
+  border:1px solid var(--line); background:rgba(255,255,255,.03);
 }
-.rchip:active,.rchip.active{
-  color:#fff; border-color:rgba(155,123,255,.5);
-  background:linear-gradient(135deg, rgba(91,124,255,.35), rgba(155,123,255,.25));
+.rchip:active,.tab.active{
+  color:#fff; border-color:rgba(109,92,255,.5);
+  background:linear-gradient(135deg, rgba(109,92,255,.45), rgba(0,229,255,.22));
+  box-shadow:0 0 18px rgba(109,92,255,.25);
 }
-.filters{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.tab{
-  flex:0 0 auto; border:1px solid var(--line); background:rgba(20,26,46,.85);
-  color:var(--dim); border-radius:999px; padding:9px 14px; font-size:13px;
-  font-weight:700; cursor:pointer; min-height:40px;
-}
-.tab.active{
-  color:#fff; border-color:rgba(90,168,255,.45);
-  background:linear-gradient(135deg, rgba(90,168,255,.28), rgba(155,123,255,.22));
-  box-shadow:0 8px 20px rgba(90,168,255,.12);
-}
-.meta-row{display:flex; justify-content:space-between; align-items:center; margin:6px 0 12px; gap:8px}
+.meta-row{display:flex; justify-content:space-between; align-items:center; gap:8px; margin:8px 0 12px}
 .meta{font-size:12px; color:var(--mute)}
 .actions{display:flex; gap:8px}
 .actions button{
   border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--dim);
-  border-radius:999px; padding:7px 11px; font-size:12px; cursor:pointer; font-weight:600;
+  border-radius:999px; padding:7px 11px; font-size:12px; font-weight:700; cursor:pointer;
 }
 .section{margin-bottom:18px}
 .section-title{
-  font-size:15px; font-weight:800; margin:10px 0 12px; padding-left:12px;
-  border-left:3px solid var(--violet); color:#fff; letter-spacing:.2px;
+  display:flex; align-items:center; gap:8px;
+  font-size:15px; font-weight:900; margin:8px 0 12px; color:#fff;
 }
-.section-title.t-day{border-left-color:var(--top)}
-.section-title.t-week{border-left-color:var(--week)}
+.section-title::before{
+  content:""; width:8px; height:18px; border-radius:99px;
+  background:linear-gradient(180deg,var(--c2),var(--c1));
+  box-shadow:0 0 12px rgba(0,229,255,.45);
+}
+.section-title.t-week::before{background:linear-gradient(180deg,var(--c4),var(--c2))}
+
 .group{
-  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-  margin-bottom:11px; overflow:hidden; backdrop-filter:blur(12px);
-  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  position:relative; margin-bottom:12px; border-radius:var(--r); overflow:hidden;
+  background:rgba(14,16,34,.72); border:1px solid var(--line);
+  backdrop-filter:blur(12px); box-shadow:0 12px 34px rgba(0,0,0,.22);
 }
 .group[hidden]{display:none !important}
-.group.flash{box-shadow:0 0 0 2px rgba(90,168,255,.65), 0 12px 36px rgba(90,168,255,.18)}
+.group.flash{box-shadow:0 0 0 2px rgba(0,229,255,.7), 0 0 30px rgba(109,92,255,.28)}
 .group summary{
-  list-style:none; cursor:pointer; user-select:none;
-  display:flex; align-items:center; justify-content:space-between; gap:10px;
-  padding:15px 14px; min-height:56px;
+  list-style:none; cursor:pointer; user-select:none; min-height:58px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px; padding:15px 14px;
 }
 .group summary::-webkit-details-marker{display:none}
 .group summary:active{background:rgba(255,255,255,.03)}
 .sum-left{display:flex; flex-wrap:wrap; align-items:center; gap:8px; min-width:0}
-.sum-date{font-size:15px; font-weight:800; color:#fff}
+.sum-date{font-size:15px; font-weight:900}
 .sum-iso{font-size:11px; color:var(--mute); font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.sum-right{display:flex; align-items:center; gap:8px; flex:0 0 auto}
-.count{font-size:12px; color:var(--mute); background:rgba(0,0,0,.25); border:1px solid var(--line); border-radius:999px; padding:2px 8px}
-.chev{color:var(--mute); transition:transform .18s ease; font-size:14px}
+.sum-right{display:flex; align-items:center; gap:8px}
+.count{font-size:12px; color:var(--mute); border:1px solid var(--line); border-radius:999px; padding:2px 8px; background:rgba(0,0,0,.25)}
+.chev{color:var(--mute); transition:transform .18s ease}
 .group[open] .chev{transform:rotate(180deg)}
-.chip{font-size:11px; font-weight:800; border-radius:999px; padding:3px 8px}
-.chip.top5,.b-top{background:rgba(90,168,255,.16); color:#9dcbff; border:1px solid rgba(90,168,255,.25)}
-.chip.evening,.b-news{background:rgba(255,138,76,.14); color:#ffc19a; border:1px solid rgba(255,138,76,.25)}
-.chip.weekly,.b-week{background:rgba(62,224,160,.12); color:#9af0cb; border:1px solid rgba(62,224,160,.25)}
+.chip{font-size:11px; font-weight:900; border-radius:999px; padding:3px 8px; border:1px solid transparent}
+.chip.top5,.b-top{color:#9ef6ff; background:rgba(0,229,255,.12); border-color:rgba(0,229,255,.25)}
+.chip.evening,.b-news{color:#ffd29a; background:rgba(255,177,74,.12); border-color:rgba(255,177,74,.25)}
+.chip.weekly,.b-week{color:#b9ffd8; background:rgba(124,255,178,.10); border-color:rgba(124,255,178,.25)}
 .group-body{padding:0 10px 12px}
 .card{
-  display:block; text-decoration:none; color:inherit; position:relative;
-  background:linear-gradient(180deg, rgba(16,22,40,.95), rgba(12,16,30,.98));
-  border:1px solid var(--line); border-radius:14px; padding:13px; margin-top:9px; min-height:68px;
-  transition:border-color .15s ease, transform .15s ease;
+  display:block; text-decoration:none; color:inherit; margin-top:9px; min-height:70px;
+  border-radius:16px; padding:13px; position:relative; overflow:hidden;
+  background:linear-gradient(160deg, rgba(22,26,56,.95), rgba(10,12,28,.98));
+  border:1px solid rgba(160,180,255,.14);
 }
-.card:active{transform:scale(.99); border-color:var(--line2)}
+.card::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg,var(--c2),var(--c1));
+}
+.card[data-kind="evening"]::before{background:linear-gradient(180deg,var(--c5),var(--c3))}
+.card[data-kind="weekly"]::before{background:linear-gradient(180deg,var(--c4),var(--c2))}
+.card:active{transform:scale(.99)}
 .card-top{display:flex; align-items:center; gap:8px; margin-bottom:7px}
-.badge{font-size:11px; font-weight:800; border-radius:999px; padding:3px 8px}
+.badge{font-size:11px; font-weight:900; border-radius:999px; padding:3px 8px}
 .go{margin-left:auto; color:var(--mute); font-size:18px}
-.card-title{font-size:14px; font-weight:750; color:#fff; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.card-title{font-size:14px; font-weight:800; color:#fff; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
 .card-desc{font-size:12px; color:var(--mute); margin-top:6px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
-.empty{
-  display:none; text-align:center; color:var(--mute); font-size:13px;
-  border:1px dashed var(--line); border-radius:14px; padding:18px; margin:8px 0 16px;
-  background:rgba(255,255,255,.02);
-}
+.empty{display:none; text-align:center; color:var(--mute); font-size:13px; border:1px dashed var(--line); border-radius:14px; padding:18px; margin:8px 0 16px; background:rgba(255,255,255,.02)}
 .empty.show{display:block}
-.footer{text-align:center; color:#5b6482; font-size:12px; margin-top:28px; padding-bottom:6px}
-body.filter-top5 .week-section,
-body.filter-evening .week-section{display:none}
+.footer{text-align:center; color:#5a6488; font-size:12px; margin-top:28px}
+body.filter-top5 .week-section, body.filter-evening .week-section{display:none}
 body.filter-weekly .day-section{display:none}
-body.filter-top5 .card[data-kind="evening"],
-body.filter-top5 .chip.evening,
-body.filter-evening .card[data-kind="top5"],
-body.filter-evening .chip.top5{display:none}
+body.filter-top5 .card[data-kind="evening"], body.filter-top5 .chip.evening,
+body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{display:none}
+@media (prefers-reduced-motion:reduce){
+  .orb,.scan,.hero,.hero h1,.hero-inner::after,.live b{animation:none !important}
+}
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="grid"></div><div class="scan"></div>
+</div>
 <div class="container">
   <header class="hero">
-    <div class="badge-live"><i></i> AI DAILY · LIVE</div>
-    <h1>🤖 AI 日报导航</h1>
-    <p class="sub">下拉选日期 / 周次 · 一键直达最新报告</p>
-    <p class="upd">最近更新：2026年7月15日 10:57</p>
+    <div class="hero-inner">
+      <div class="live"><b></b> AI DAILY LIVE</div>
+      <h1>AI 日报导航</h1>
+      <p class="sub">选日期 / 选周次 · 酷炫直达最新情报</p>
+      <p class="upd">最近更新：2026年7月15日 11:04</p>
+      <div class="stats">
+        <div class="stat"><div class="n">15</div><div class="l">日报天数</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">周榜期数</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">最新入口</div></div>
+      </div>
+    </div>
   </header>
 
-  <p class="tip">📱 手机友好：用下方下拉精确选择，不用手输日期。</p>
+  <p class="tip">📅 日期下拉只选日期；📈 周次下拉只选周报。不用手输。</p>
+
   <div class="quick-grid">
-    <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><span class="glow"></span><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
-    <a class="quick q-news" href="日报/2026年07月14日/AI晚报.html"><span class="glow"></span><div class="q-icon">📰</div><div class="q-label">最新晚报</div><div class="q-sub">2026年7月14日</div><div class="q-title">AI HOT 晚报</div></a>
-    <a class="quick q-week" href="周榜/2026年第29周/GitHub周榜.html"><span class="glow"></span><div class="q-icon">📈</div><div class="q-label">最新周榜</div><div class="q-sub">2026年第29周</div><div class="q-title">8领域 · skills · agent-skills </div></a>
+    <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><span class="ring"></span><span class="glow"></span><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
+    <a class="quick q-news" href="日报/2026年07月14日/AI晚报.html"><span class="ring"></span><span class="glow"></span><div class="q-icon">📰</div><div class="q-label">最新晚报</div><div class="q-sub">2026年7月14日</div><div class="q-title">AI HOT 晚报</div></a>
+    <a class="quick q-week" href="周榜/2026年第29周/GitHub周榜.html"><span class="ring"></span><span class="glow"></span><div class="q-icon">📈</div><div class="q-label">最新周榜</div><div class="q-sub">2026年第29周</div><div class="q-title">8领域 · skills · agent-skills </div></a>
   </div>
 
   <div class="search-box">
-    <div class="pick-grid">
-      <label class="pick-field">
-        <span class="pick-label">📅 日报日期</span>
-        <select id="day-select" class="pick-select" aria-label="选择日报日期">
-          <option value="" selected>选择日报日期</option>
-<option value="2026-07-15">2026年7月15日（TOP5）</option>
-<option value="2026-07-14">2026年7月14日（TOP5、晚报）</option>
-<option value="2026-07-13">2026年7月13日（TOP5）</option>
-<option value="2026-07-12">2026年7月12日（TOP5、晚报）</option>
-<option value="2026-07-11">2026年7月11日（TOP5、晚报）</option>
-<option value="2026-07-10">2026年7月10日（TOP5、晚报）</option>
-<option value="2026-07-09">2026年7月9日（TOP5、晚报）</option>
-<option value="2026-07-08">2026年7月8日（晚报）</option>
-<option value="2026-07-07">2026年7月7日（晚报）</option>
-<option value="2026-07-06">2026年7月6日（TOP5、晚报）</option>
-<option value="2026-07-05">2026年7月5日（TOP5、晚报）</option>
-<option value="2026-07-04">2026年7月4日（TOP5、晚报）</option>
-<option value="2026-07-03">2026年7月3日（TOP5、晚报）</option>
-<option value="2026-07-02">2026年7月2日（TOP5、晚报）</option>
-<option value="2026-07-01">2026年7月1日（TOP5、晚报）</option>
-        </select>
-      </label>
-      <label class="pick-field">
-        <span class="pick-label">📈 周榜周次</span>
-        <select id="week-select" class="pick-select" aria-label="选择周榜">
-          <option value="" selected>选择周榜</option>
-<option value="2026年第29周">2026年第29周 · 8领域 · skills · agent-ski</option>
-<option value="2026年第28周">2026年第28周 · 🤖 AI智能体 — 一周涨4万星</option>
-<option value="2026年第27周">2026年第27周 · AI智能体</option>
-        </select>
-      </label>
-    </div>
-    <div class="rel-row" aria-label="快捷">
-      <button type="button" class="rchip" data-jump-day="2026-07-15">今天</button>
-      <button type="button" class="rchip" data-jump-day="2026-07-14">昨天</button>
-      <button type="button" class="rchip" data-jump-day="2026-07-13">前天</button>
-      <button type="button" class="rchip" id="btn-week-latest">最新周榜</button>
-      <button type="button" class="rchip" id="btn-show-all">显示全部</button>
-    </div>
-    <div class="filters" aria-label="分类">
-      <button type="button" class="tab active" data-filter="all">全部</button>
-      <button type="button" class="tab" data-filter="top5">TOP5</button>
-      <button type="button" class="tab" data-filter="evening">晚报</button>
-      <button type="button" class="tab" data-filter="weekly">周榜</button>
+    <div class="pick-panel">
+      <div class="pick-grid">
+        <label class="pick-field">
+          <span class="pick-label">📅 选择日期</span>
+          <select id="day-select" class="pick-select" aria-label="选择日期">
+            <option value="" selected>选择日期</option>
+<option value="2026-07-15">2026年7月15日</option>
+<option value="2026-07-14">2026年7月14日</option>
+<option value="2026-07-13">2026年7月13日</option>
+<option value="2026-07-12">2026年7月12日</option>
+<option value="2026-07-11">2026年7月11日</option>
+<option value="2026-07-10">2026年7月10日</option>
+<option value="2026-07-09">2026年7月9日</option>
+<option value="2026-07-08">2026年7月8日</option>
+<option value="2026-07-07">2026年7月7日</option>
+<option value="2026-07-06">2026年7月6日</option>
+<option value="2026-07-05">2026年7月5日</option>
+<option value="2026-07-04">2026年7月4日</option>
+<option value="2026-07-03">2026年7月3日</option>
+<option value="2026-07-02">2026年7月2日</option>
+<option value="2026-07-01">2026年7月1日</option>
+          </select>
+        </label>
+        <label class="pick-field">
+          <span class="pick-label">📈 选择周次</span>
+          <select id="week-select" class="pick-select" aria-label="选择周次">
+            <option value="" selected>选择周次</option>
+<option value="2026年第29周">2026年第29周</option>
+<option value="2026年第28周">2026年第28周</option>
+<option value="2026年第27周">2026年第27周</option>
+          </select>
+        </label>
+      </div>
+      <div class="rel-row" aria-label="快捷">
+        <button type="button" class="rchip" data-jump-day="2026-07-15">今天</button>
+        <button type="button" class="rchip" data-jump-day="2026-07-14">昨天</button>
+        <button type="button" class="rchip" data-jump-day="2026-07-13">前天</button>
+        <button type="button" class="rchip" id="btn-week-latest">最新周榜</button>
+        <button type="button" class="rchip" id="btn-show-all">显示全部</button>
+      </div>
+      <div class="filters" aria-label="分类">
+        <button type="button" class="tab active" data-filter="all">全部</button>
+        <button type="button" class="tab" data-filter="top5">TOP5</button>
+        <button type="button" class="tab" data-filter="evening">晚报</button>
+        <button type="button" class="tab" data-filter="weekly">周榜</button>
+      </div>
     </div>
   </div>
 
@@ -272,7 +339,7 @@ body.filter-evening .chip.top5{display:none}
   <div class="empty" id="empty">没有匹配项</div>
 
   <section class="section day-section">
-    <h2 class="section-title t-day">📅 按日期</h2>
+    <h2 class="section-title t-day">按日期</h2>
     <div id="day-list">
       <details class="group day-group" id="d-2026-07-15" data-kind="day" data-date="2026-07-15" data-date-cn="2026年07月15日" data-search="2026年07月15日 2026年7月15日 2026-07-15 07-15 个人 ai 助手从「能聊」到「能干活、能省钱」" open><summary><span class="sum-left"><span class="sum-date">2026年7月15日</span><span class="sum-iso">2026-07-15</span><span class="chip top5">TOP5</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月15日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div><div class="card-desc">OpenClaw · Open WebUI · DeerFlow · AnythingLLM · Headroom</div></a>
 </div></details>
@@ -320,7 +387,7 @@ body.filter-evening .chip.top5{display:none}
   </section>
 
   <section class="section week-section">
-    <h2 class="section-title t-week">📈 按周榜</h2>
+    <h2 class="section-title t-week">按周榜</h2>
     <div id="week-list">
       <details class="group week-group" id="w-2026-W29" data-kind="week" data-date="2026-W29" data-date-cn="2026年第29周" data-search="2026年第29周 周榜 8领域 · skills · agent-skills · superpowers top涨星 +31,567⭐ 等 · skills · agent-skills · superpowers" open><summary><span class="sum-left"><span class="sum-date">2026年第29周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第29周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">8领域 · skills · agent-skills · superpowers</div><div class="card-desc">TOP涨星 +31,567⭐ 等 · skills · agent-skills · superpowers</div></a>
 </div></details>
@@ -332,7 +399,7 @@ body.filter-evening .chip.top5{display:none}
     </div>
   </section>
 
-  <div class="footer">AI 自动生成 · 点卡片直达报告 · 详情页可返回/上下翻</div>
+  <div class="footer">AI 自动生成 · 点卡片直达 · 详情可返回/上下翻</div>
 </div>
 <script>
 (function(){
