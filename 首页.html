@@ -251,117 +251,52 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 
 
 
-/* ===== 日历组件（默认隐藏，.open 才显示；兼容微信） ===== */
-.date-trigger{
-  width:100%; display:flex; align-items:center; gap:12px;
-  min-height:56px; padding:12px 14px; border-radius:16px; cursor:pointer;
-  border:1px solid rgba(150,170,255,.3);
-  background:linear-gradient(180deg, rgba(40,44,90,.96), rgba(16,18,40,.98));
-  box-shadow:0 12px 28px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.07);
-  color:var(--text); text-align:left;
-}
-.date-trigger:active{transform:scale(.985)}
-.dt-ico{
-  width:42px;height:42px;border-radius:13px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-  font-size:18px;background:rgba(0,240,255,.12);border:1px solid rgba(0,240,255,.28);
-}
-.dt-main{flex:1;min-width:0}
-.dt-title{display:block;font-size:15px;font-weight:900}
-.dt-sub{display:block;margin-top:3px;font-size:12px;color:var(--mute);font-weight:650;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dt-go{
-  flex:0 0 auto;font-size:12px;font-weight:900;color:#061018;padding:9px 14px;border-radius:999px;
-  background:linear-gradient(135deg,#79f6ff,#b48cff);
-}
-/* 关键：默认必须 none，只有 .open 才 flex，避免 hidden 被覆盖导致日历铺进页面 */
-.cal-root{
-  display:none !important;
-  position:fixed !important;
-  left:0; top:0; right:0; bottom:0;
-  z-index:99999 !important;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-  box-sizing:border-box;
-}
-.cal-root.open{
-  display:flex !important;
-}
-.cal-mask{
-  position:absolute; left:0; top:0; right:0; bottom:0;
-  background:rgba(0,0,0,.72);
-}
-.cal-panel{
-  position:relative; z-index:1;
-  width:100%; max-width:320px;
-  background:#14172e;
-  border:1px solid rgba(160,180,255,.3);
-  border-radius:18px;
-  box-shadow:0 22px 50px rgba(0,0,0,.6);
-  padding:14px 12px 12px;
-  box-sizing:border-box;
-}
-.cal-head{display:flex; align-items:center; gap:8px; margin-bottom:10px}
-.cal-head-title{flex:1; text-align:center; font-size:16px; font-weight:900; color:#fff}
-.cal-nav{
-  width:36px; height:36px; border-radius:12px; border:1px solid rgba(160,180,255,.25);
-  background:rgba(255,255,255,.06); color:#fff; font-size:22px; line-height:1; cursor:pointer;
-}
-.cal-weeknames{display:flex; width:100%; margin-bottom:6px}
-.cal-weeknames span{
-  width:14.285%; text-align:center; font-size:11px; color:#8b95b8; font-weight:800; padding:4px 0;
-  box-sizing:border-box;
-}
-.cal-body{width:100%;}
-.cal-row{display:flex; width:100%;}
-.cal-day{
-  width:14.285%;
-  height:40px;
-  margin:0;
-  border:0; border-radius:10px;
-  background:rgba(255,255,255,.045); color:#d7def6;
-  font-size:13px; font-weight:800; cursor:pointer;
+
+/* ===== 系统日期选择器（市面标准体验，微信/iOS/Android 原生） ===== */
+.native-date-wrap{
   position:relative;
-  display:inline-flex; align-items:center; justify-content:center;
-  box-sizing:border-box;
-  flex:0 0 14.285%;
-  max-width:14.285%;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(150,170,255,.32);
+  background:linear-gradient(180deg, rgba(42,46,96,.96), rgba(16,18,40,.98));
+  box-shadow:0 12px 28px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.07);
+  min-height:58px;
 }
-.cal-row .cal-day{margin:2px 1.5px}
-.cal-day.blank{background:transparent; cursor:default; pointer-events:none}
-.cal-day.disabled{opacity:.3; cursor:default}
-.cal-day.has-day{background:rgba(0,240,255,.14); color:#eafcff}
-.cal-day.has-week{box-shadow:inset 0 0 0 1px rgba(94,255,168,.5)}
-.cal-day.has-day.has-week{
-  background:linear-gradient(160deg, rgba(122,92,255,.34), rgba(0,240,255,.16));
-  color:#fff;
+.native-date-ui{
+  pointer-events:none;
+  display:flex; align-items:center; gap:12px;
+  min-height:58px; padding:12px 14px;
 }
-.cal-day.today{box-shadow:inset 0 0 0 1px rgba(94,255,168,.85)}
-.cal-day.selected{
-  background:linear-gradient(135deg,#79f6ff,#b48cff) !important;
-  color:#071018 !important;
-  box-shadow:0 6px 14px rgba(100,110,255,.35) !important;
+.nd-ico{
+  width:42px;height:42px;border-radius:13px;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  background:rgba(0,240,255,.12);border:1px solid rgba(0,240,255,.28);
 }
-.cal-day .dot{
-  position:absolute; left:50%; bottom:4px; transform:translateX(-50%);
-  width:4px; height:4px; border-radius:50%; pointer-events:none;
+.nd-text{flex:1; min-width:0}
+.nd-text strong{display:block; font-size:15px; font-weight:900; color:#fff}
+.nd-text small{display:block; margin-top:3px; font-size:12px; color:var(--mute); font-weight:650;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.nd-badge{
+  flex:0 0 auto; font-size:12px; font-weight:900; color:#061018;
+  padding:9px 14px; border-radius:999px;
+  background:linear-gradient(135deg,#79f6ff,#b48cff);
+  box-shadow:0 8px 18px rgba(110,100,255,.25);
 }
-.cal-day.has-day .dot{background:#00eaff}
-.cal-day.has-week .dot{background:#5effa8}
-.cal-day.has-day.has-week .dot{width:8px; border-radius:99px; background:linear-gradient(90deg,#00eaff,#ff5ec8)}
-.cal-foot{margin-top:10px}
-.cal-legend{text-align:center; font-size:11px; color:#8b95b8; font-weight:700; margin-bottom:8px}
-.cal-legend i{display:inline-block; width:8px; height:8px; border-radius:50%; margin:0 4px 0 8px; vertical-align:middle}
-.cal-legend .ld{background:#00eaff}
-.cal-legend .lw{background:#5effa8}
-.cal-legend .lb{background:linear-gradient(90deg,#7a5cff,#00eaff)}
-.cal-actions{display:flex; gap:8px}
-.cal-btn{
-  flex:1; min-height:42px; border-radius:12px; border:1px solid rgba(160,180,255,.25);
-  background:rgba(255,255,255,.06); color:#d7def6; font-size:13px; font-weight:800; cursor:pointer;
+/* 原生 input 覆盖在 UI 上，点击即唤起系统日期选择器 */
+.native-date-input{
+  position:absolute; inset:0; width:100%; height:100%;
+  opacity:0.01; /* 不能为0，部分 WebView 不响应点击 */
+  border:0; margin:0; padding:0;
+  font-size:16px; /* iOS 防缩放 */
+  cursor:pointer;
+  color-scheme: dark;
+  z-index:2;
 }
-.cal-btn.primary{border:0; color:#071018; background:linear-gradient(135deg,#79f6ff,#b48cff)}
-.cal-btn:active{transform:scale(.98)}
+.native-date-wrap:focus-within{
+  border-color:rgba(0,240,255,.55);
+  box-shadow:0 0 0 3px rgba(0,240,255,.14), 0 12px 28px rgba(0,0,0,.3);
+}
+
 /* ===== 手机适配：看全、可滚动、不裁切 ===== */
 html,body{width:100%; max-width:100%; overflow-x:hidden}
 .container{width:100%; max-width:780px; padding:0 2px}
@@ -405,7 +340,7 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
       <div class="live"><b></b> AI DAILY LIVE</div>
       <h1>AI 日报导航</h1>
       <p class="sub">一个日期选完：当天日报 + 当周周榜</p>
-      <p class="upd">最近更新：2026年7月15日 14:53</p>
+      <p class="upd">最近更新：2026年7月15日 14:55</p>
       <div class="stats">
         <div class="stat"><div class="n">15</div><div class="l">日报天数</div></div>
         <div class="stat"><div class="n">3</div><div class="l">周榜期数</div></div>
@@ -414,7 +349,7 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
     </div>
   </header>
 
-  <p class="tip">📅 选一个日期：显示当天日报；该周有周榜会一起出来（周日最直观）。</p>
+  <p class="tip">📅 点日期框会打开<strong>系统日历</strong>（和手机设置里一样）；选中后显示当天日报+当周周榜。</p>
 
   <div class="quick-grid">
     <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><span class="ring"></span><span class="glow"></span><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
@@ -425,41 +360,23 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
   <div class="search-box">
     <div class="pick-panel">
       <div class="pick-field">
-        <span class="pick-label">📅 选择日期</span>
-        <button type="button" class="date-trigger" id="date-trigger" aria-haspopup="dialog">
-          <span class="dt-ico" aria-hidden="true">📅</span>
-          <span class="dt-main">
-            <strong class="dt-title" id="date-trigger-label">选择日期</strong>
-            <span class="dt-sub" id="date-trigger-sub">打开日历</span>
-          </span>
-          <span class="dt-go">日历</span>
-        </button>
-        <input id="day-select" type="hidden" value="2026-07-15" data-available="2026-07-19,2026-07-18,2026-07-17,2026-07-16,2026-07-15,2026-07-14,2026-07-13,2026-07-12,2026-07-11,2026-07-10,2026-07-09,2026-07-08,2026-07-07,2026-07-06,2026-07-05,2026-07-04,2026-07-03,2026-07-02,2026-07-01,2026-06-30,2026-06-29" data-min="2026-06-29" data-max="2026-07-19">
-      </div>
-
-      <div class="cal-root" id="cal-root" hidden aria-hidden="true">
-        <div class="cal-mask" id="cal-mask"></div>
-        <div class="cal-panel" id="cal-sheet" role="dialog" aria-modal="true" aria-label="日历">
-          <div class="cal-head">
-            <button type="button" class="cal-nav" id="cal-prev" aria-label="上一月">‹</button>
-            <div class="cal-head-title" id="cal-title">2026年7月</div>
-            <button type="button" class="cal-nav" id="cal-next" aria-label="下一月">›</button>
+        <span class="pick-label">📅 选择日期（系统日历）</span>
+        <div class="native-date-wrap">
+          <div class="native-date-ui" id="date-ui">
+            <span class="nd-ico">📅</span>
+            <span class="nd-text">
+              <strong id="date-trigger-label">选择日期</strong>
+              <small id="date-trigger-sub">点击打开系统日期选择器</small>
+            </span>
+            <span class="nd-badge">选择</span>
           </div>
-          <div class="cal-weeknames" id="cal-weeknames">
-            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
-          </div>
-          <div class="cal-body" id="cal-grid"></div>
-          <div class="cal-foot">
-            <div class="cal-legend"><i class="ld"></i>有日报 <i class="lw"></i>有周榜 <i class="lb"></i>都有</div>
-            <div class="cal-actions">
-              <button type="button" class="cal-btn" id="cal-today">今天</button>
-              <button type="button" class="cal-btn" id="cal-clear">全部</button>
-              <button type="button" class="cal-btn primary" id="cal-close">完成</button>
-            </div>
-          </div>
+          <input id="day-select" class="native-date-input" type="date"
+            min="2026-06-29" max="2026-07-19" value="2026-07-15"
+            data-available="2026-07-19,2026-07-18,2026-07-17,2026-07-16,2026-07-15,2026-07-14,2026-07-13,2026-07-12,2026-07-11,2026-07-10,2026-07-09,2026-07-08,2026-07-07,2026-07-06,2026-07-05,2026-07-04,2026-07-03,2026-07-02,2026-07-01,2026-06-30,2026-06-29"
+            aria-label="选择日期">
         </div>
+        <script type="application/json" id="cal-data">{"min": "2026-06-29", "max": "2026-07-19", "default": "2026-07-15", "today": "2026-07-15", "days": {"2026-07-15": {"label": "2026年7月15日", "kinds": ["TOP5"]}, "2026-07-14": {"label": "2026年7月14日", "kinds": ["TOP5", "晚报"]}, "2026-07-13": {"label": "2026年7月13日", "kinds": ["TOP5"]}, "2026-07-12": {"label": "2026年7月12日", "kinds": ["TOP5", "晚报"]}, "2026-07-11": {"label": "2026年7月11日", "kinds": ["TOP5", "晚报"]}, "2026-07-10": {"label": "2026年7月10日", "kinds": ["TOP5", "晚报"]}, "2026-07-09": {"label": "2026年7月9日", "kinds": ["TOP5", "晚报"]}, "2026-07-08": {"label": "2026年7月8日", "kinds": ["晚报"]}, "2026-07-07": {"label": "2026年7月7日", "kinds": ["晚报"]}, "2026-07-06": {"label": "2026年7月6日", "kinds": ["TOP5", "晚报"]}, "2026-07-05": {"label": "2026年7月5日", "kinds": ["TOP5", "晚报"]}, "2026-07-04": {"label": "2026年7月4日", "kinds": ["TOP5", "晚报"]}, "2026-07-03": {"label": "2026年7月3日", "kinds": ["TOP5", "晚报"]}, "2026-07-02": {"label": "2026年7月2日", "kinds": ["TOP5", "晚报"]}, "2026-07-01": {"label": "2026年7月1日", "kinds": ["TOP5", "晚报"]}}, "weeks": {"2026-07-13": "2026年第29周", "2026-07-14": "2026年第29周", "2026-07-15": "2026年第29周", "2026-07-16": "2026年第29周", "2026-07-17": "2026年第29周", "2026-07-18": "2026年第29周", "2026-07-19": "2026年第29周", "2026-07-06": "2026年第28周", "2026-07-07": "2026年第28周", "2026-07-08": "2026年第28周", "2026-07-09": "2026年第28周", "2026-07-10": "2026年第28周", "2026-07-11": "2026年第28周", "2026-07-12": "2026年第28周", "2026-06-29": "2026年第27周", "2026-06-30": "2026年第27周", "2026-07-01": "2026年第27周", "2026-07-02": "2026年第27周", "2026-07-03": "2026年第27周", "2026-07-04": "2026年第27周", "2026-07-05": "2026年第27周"}}</script>
       </div>
-      <script type="application/json" id="cal-data">{"min": "2026-06-29", "max": "2026-07-19", "default": "2026-07-15", "today": "2026-07-15", "days": {"2026-07-15": {"label": "2026年7月15日", "kinds": ["TOP5"]}, "2026-07-14": {"label": "2026年7月14日", "kinds": ["TOP5", "晚报"]}, "2026-07-13": {"label": "2026年7月13日", "kinds": ["TOP5"]}, "2026-07-12": {"label": "2026年7月12日", "kinds": ["TOP5", "晚报"]}, "2026-07-11": {"label": "2026年7月11日", "kinds": ["TOP5", "晚报"]}, "2026-07-10": {"label": "2026年7月10日", "kinds": ["TOP5", "晚报"]}, "2026-07-09": {"label": "2026年7月9日", "kinds": ["TOP5", "晚报"]}, "2026-07-08": {"label": "2026年7月8日", "kinds": ["晚报"]}, "2026-07-07": {"label": "2026年7月7日", "kinds": ["晚报"]}, "2026-07-06": {"label": "2026年7月6日", "kinds": ["TOP5", "晚报"]}, "2026-07-05": {"label": "2026年7月5日", "kinds": ["TOP5", "晚报"]}, "2026-07-04": {"label": "2026年7月4日", "kinds": ["TOP5", "晚报"]}, "2026-07-03": {"label": "2026年7月3日", "kinds": ["TOP5", "晚报"]}, "2026-07-02": {"label": "2026年7月2日", "kinds": ["TOP5", "晚报"]}, "2026-07-01": {"label": "2026年7月1日", "kinds": ["TOP5", "晚报"]}}, "weeks": {"2026-07-13": "2026年第29周", "2026-07-14": "2026年第29周", "2026-07-15": "2026年第29周", "2026-07-16": "2026年第29周", "2026-07-17": "2026年第29周", "2026-07-18": "2026年第29周", "2026-07-19": "2026年第29周", "2026-07-06": "2026年第28周", "2026-07-07": "2026年第28周", "2026-07-08": "2026年第28周", "2026-07-09": "2026年第28周", "2026-07-10": "2026年第28周", "2026-07-11": "2026年第28周", "2026-07-12": "2026年第28周", "2026-06-29": "2026年第27周", "2026-06-30": "2026年第27周", "2026-07-01": "2026年第27周", "2026-07-02": "2026年第27周", "2026-07-03": "2026年第27周", "2026-07-04": "2026年第27周", "2026-07-05": "2026年第27周"}}</script>
 
       <div class="rel-row" aria-label="快捷">
         <button type="button" class="rchip" data-jump-day="2026-07-15">今天</button>
@@ -564,24 +481,17 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
 
 
 
+
   var calData = {};
   try {
     var raw = document.getElementById('cal-data');
     if (raw) calData = JSON.parse(raw.textContent || '{}');
   } catch (e) { calData = {}; }
 
-  var calRoot = document.getElementById('cal-root');
-  var calMask = document.getElementById('cal-mask');
-  var calGrid = document.getElementById('cal-grid');
-  var calTitle = document.getElementById('cal-title');
-  var dateTrigger = document.getElementById('date-trigger');
   var dateTriggerLabel = document.getElementById('date-trigger-label');
   var dateTriggerSub = document.getElementById('date-trigger-sub');
-  var viewY = 0, viewM = 0;
   var selectedIso = (daySelect && daySelect.value) || calData.default || TODAY;
 
-  function pad2(n){ return (n < 10 ? '0' : '') + n; }
-  function toIso(y, m, d){ return y + '-' + pad2(m + 1) + '-' + pad2(d); }
   function parseIso(s){
     if (!s || String(s).indexOf('-') < 0) return null;
     var a = String(s).split('-');
@@ -594,13 +504,6 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
   function cnWeekday(iso){
     var p = parseIso(iso); if (!p) return '';
     return '周' + '日一二三四五六'.charAt(new Date(p.y, p.m, p.d).getDay());
-  }
-  function inRange(iso){
-    var min = calData.min || '';
-    var max = calData.max || '';
-    if (min && iso < min) return false;
-    if (max && iso > max) return false;
-    return true;
   }
   function updateTrigger(iso){
     selectedIso = iso || '';
@@ -618,116 +521,36 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
     if (wk) bits.push(wk);
     if (dateTriggerSub) dateTriggerSub.textContent = bits.length ? bits.join(' · ') : '当天暂无报告';
   }
-  function openCal(){
-    if (!calRoot) return;
-    var cur = selectedIso || calData.default || TODAY;
-    var p = parseIso(cur) || parseIso(TODAY);
-    viewY = p.y; viewM = p.m;
-    calRoot.hidden = false;
-    calRoot.classList.add('open');
-    calRoot.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    setTimeout(renderCal, 0);
+  function openNativeDate(){
+    if (!daySelect) return;
+    try {
+      if (typeof daySelect.showPicker === 'function') {
+        daySelect.showPicker();
+        return;
+      }
+    } catch (e) {}
+    daySelect.focus();
+    daySelect.click();
   }
-  function closeCal(){
-    if (!calRoot) return;
-    calRoot.classList.remove('open');
-    calRoot.hidden = true;
-    calRoot.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+  // 点击包装层也尝试唤起（双保险）
+  var wrap = document.querySelector('.native-date-wrap');
+  if (wrap) {
+    wrap.addEventListener('click', function(){ openNativeDate(); });
   }
-  function renderCal(){
-    if (!calGrid || !calTitle) return;
-    calTitle.textContent = viewY + '年' + (viewM + 1) + '月';
-    // 固定格子边长，避免 aspect-ratio 在微信里崩
-    calGrid.innerHTML = '';
-
-    var firstDow = new Date(viewY, viewM, 1).getDay(); // 0=Sun
-    var startPad = (firstDow + 6) % 7; // Mon first
-    var dim = new Date(viewY, viewM + 1, 0).getDate();
-    var total = Math.ceil((startPad + dim) / 7) * 7;
-    var row = null;
-    for (var i = 0; i < total; i++) {
-      if (i % 7 === 0) {
-        row = document.createElement('div');
-        row.className = 'cal-row';
-        calGrid.appendChild(row);
-      }
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'cal-day';
-      var dayNum = i - startPad + 1;
-      if (dayNum < 1 || dayNum > dim) {
-        btn.className += ' blank';
-        btn.tabIndex = -1;
-        row.appendChild(btn);
-        continue;
-      }
-      var iso = toIso(viewY, viewM, dayNum);
-      btn.textContent = String(dayNum);
-      var hasDay = !!(calData.days && calData.days[iso]);
-      var hasWeek = !!(calData.weeks && calData.weeks[iso]);
-      if (hasDay) btn.classList.add('has-day');
-      if (hasWeek) btn.classList.add('has-week');
-      if (iso === TODAY) btn.classList.add('today');
-      if (iso === selectedIso) btn.classList.add('selected');
-      if (!inRange(iso)) {
-        btn.classList.add('disabled');
-        btn.disabled = true;
-      } else {
-        btn.addEventListener('click', (function(iso0){
-          return function(){
-            selectedIso = iso0;
-            if (daySelect) daySelect.value = iso0;
-            updateTrigger(iso0);
-            jumpDay(iso0);
-            closeCal();
-          };
-        })(iso));
-      }
-      if (hasDay || hasWeek) {
-        var dot = document.createElement('span');
-        dot.className = 'dot';
-        btn.appendChild(dot);
-      }
-      row.appendChild(btn);
-    }
+  if (daySelect) {
+    daySelect.addEventListener('change', function(){
+      var v = daySelect.value;
+      if (!v) { showAll(); return; }
+      updateTrigger(v);
+      jumpDay(v);
+    });
+    daySelect.addEventListener('input', function(){
+      var v = daySelect.value;
+      if (!v) return;
+      updateTrigger(v);
+    });
   }
-  if (dateTrigger) dateTrigger.addEventListener('click', openCal);
-  if (calMask) calMask.addEventListener('click', closeCal);
-  var calPrev = document.getElementById('cal-prev');
-  var calNext = document.getElementById('cal-next');
-  if (calPrev) calPrev.addEventListener('click', function(){
-    viewM -= 1; if (viewM < 0) { viewM = 11; viewY -= 1; } renderCal();
-  });
-  if (calNext) calNext.addEventListener('click', function(){
-    viewM += 1; if (viewM > 11) { viewM = 0; viewY += 1; } renderCal();
-  });
-  var calTodayBtn = document.getElementById('cal-today');
-  if (calTodayBtn) calTodayBtn.addEventListener('click', function(){
-    selectedIso = TODAY;
-    if (daySelect) daySelect.value = TODAY;
-    updateTrigger(TODAY);
-    jumpDay(TODAY);
-    closeCal();
-  });
-  var calClearBtn = document.getElementById('cal-clear');
-  if (calClearBtn) calClearBtn.addEventListener('click', function(){
-    showAll();
-    closeCal();
-  });
-  var calCloseBtn = document.getElementById('cal-close');
-  if (calCloseBtn) calCloseBtn.addEventListener('click', closeCal);
-  document.addEventListener('keydown', function(ev){
-    if (ev.key === 'Escape' && calRoot && !calRoot.hidden) closeCal();
-  });
-  // 旋转/尺寸变化时重算
-  window.addEventListener('resize', function(){
-    if (calRoot && !calRoot.hidden) renderCal();
-  });
   updateTrigger(selectedIso);
-  // 强制初始关闭，防止样式泄漏到页面
-  if (calRoot) { calRoot.classList.remove('open'); calRoot.hidden = true; }
 
   var empty = document.getElementById('empty');
   var meta = document.getElementById('result-meta');
@@ -805,6 +628,7 @@ html,body{width:100%; max-width:100%; overflow-x:hidden}
     if (!iso) return;
     focusKey = iso;
     if (daySelect) daySelect.value = iso;
+    if (typeof updateTrigger === 'function') updateTrigger(iso);
     // 选日期时不过度锁分类；若在周榜 tab 也允许看到当周
     if (filter === 'weekly') { /* keep */ }
     var g = apply({forceOpen:true, scroll:true});
