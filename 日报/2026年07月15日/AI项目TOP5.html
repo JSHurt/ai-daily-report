@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月15日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+  --warn-bg: #0a1f2a;
+  --warn-border: #1f6feb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#79b8ff;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto;white-space:nowrap}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px;line-height:1.7;text-align:left}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月15日 · 个人助手 · 本地聊天台 · SuperAgent · 私有知识库 · 上下文压缩</p>
+
+<div class="banner">📡 本次基于 GitHub API 实时抓取（2026-07-15 北京时间上午）：优先「本周有重大更新 / 高星且仍在活跃」的实用项目，与近几日「编码 Agent / 私有化推理 / MCP 工具」形成互补——今天把镜头对准「个人能天天用的 AI 助手全栈」。</div>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：个人 AI 助手从「能聊」到「能干活、能省钱」</div>
+<div class="theme-desc">前几天讲了「Agent 怎么写代码」「怎么接工具」「怎么私有化跑模型」——但多数人真正每天碰的是另一层：有一个常驻助手、有一个好用的聊天台、有能做长任务的 SuperAgent、有能读自己文档的知识库，以及别把 Token 账单烧穿。本期 5 个项目串起这条「个人可用」链路：OpenClaw 把助手接到你已有的 IM 通道；Open WebUI 把多模型聊天做成自托管工作台；DeerFlow 2.0 用子 Agent + 沙箱做长程研究/编码；AnythingLLM 一站搞定文档对话与本地 Agent；Headroom 在进模型前把工具输出/日志/RAG 块压掉 20%～95% 的 Token。一句话：助手要常驻、要私有、要能干重活，还要算得过账。</div>
+</div>
+
+<!-- 1. OpenClaw -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">OpenClaw — 跨平台个人 AI 助手</div>
+<div class="card-stars">⭐ ~383K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>在你自己设备上跑的「个人 AI 助手」——Gateway 做控制面，产品形态是「常驻助手」：接 WhatsApp / Telegram / Slack / Discord / 飞书 / 企业微信 / QQ / Teams 等你已经在用的通道；支持 macOS/iOS/Android 语音对话，还能渲染可交互的 live Canvas。<br>
+<strong>解决什么：</strong>ChatGPT/Claude 网页是「你去找它」；企业 Bot 往往绑死供应商或内网审批。OpenClaw 反过来：助手住在你设备上，消息从你日常 IM 进来，回复也回同一通道——单用户、本地优先、随时在线，而不是再开一个新 App 聊天窗口。<br>
+<strong>适用场景：</strong>想把 AI 嵌进日常沟通流的个人/小团队；需要跨端（手机+电脑）常驻助手；对「数据走自己设备、通道自己控」有要求的自托管用户。<br>
+<strong>怎么用：</strong>按官方 Getting Started 安装 Gateway → 绑定至少一个消息通道与模型供应商 → 在 IM 里直接对话；更新走官方 release（本周已发 v2026.7.1）。详见 docs.openclaw.ai。
+</div>
+<div class="card-update">🔥 近期亮点：v2026.7.1（7/13）；多通道 IM 原生接入；自设备常驻 + live Canvas</div>
+<div class="card-links">
+<a href="https://github.com/openclaw/openclaw" target="_blank">GitHub ↗</a>
+<a href="https://openclaw.ai" target="_blank">官网 ↗</a>
+<a href="https://docs.openclaw.ai" target="_blank">文档 ↗</a>
+</div>
+</div>
+
+<!-- 2. Open WebUI -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">Open WebUI — 人人会用的自托管 AI 工作台</div>
+<div class="card-stars">⭐ ~145K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>功能完整、可完全离线运行的开源 AI 界面平台——对接 Ollama 与任意 OpenAI 兼容 API，内置 RAG 推理引擎、插件扩展、多用户权限；安装路径覆盖 pip / uv / Docker / K8s。<br>
+<strong>解决什么：</strong>本地跑了 Ollama / vLLM / LocalAI 之后，缺的往往不是模型，而是「家人同事也能点开就用」的界面：多会话、知识库上传、工具/插件、模型切换、权限隔离。Open WebUI 把「自托管 ChatGPT 体验」做成开箱即用，而不是再写一坨 Gradio 原型。<br>
+<strong>适用场景：</strong>家庭实验室/小团队统一聊天入口；企业内网要一套可审计的多模型前端；把 Ollama 从「命令行玩具」升级成「全员可用服务」。<br>
+<strong>怎么用：</strong>`docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main`（或官方 `:ollama` / `:cuda` 镜像）→ 浏览器打开 → 配置 Ollama 地址或 OpenAI 兼容端点 → 上传文档开 RAG。
+</div>
+<div class="card-update">🔥 近期亮点：v0.10.2；插件可扩展；Ollama + OpenAI 兼容双轨；Docker/K8s 一键</div>
+<div class="card-links">
+<a href="https://github.com/open-webui/open-webui" target="_blank">GitHub ↗</a>
+<a href="https://openwebui.com" target="_blank">官网 ↗</a>
+<a href="https://docs.openwebui.com/" target="_blank">文档 ↗</a>
+</div>
+</div>
+
+<!-- 3. DeerFlow -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">DeerFlow — 字节开源长程 SuperAgent 编排</div>
+<div class="card-stars">⭐ ~77K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>字节跳动开源的 Super Agent harness（Deep Exploration and Efficient Research Flow）——2.0 为完全重写：用可扩展 skills 编排 sub-agents、memory、sandbox，覆盖研究、编码、创作等长程任务；Python 3.12+ / Node 22+。<br>
+<strong>解决什么：</strong>单轮聊天 Agent 做「写一段代码」够用，但「调研竞品 → 读代码 → 出方案 → 写实现 → 验证」这种跨小时任务会丢上下文、缺隔离执行环境。DeerFlow 把「长程 harness」产品化：子 Agent 分工、记忆跨步、沙箱跑命令，技能可插拔——从 demo Agent 走向能扛复杂目标的 SuperAgent。<br>
+<strong>适用场景：</strong>需要开源 Deep Research / 多步编码编排的团队；想在火山引擎/自有模型上跑长任务的业务方；研究 multi-agent + sandbox 工程实践的开发者。<br>
+<strong>怎么用：</strong>克隆仓库按 Makefile/文档起 backend + 前端 → 配置模型（官方推荐 Doubao-Seed-2.0-Code / DeepSeek / Kimi 等）→ 选择 skill 发起长程任务；旧版 Deep Research 仍在 `1.x` 分支维护。
+</div>
+<div class="card-update">🔥 近期亮点：DeerFlow 2.0 全面重写；sub-agent + memory + sandbox；skills 可扩展</div>
+<div class="card-links">
+<a href="https://github.com/bytedance/deer-flow" target="_blank">GitHub ↗</a>
+<a href="https://deerflow.tech" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 4. AnythingLLM -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">AnythingLLM — 本地优先的文档对话 + Agent 一体舱</div>
+<div class="card-stars">⭐ ~63K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>All-in-one 的本地优先 AI 应用——聊天、文档 RAG、Agent、多用户、高度可配置，强调「Stop renting your intelligence」：模型/嵌入/向量库可换，桌面与服务端双形态，几乎零折磨安装。<br>
+<strong>解决什么：</strong>很多人要的不是「再接一个 LangChain 脚本」，而是：把 PDF/Notion/仓库丢进去就能问、还能让 Agent 代办任务、数据默认不离开自己机器。AnythingLLM 把工作区（workspace）、文档管线、Agent 工具链收成一个产品，省掉自建 RAG 的拼装税；团队还在推进 Open Computer，给 Agent 完整电脑环境。<br>
+<strong>适用场景：</strong>个人/小团队私有知识库问答；合规要求下的本地文档 AI；想「一个 App 覆盖聊天+RAG+Agent」而非十几个服务拼盘的场景。<br>
+<strong>怎么用：</strong>官网下载桌面版，或 Docker 起服务端 → 创建 Workspace → 上传/连接文档源 → 选 LLM 与 embedder → 开启 Agent 工具按需执行；多用户权限在服务端形态配置。
+</div>
+<div class="card-update">🔥 近期亮点：v1.15.0；本地优先 Agent；多用户与超可配置；Open Computer 在研</div>
+<div class="card-links">
+<a href="https://github.com/Mintplex-Labs/anything-llm" target="_blank">GitHub ↗</a>
+<a href="https://anythingllm.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<!-- 5. Headroom -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Headroom — Agent 上下文压缩中间层</div>
+<div class="card-stars">⭐ ~59K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>面向 AI Agent 的上下文压缩层——在工具输出、日志、文件、RAG chunk 进入 LLM 之前做内容感知压缩；提供 library / proxy / MCP 三种接入，本地优先、可逆；宣称 JSON 类数据可少 60–95% Token，编码 Agent 场景约 15–20%。<br>
+<strong>解决什么：</strong>Agent 越能干，上下文越容易被「一次 cat 大文件 / 一次跑测日志 / 一坨 RAG 召回」灌满——结果是贵、慢、还更容易丢重点。Headroom 不改你的 Agent 逻辑，只在进模型前把噪声压掉，让同样的上下文窗口装更多有效信息，账单和延迟一起降。<br>
+<strong>适用场景：</strong>Coding Agent / 工具调用密集的工作流；RAG 管道里 chunk 过胖的应用；想用 MCP 给现有 Claude Code / Cursor / 自研 Agent 统一加「省 Token 层」的团队。<br>
+<strong>怎么用：</strong>`pip install headroom-ai` 或 npm 装同名包 → 以库调用压缩函数，或以 proxy/MCP server 挂到 Agent；配置 content-aware compressor，对 JSON/日志/代码输出走不同策略（详见官方 docs）。
+</div>
+<div class="card-update">🔥 近期亮点：v0.31.0（7/9）；library + proxy + MCP 三形态；JSON 最高省 95% Token</div>
+<div class="card-links">
+<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">GitHub ↗</a>
+<a href="https://headroom-docs.vercel.app/docs" target="_blank">文档 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · GitHub API 实时筛选 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
