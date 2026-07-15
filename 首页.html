@@ -245,6 +245,12 @@ body.filter-top5 .week-section, body.filter-evening .week-section{display:none}
 body.filter-weekly .day-section{display:none}
 body.filter-top5 .card[data-kind="evening"], body.filter-top5 .chip.evening,
 body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{display:none}
+
+.date-input{color-scheme:dark}
+.date-input::-webkit-calendar-picker-indicator{
+  opacity:.9; cursor:pointer; filter:invert(.85) sepia(1) saturate(3) hue-rotate(175deg);
+  width:18px; height:18px;
+}
 @media (prefers-reduced-motion:reduce){
   .orb,.scan,.hero,.hero h1,.hero-inner::after,.live b{animation:none !important}
 }
@@ -260,8 +266,8 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     <div class="hero-inner">
       <div class="live"><b></b> AI DAILY LIVE</div>
       <h1>AI 日报导航</h1>
-      <p class="sub">选日期 / 选周次 · 酷炫直达最新情报</p>
-      <p class="upd">最近更新：2026年7月15日 11:04</p>
+      <p class="sub">日期组件选日 · 周次选周榜 · 直达报告</p>
+      <p class="upd">最近更新：2026年7月15日 11:14</p>
       <div class="stats">
         <div class="stat"><div class="n">15</div><div class="l">日报天数</div></div>
         <div class="stat"><div class="n">3</div><div class="l">周榜期数</div></div>
@@ -270,7 +276,7 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     </div>
   </header>
 
-  <p class="tip">📅 日期下拉只选日期；📈 周次下拉只选周报。不用手输。</p>
+  <p class="tip">📅 用系统日期组件选日期；📈 周榜用周次选择。</p>
 
   <div class="quick-grid">
     <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><span class="ring"></span><span class="glow"></span><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
@@ -283,24 +289,10 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
       <div class="pick-grid">
         <label class="pick-field">
           <span class="pick-label">📅 选择日期</span>
-          <select id="day-select" class="pick-select" aria-label="选择日期">
-            <option value="" selected>选择日期</option>
-<option value="2026-07-15">2026年7月15日</option>
-<option value="2026-07-14">2026年7月14日</option>
-<option value="2026-07-13">2026年7月13日</option>
-<option value="2026-07-12">2026年7月12日</option>
-<option value="2026-07-11">2026年7月11日</option>
-<option value="2026-07-10">2026年7月10日</option>
-<option value="2026-07-09">2026年7月9日</option>
-<option value="2026-07-08">2026年7月8日</option>
-<option value="2026-07-07">2026年7月7日</option>
-<option value="2026-07-06">2026年7月6日</option>
-<option value="2026-07-05">2026年7月5日</option>
-<option value="2026-07-04">2026年7月4日</option>
-<option value="2026-07-03">2026年7月3日</option>
-<option value="2026-07-02">2026年7月2日</option>
-<option value="2026-07-01">2026年7月1日</option>
-          </select>
+          <input id="day-select" class="pick-select date-input" type="date"
+            min="2026-07-01" max="2026-07-15" value="2026-07-15"
+            data-available="2026-07-15,2026-07-14,2026-07-13,2026-07-12,2026-07-11,2026-07-10,2026-07-09,2026-07-08,2026-07-07,2026-07-06,2026-07-05,2026-07-04,2026-07-03,2026-07-02,2026-07-01"
+            aria-label="选择日期">
         </label>
         <label class="pick-field">
           <span class="pick-label">📈 选择周次</span>
@@ -408,6 +400,10 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
   var BDAY = '2026-07-13';
   var daySelect = document.getElementById('day-select');
   var weekSelect = document.getElementById('week-select');
+  var available = {};
+  if (daySelect && daySelect.getAttribute('data-available')) {
+    daySelect.getAttribute('data-available').split(',').forEach(function(d){ if(d) available[d]=true; });
+  }
   var empty = document.getElementById('empty');
   var meta = document.getElementById('result-meta');
   var groups = Array.prototype.slice.call(document.querySelectorAll('.group'));
@@ -477,20 +473,16 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     if (!iso) return;
     focusKey = iso;
     if (daySelect) daySelect.value = iso;
-    // 若该日不在下拉（无报告），仍尝试定位
-    var has = false;
-    if (daySelect) {
-      for (var i=0;i<daySelect.options.length;i++) if (daySelect.options[i].value === iso) has = true;
-      if (!has) daySelect.value = '';
-    }
     if (weekSelect) weekSelect.value = '';
-    setTab(filter === 'weekly' ? 'all' : filter);
     if (filter === 'weekly') setTab('all');
+    else setTab(filter);
     var g = apply({forceOpen:true, scroll:true});
     if (!g) {
-      // 无对应日报
-      meta.textContent = '该日暂无日报：' + iso;
+      meta.textContent = available[iso] ? ('已定位：' + iso) : ('该日暂无日报：' + iso);
       empty.classList.add('show');
+      empty.textContent = available[iso] ? '没有匹配项' : ('📅 ' + iso + ' 没有报告');
+    } else {
+      empty.textContent = '没有匹配项';
     }
   }
 
@@ -505,7 +497,7 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
 
   function showAll(){
     focusKey = '';
-    if (daySelect) daySelect.value = '';
+    if (daySelect) daySelect.value = daySelect.getAttribute('max') || '2026-07-15';
     if (weekSelect) weekSelect.value = '';
     setTab('all');
     groups.forEach(function(g){ g.open = false; });
@@ -517,10 +509,16 @@ body.filter-evening .card[data-kind="top5"], body.filter-evening .chip.top5{disp
     apply();
   }
 
-  if (daySelect) daySelect.addEventListener('change', function(){
-    if (!daySelect.value) { showAll(); return; }
-    jumpDay(daySelect.value);
-  });
+  if (daySelect) {
+    daySelect.addEventListener('change', function(){
+      if (!daySelect.value) { showAll(); return; }
+      jumpDay(daySelect.value);
+    });
+    // 部分 WebView 点图标才弹出；点击整框也触发
+    daySelect.addEventListener('click', function(){
+      try { if (daySelect.showPicker) daySelect.showPicker(); } catch(e) {}
+    });
+  }
   if (weekSelect) weekSelect.addEventListener('change', function(){
     if (!weekSelect.value) { showAll(); return; }
     jumpWeek(weekSelect.value);
