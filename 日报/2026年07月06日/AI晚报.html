@@ -53,28 +53,124 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 /* hermes-nav */
 .hermes-nav{
-  position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;
-  padding:12px 12px;margin:0 0 14px;
-  background:linear-gradient(135deg, rgba(16,20,40,.94), rgba(24,18,48,.92));
-  backdrop-filter:blur(14px); border:1px solid rgba(140,160,255,.22);
-  border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.25);
+  position:sticky; top:0; z-index:100;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;
+  margin:0 0 16px; padding:10px 12px;
+  border-radius:16px;
+  border:1px solid rgba(150,170,255,.22);
+  background:linear-gradient(135deg, rgba(20,24,48,.94), rgba(28,20,56,.92));
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
 }
 .hermes-nav a{
-  color:#cfe0ff;text-decoration:none;font-size:13px;font-weight:700;padding:8px 11px;min-height:36px;
-  display:inline-flex;align-items:center;border-radius:10px;border:1px solid transparent;
-  background:rgba(90,168,255,.08);
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:36px; padding:8px 12px; border-radius:11px;
+  color:#dce7ff; text-decoration:none; font-size:13px; font-weight:800;
+  border:1px solid rgba(130,160,255,.18);
+  background:rgba(90,140,255,.10);
 }
-.hermes-nav a:active{background:rgba(90,168,255,.18);border-color:rgba(90,168,255,.3)}
+.hermes-nav a:active{ background:rgba(90,168,255,.22); transform:scale(.98); }
+.hermes-nav .nav-home{
+  background:linear-gradient(135deg, rgba(0,240,255,.16), rgba(122,92,255,.18));
+  border-color:rgba(0,240,255,.28); color:#eaffff;
+}
 .hermes-nav .nav-mid{
-  color:#b7c0df;font-size:12px;font-weight:600;padding:4px 8px;border-radius:999px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(140,160,255,.12);
+  flex:1 1 auto; text-align:center;
+  font-size:12px; font-weight:800; color:#b9c6ea;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(150,170,255,.12);
 }
-.hermes-nav .nav-side{display:flex;gap:6px;align-items:center}
-.hermes-nav .disabled{color:#5b6482;pointer-events:none;padding:8px 10px;font-size:13px}
+.hermes-nav .nav-side{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.hermes-nav .disabled{
+  color:#667089; font-size:13px; font-weight:700; padding:8px 10px; pointer-events:none;
+}
+
+/* hermes-detail-theme */
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  padding-left:max(12px, env(safe-area-inset-left));
+  padding-right:max(12px, env(safe-area-inset-right));
+  padding-bottom:calc(24px + env(safe-area-inset-bottom)) !important;
+  line-height:1.65;
+}
+img,video{ max-width:100%; height:auto; }
+a{ word-break:break-word; }
+.container, .main, .wrap{ max-width:860px; margin-left:auto; margin-right:auto; }
+
+/* TOP5 */
+.project-card, .card, .project{
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.project-card{
+  border-radius:14px !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+.project-card:active, .card:active, .project:active{ transform:translateY(1px); }
+.theme-box, .banner, .insight{
+  border-radius:14px !important;
+}
+.card-name, .card-title, .project-name, .theme, h1, h2{
+  letter-spacing:.2px;
+}
+.card-links a, .card-link, .project-name a{
+  border-radius:10px;
+  padding:6px 10px;
+  display:inline-block;
+}
+
+/* 晚报 */
+.hero{
+  border-radius:0 0 22px 22px;
+  box-shadow:0 16px 40px rgba(0,0,0,.25);
+}
+.nav{ gap:8px !important; }
+.nav-pill{
+  min-height:34px !important;
+  border-radius:999px !important;
+}
+.card-grid{ gap:14px !important; }
+.card{
+  border-radius:14px !important;
+  box-shadow:0 8px 24px rgba(0,0,0,.14);
+}
+.card-link{
+  min-height:34px !important;
+  border-radius:10px !important;
+}
+
+/* 周榜 */
+.domain-title{
+  border-radius:0 10px 10px 0;
+  padding:6px 10px !important;
+  background:rgba(108,92,231,.08);
+}
+.project{
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 8px 22px rgba(0,0,0,.16);
+}
+.project-header{ gap:12px; }
+.project-stars{
+  background:rgba(243,156,18,.12);
+  border:1px solid rgba(243,156,18,.25);
+  border-radius:999px;
+  padding:4px 10px;
+}
+
+/* 小屏 */
+@media (max-width:480px){
+  .hermes-nav{ padding:8px 10px; border-radius:14px; }
+  .hermes-nav a{ min-height:34px; padding:7px 10px; font-size:12px; }
+  .hermes-nav .nav-mid{ font-size:11px; width:100%; order:3; }
+  .card-grid{ grid-template-columns:1fr !important; }
+  .hero-title{ font-size:28px !important; }
+  body{ font-size:15px; }
+}
 </style>
 </head>
 <body>
-<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a href="../../首页.html">← 首页</a></div><div class="nav-mid">2026年7月6日 · 晚报</div><div class="nav-side"><a href="../2026年07月05日/AI晚报.html">← 上一篇</a><a href="../2026年07月07日/AI晚报.html">下一篇 →</a></div></nav><!--hermes-nav-end-->
+<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月6日 · 晚报</div><div class="nav-side"><a href="../2026年07月05日/AI晚报.html">← 上篇</a><a href="../2026年07月07日/AI晚报.html">下篇 →</a></div></nav><!--hermes-nav-end-->
 
 <header class="hero"><div class="hero-date">周一 · 2026-07-06</div><h1 class="hero-title">AI HOT 晚报</h1><p class="hero-sub">实时 AI 行业资讯 · 一屏尽览</p><div class="hero-stats"><div class="hero-stat"><span class="hero-stat-num" style="color:var(--accent)">7</span><span class="hero-stat-label">总条数</span></div><div class="hero-stat"><span class="hero-stat-num">1</span><span class="hero-stat-label">🧠模型发布</span></div><div class="hero-stat"><span class="hero-stat-num">0</span><span class="hero-stat-label">📦产品发布</span></div><div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">📰行业动态</span></div><div class="hero-stat"><span class="hero-stat-num">0</span><span class="hero-stat-label">📄论文研究</span></div><div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">💡技巧与观</span></div></div></header>
 <nav class="nav"><a href="#ai-models" class="nav-pill">🧠 模型发布/更新 <span class="pill-count">1</span></a>
