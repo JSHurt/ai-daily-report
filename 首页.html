@@ -15,7 +15,7 @@
   --top:#58a6ff; --news:#ff7a45; --week:#3dd68c; --accent:#8b7cf6;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   background:var(--bg); color:var(--text); min-height:100vh;
@@ -47,7 +47,6 @@ body{
 .q-label{font-size:15px;font-weight:700}
 .q-sub{font-size:12px;color:var(--dim);margin-top:4px}
 .q-title{font-size:12px;color:var(--mute);margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-
 .search-box{
   position:sticky; top:0; z-index:30;
   background:linear-gradient(var(--bg) 75%, rgba(7,8,12,0));
@@ -64,7 +63,13 @@ body{
   min-height:44px; border-radius:12px; border:1px solid var(--line);
   background:var(--card2); color:var(--dim); padding:0 12px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap;
 }
-.btn-ghost:active{background:var(--card)}
+.rel-row,.month-row{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
+.rel-row::-webkit-scrollbar,.month-row::-webkit-scrollbar{display:none}
+.rchip,.mchip{
+  flex:0 0 auto; border:1px solid var(--line); background:var(--card);
+  color:var(--dim); border-radius:999px; padding:8px 12px; font-size:12px; font-weight:600; cursor:pointer; min-height:36px;
+}
+.rchip:active,.mchip:active{background:var(--card2);color:#fff}
 .filters{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
 .tab{
@@ -80,7 +85,6 @@ body{
   border:1px solid var(--line); background:transparent; color:var(--dim);
   border-radius:999px; padding:6px 10px; font-size:12px; cursor:pointer;
 }
-
 .section{margin-bottom:18px}
 .section-title{
   font-size:15px; font-weight:700; margin:8px 0 10px; padding-left:10px;
@@ -88,12 +92,12 @@ body{
 }
 .section-title.t-day{border-left-color:var(--top)}
 .section-title.t-week{border-left-color:var(--week)}
-
 .group{
   background:var(--card); border:1px solid var(--line); border-radius:14px;
   margin-bottom:10px; overflow:hidden;
 }
 .group[hidden]{display:none !important}
+.group.flash{box-shadow:0 0 0 2px rgba(88,166,255,.55)}
 .group summary{
   list-style:none; cursor:pointer; user-select:none;
   display:flex; align-items:center; justify-content:space-between; gap:10px;
@@ -130,26 +134,24 @@ body{
 }
 .empty.show{display:block}
 .footer{text-align:center; color:#555; font-size:12px; margin-top:24px}
+body.filter-top5 .week-section,
+body.filter-evening .week-section{display:none}
+body.filter-weekly .day-section{display:none}
 body.filter-top5 .card[data-kind="evening"],
 body.filter-top5 .chip.evening,
 body.filter-evening .card[data-kind="top5"],
 body.filter-evening .chip.top5{display:none}
-body.filter-top5 .week-section,
-body.filter-evening .week-section{display:none}
-body.filter-weekly .day-section{display:none}
-body.filter-top5 .day-group:not(:has(.card[data-kind="top5"])),
-body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:none}
 </style>
 </head>
 <body>
 <div class="container">
   <header class="hero">
     <h1>🤖 AI 日报导航</h1>
-    <p class="sub">按日期折叠 · 可搜索查找</p>
-    <p class="upd">最近更新：2026年7月15日 10:05</p>
+    <p class="sub">按日期折叠 · 可搜索 · 支持锚点直达</p>
+    <p class="upd">最近更新：2026年7月15日 10:21</p>
   </header>
 
-  <p class="tip">先点最新；找旧报告用日期搜索，例如 <b>2026-07-14</b> / <b>7月14</b> / <b>第29周</b>。</p>
+  <p class="tip">示例：搜 <b>今天</b> / <b>昨天</b> / <b>2026-07-14</b> / <b>第29周</b>；链接可带 <b>#2026-07-14</b>。</p>
   <div class="quick-grid">
     <a class="quick q-top" href="日报/2026年07月15日/AI项目TOP5.html"><div class="q-icon">📊</div><div class="q-label">最新 TOP5</div><div class="q-sub">2026年7月15日</div><div class="q-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div></a>
     <a class="quick q-news" href="日报/2026年07月14日/AI晚报.html"><div class="q-icon">📰</div><div class="q-label">最新晚报</div><div class="q-sub">2026年7月14日</div><div class="q-title">AI HOT 晚报</div></a>
@@ -159,7 +161,7 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
   <div class="search-box">
     <div class="search-row">
       <input id="q" class="search-input" type="search" enterkeyhint="search" autocomplete="off"
-        list="date-options" placeholder="搜日期：2026-07-14 / 7月14日 / TOP5 / 周榜">
+        list="date-options" placeholder="搜日期：今天 / 昨天 / 2026-07-14 / 第29周">
       <button type="button" class="btn-ghost" id="clear">清空</button>
     </div>
     <datalist id="date-options">
@@ -197,6 +199,13 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
 <option value="2026年第28周"></option>
 <option value="2026年第27周"></option>
     </datalist>
+    <div class="rel-row" aria-label="相对日期">
+      <button type="button" class="rchip" data-q="今天">今天</button>
+      <button type="button" class="rchip" data-q="昨天">昨天</button>
+      <button type="button" class="rchip" data-q="前天">前天</button>
+      <button type="button" class="rchip" data-q="周榜">周榜</button>
+    </div>
+    <div class="month-row" aria-label="日期快捷"><button type="button" class="mchip" data-jump="2026-07-15">7月15日</button><button type="button" class="mchip" data-jump="2026-07-14">7月14日</button><button type="button" class="mchip" data-jump="2026-07-13">7月13日</button><button type="button" class="mchip" data-jump="2026-07-12">7月12日</button><button type="button" class="mchip" data-jump="2026-07-11">7月11日</button><button type="button" class="mchip" data-jump="2026-07-10">7月10日</button><button type="button" class="mchip" data-jump="2026-07-09">7月9日</button><button type="button" class="mchip" data-jump="2026-07-08">7月8日</button><button type="button" class="mchip" data-jump="2026-07-07">7月7日</button><button type="button" class="mchip" data-jump="2026-07-06">7月6日</button><button type="button" class="mchip" data-jump="2026-07-05">7月5日</button><button type="button" class="mchip" data-jump="2026-07-04">7月4日</button><button type="button" class="mchip" data-jump="2026-07-03">7月3日</button><button type="button" class="mchip" data-jump="2026-07-02">7月2日</button><button type="button" class="mchip" data-jump="2026-07-01">7月1日</button></div>
     <div class="filters" aria-label="分类">
       <button type="button" class="tab active" data-filter="all">全部</button>
       <button type="button" class="tab" data-filter="top5">TOP5</button>
@@ -218,45 +227,45 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
   <section class="section day-section">
     <h2 class="section-title t-day">📅 按日期</h2>
     <div id="day-list">
-      <details class="group day-group" data-kind="day" data-date="2026-07-15" data-date-cn="2026年07月15日" data-search="2026年07月15日 2026年7月15日 2026-07-15 07-15 个人 ai 助手从「能聊」到「能干活、能省钱」" open><summary><span class="sum-left"><span class="sum-date">2026年7月15日</span><span class="sum-iso">2026-07-15</span><span class="chip top5">TOP5</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月15日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div><div class="card-desc">OpenClaw · Open WebUI · DeerFlow · AnythingLLM · Headroom</div></a>
+      <details class="group day-group" id="d-2026-07-15" data-kind="day" data-date="2026-07-15" data-date-cn="2026年07月15日" data-search="2026年07月15日 2026年7月15日 2026-07-15 07-15 个人 ai 助手从「能聊」到「能干活、能省钱」" open><summary><span class="sum-left"><span class="sum-date">2026年7月15日</span><span class="sum-iso">2026-07-15</span><span class="chip top5">TOP5</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月15日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">个人 AI 助手从「能聊」到「能干活、能省钱」</div><div class="card-desc">OpenClaw · Open WebUI · DeerFlow · AnythingLLM · Headroom</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-14" data-date-cn="2026年07月14日" data-search="2026年07月14日 2026年7月14日 2026-07-14 07-14 agent 的「手与脚」+ 私有化基础设施补齐 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月14日</span><span class="sum-iso">2026-07-14</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月14日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">Agent 的「手与脚」+ 私有化基础设施补齐</div><div class="card-desc">goose · context7 · awesome · LocalAI · Unsloth</div></a>
+<details class="group day-group" id="d-2026-07-14" data-kind="day" data-date="2026-07-14" data-date-cn="2026年07月14日" data-search="2026年07月14日 2026年7月14日 2026-07-14 07-14 agent 的「手与脚」+ 私有化基础设施补齐 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月14日</span><span class="sum-iso">2026-07-14</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月14日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">Agent 的「手与脚」+ 私有化基础设施补齐</div><div class="card-desc">goose · context7 · awesome · LocalAI · Unsloth</div></a>
 <a class="card" href="日报/2026年07月14日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-13" data-date-cn="2026年07月13日" data-search="2026年07月13日 2026年7月13日 2026-07-13 07-13 开发者从「写代码」到「带 agent 写代码」"><summary><span class="sum-left"><span class="sum-date">2026年7月13日</span><span class="sum-iso">2026-07-13</span><span class="chip top5">TOP5</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月13日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">开发者从「写代码」到「带 Agent 写代码」</div><div class="card-desc">OpenCode · OpenHands · Dify · Ollama · browser</div></a>
+<details class="group day-group" id="d-2026-07-13" data-kind="day" data-date="2026-07-13" data-date-cn="2026年07月13日" data-search="2026年07月13日 2026年7月13日 2026-07-13 07-13 开发者从「写代码」到「带 agent 写代码」"><summary><span class="sum-left"><span class="sum-date">2026年7月13日</span><span class="sum-iso">2026-07-13</span><span class="chip top5">TOP5</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月13日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">开发者从「写代码」到「带 Agent 写代码」</div><div class="card-desc">OpenCode · OpenHands · Dify · Ollama · browser</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-12" data-date-cn="2026年07月12日" data-search="2026年07月12日 2026年7月12日 2026-07-12 07-12 ai 应用栈从「能跑」到「能落地」 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月12日</span><span class="sum-iso">2026-07-12</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月12日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI 应用栈从「能跑」到「能落地」</div><div class="card-desc">mem0 · vLLM · n8n · Firecrawl · Cherry Studio</div></a>
+<details class="group day-group" id="d-2026-07-12" data-kind="day" data-date="2026-07-12" data-date-cn="2026年07月12日" data-search="2026年07月12日 2026年7月12日 2026-07-12 07-12 ai 应用栈从「能跑」到「能落地」 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月12日</span><span class="sum-iso">2026-07-12</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月12日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI 应用栈从「能跑」到「能落地」</div><div class="card-desc">mem0 · vLLM · n8n · Firecrawl · Cherry Studio</div></a>
 <a class="card" href="日报/2026年07月12日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-11" data-date-cn="2026年07月11日" data-search="2026年07月11日 2026年7月11日 2026-07-11 07-11 ai 工具链&quot;基础设施化&quot; ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月11日</span><span class="sum-iso">2026-07-11</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月11日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI 工具链&quot;基础设施化&quot;</div><div class="card-desc">Cline · OpenViking · Ollama · RAGFlow · Pydantic AI</div></a>
+<details class="group day-group" id="d-2026-07-11" data-kind="day" data-date="2026-07-11" data-date-cn="2026年07月11日" data-search="2026年07月11日 2026年7月11日 2026-07-11 07-11 ai 工具链&quot;基础设施化&quot; ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月11日</span><span class="sum-iso">2026-07-11</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月11日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI 工具链&quot;基础设施化&quot;</div><div class="card-desc">Cline · OpenViking · Ollama · RAGFlow · Pydantic AI</div></a>
 <a class="card" href="日报/2026年07月11日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-10" data-date-cn="2026年07月10日" data-search="2026年07月10日 2026年7月10日 2026-07-10 07-10 ai 落地&quot;工具链&quot;持续强化 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月10日</span><span class="sum-iso">2026-07-10</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月10日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI 落地&quot;工具链&quot;持续强化</div><div class="card-desc">Ollama · RAGFlow · Continue · Mem0 · Stable Diffusion WebUI</div></a>
+<details class="group day-group" id="d-2026-07-10" data-kind="day" data-date="2026-07-10" data-date-cn="2026年07月10日" data-search="2026年07月10日 2026年7月10日 2026-07-10 07-10 ai 落地&quot;工具链&quot;持续强化 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月10日</span><span class="sum-iso">2026-07-10</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月10日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI 落地&quot;工具链&quot;持续强化</div><div class="card-desc">Ollama · RAGFlow · Continue · Mem0 · Stable Diffusion WebUI</div></a>
 <a class="card" href="日报/2026年07月10日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-09" data-date-cn="2026年07月09日" data-search="2026年07月09日 2026年7月9日 2026-07-09 07-09 2026年7月9日 ai项目top5 — 待补 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月9日</span><span class="sum-iso">2026-07-09</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月09日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">2026年7月9日 AI项目TOP5 — 待补</div><div class="card-desc">今日 AI 实用项目 TOP5</div></a>
+<details class="group day-group" id="d-2026-07-09" data-kind="day" data-date="2026-07-09" data-date-cn="2026年07月09日" data-search="2026年07月09日 2026年7月9日 2026-07-09 07-09 2026年7月9日 ai项目top5 — 待补 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月9日</span><span class="sum-iso">2026-07-09</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月09日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">2026年7月9日 AI项目TOP5 — 待补</div><div class="card-desc">今日 AI 实用项目 TOP5</div></a>
 <a class="card" href="日报/2026年07月09日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-08" data-date-cn="2026年07月08日" data-search="2026年07月08日 2026年7月8日 2026-07-08 07-08 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月8日</span><span class="sum-iso">2026-07-08</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月08日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
+<details class="group day-group" id="d-2026-07-08" data-kind="day" data-date="2026-07-08" data-date-cn="2026年07月08日" data-search="2026年07月08日 2026年7月8日 2026-07-08 07-08 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月8日</span><span class="sum-iso">2026-07-08</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月08日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-07" data-date-cn="2026年07月07日" data-search="2026年07月07日 2026年7月7日 2026-07-07 07-07 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月7日</span><span class="sum-iso">2026-07-07</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月07日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
+<details class="group day-group" id="d-2026-07-07" data-kind="day" data-date="2026-07-07" data-date-cn="2026年07月07日" data-search="2026年07月07日 2026年7月7日 2026-07-07 07-07 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月7日</span><span class="sum-iso">2026-07-07</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月07日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-06" data-date-cn="2026年07月06日" data-search="2026年07月06日 2026年7月6日 2026-07-06 07-06 ai agent 实用工具集中爆发 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月6日</span><span class="sum-iso">2026-07-06</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月06日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI Agent 实用工具集中爆发</div><div class="card-desc">Browser Use · PPT Master · Caveman · Kilo Code · Claude</div></a>
+<details class="group day-group" id="d-2026-07-06" data-kind="day" data-date="2026-07-06" data-date-cn="2026年07月06日" data-search="2026年07月06日 2026年7月6日 2026-07-06 07-06 ai agent 实用工具集中爆发 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月6日</span><span class="sum-iso">2026-07-06</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月06日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI Agent 实用工具集中爆发</div><div class="card-desc">Browser Use · PPT Master · Caveman · Kilo Code · Claude</div></a>
 <a class="card" href="日报/2026年07月06日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-05" data-date-cn="2026年07月05日" data-search="2026年07月05日 2026年7月5日 2026-07-05 07-05 agent基础设施&quot;中间层&quot;大爆发 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月5日</span><span class="sum-iso">2026-07-05</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月05日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">Agent基础设施&quot;中间层&quot;大爆发</div><div class="card-desc">ECC · Claude · Graphify · LobeHub · HuggingFace Transformers</div></a>
+<details class="group day-group" id="d-2026-07-05" data-kind="day" data-date="2026-07-05" data-date-cn="2026年07月05日" data-search="2026年07月05日 2026年7月5日 2026-07-05 07-05 agent基础设施&quot;中间层&quot;大爆发 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月5日</span><span class="sum-iso">2026-07-05</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月05日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">Agent基础设施&quot;中间层&quot;大爆发</div><div class="card-desc">ECC · Claude · Graphify · LobeHub · HuggingFace Transformers</div></a>
 <a class="card" href="日报/2026年07月05日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-04" data-date-cn="2026年07月04日" data-search="2026年07月04日 2026年7月4日 2026-07-04 07-04 ai agent运行时基础设施升级 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月4日</span><span class="sum-iso">2026-07-04</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月04日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI Agent运行时基础设施升级</div><div class="card-desc">Hermes Agent · Omnigent · Browser Use · Open WebUI · Headroom</div></a>
+<details class="group day-group" id="d-2026-07-04" data-kind="day" data-date="2026-07-04" data-date-cn="2026年07月04日" data-search="2026年07月04日 2026年7月4日 2026-07-04 07-04 ai agent运行时基础设施升级 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月4日</span><span class="sum-iso">2026-07-04</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月04日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI Agent运行时基础设施升级</div><div class="card-desc">Hermes Agent · Omnigent · Browser Use · Open WebUI · Headroom</div></a>
 <a class="card" href="日报/2026年07月04日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-03" data-date-cn="2026年07月03日" data-search="2026年07月03日 2026年7月3日 2026-07-03 07-03 ai智能体框架新格局 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月3日</span><span class="sum-iso">2026-07-03</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月03日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI智能体框架新格局</div><div class="card-desc">DeerFlow · Pydantic AI · Omnigent · Headroom · LiteLLM</div></a>
+<details class="group day-group" id="d-2026-07-03" data-kind="day" data-date="2026-07-03" data-date-cn="2026年07月03日" data-search="2026年07月03日 2026年7月3日 2026-07-03 07-03 ai智能体框架新格局 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月3日</span><span class="sum-iso">2026-07-03</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月03日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI智能体框架新格局</div><div class="card-desc">DeerFlow · Pydantic AI · Omnigent · Headroom · LiteLLM</div></a>
 <a class="card" href="日报/2026年07月03日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-02" data-date-cn="2026年07月02日" data-search="2026年07月02日 2026年7月2日 2026-07-02 07-02 ai智能体基础设施升级 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月2日</span><span class="sum-iso">2026-07-02</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月02日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI智能体基础设施升级</div><div class="card-desc">n8n · openclaw · Hermes Agent · Superpowers · ADK Go 2.0</div></a>
+<details class="group day-group" id="d-2026-07-02" data-kind="day" data-date="2026-07-02" data-date-cn="2026年07月02日" data-search="2026年07月02日 2026年7月2日 2026-07-02 07-02 ai智能体基础设施升级 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月2日</span><span class="sum-iso">2026-07-02</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月02日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">AI智能体基础设施升级</div><div class="card-desc">n8n · openclaw · Hermes Agent · Superpowers · ADK Go 2.0</div></a>
 <a class="card" href="日报/2026年07月02日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
-<details class="group day-group" data-kind="day" data-date="2026-07-01" data-date-cn="2026年07月01日" data-search="2026年07月01日 2026年7月1日 2026-07-01 07-01 🎯 agent多模态 + 上下文数据库 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月1日</span><span class="sum-iso">2026-07-01</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月01日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">🎯 Agent多模态 + 上下文数据库</div><div class="card-desc">今日 AI 实用项目 TOP5</div></a>
+<details class="group day-group" id="d-2026-07-01" data-kind="day" data-date="2026-07-01" data-date-cn="2026年07月01日" data-search="2026年07月01日 2026年7月1日 2026-07-01 07-01 🎯 agent多模态 + 上下文数据库 ai hot 晚报"><summary><span class="sum-left"><span class="sum-date">2026年7月1日</span><span class="sum-iso">2026-07-01</span><span class="chip top5">TOP5</span><span class="chip evening">晚报</span></span><span class="sum-right"><span class="count">2</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="日报/2026年07月01日/AI项目TOP5.html" data-kind="top5"><div class="card-top"><span class="badge b-top">TOP5</span><span class="go">›</span></div><div class="card-title">🎯 Agent多模态 + 上下文数据库</div><div class="card-desc">今日 AI 实用项目 TOP5</div></a>
 <a class="card" href="日报/2026年07月01日/AI晚报.html" data-kind="evening"><div class="card-top"><span class="badge b-news">晚报</span><span class="go">›</span></div><div class="card-title">AI HOT 晚报</div><div class="card-desc">今日 AI 圈热点新闻</div></a>
 </div></details>
 
@@ -266,20 +275,23 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
   <section class="section week-section">
     <h2 class="section-title t-week">📈 按周榜</h2>
     <div id="week-list">
-      <details class="group week-group" data-kind="week" data-date="2026-W28" data-date-cn="2026年第29周" data-search="2026年第29周 周榜 8领域 · skills · agent-skills · superpowers top涨星 +31,567⭐ 等 · skills · agent-skills · superpowers" open><summary><span class="sum-left"><span class="sum-date">2026年第29周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第29周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">8领域 · skills · agent-skills · superpowers</div><div class="card-desc">TOP涨星 +31,567⭐ 等 · skills · agent-skills · superpowers</div></a>
+      <details class="group week-group" id="w-2026-W29" data-kind="week" data-date="2026-W29" data-date-cn="2026年第29周" data-search="2026年第29周 周榜 8领域 · skills · agent-skills · superpowers top涨星 +31,567⭐ 等 · skills · agent-skills · superpowers" open><summary><span class="sum-left"><span class="sum-date">2026年第29周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第29周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">8领域 · skills · agent-skills · superpowers</div><div class="card-desc">TOP涨星 +31,567⭐ 等 · skills · agent-skills · superpowers</div></a>
 </div></details>
-<details class="group week-group" data-kind="week" data-date="2026-W27" data-date-cn="2026年第28周" data-search="2026年第28周 周榜 🤖 ai智能体 — 一周涨4万星 一周涨星分领域榜"><summary><span class="sum-left"><span class="sum-date">2026年第28周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第28周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">🤖 AI智能体 — 一周涨4万星</div><div class="card-desc">一周涨星分领域榜</div></a>
+<details class="group week-group" id="w-2026-W28" data-kind="week" data-date="2026-W28" data-date-cn="2026年第28周" data-search="2026年第28周 周榜 🤖 ai智能体 — 一周涨4万星 一周涨星分领域榜"><summary><span class="sum-left"><span class="sum-date">2026年第28周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第28周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">🤖 AI智能体 — 一周涨4万星</div><div class="card-desc">一周涨星分领域榜</div></a>
 </div></details>
-<details class="group week-group" data-kind="week" data-date="2026-W26" data-date-cn="2026年第27周" data-search="2026年第27周 周榜 ai智能体 一周涨星分领域榜"><summary><span class="sum-left"><span class="sum-date">2026年第27周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第27周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">AI智能体</div><div class="card-desc">一周涨星分领域榜</div></a>
+<details class="group week-group" id="w-2026-W27" data-kind="week" data-date="2026-W27" data-date-cn="2026年第27周" data-search="2026年第27周 周榜 ai智能体 一周涨星分领域榜"><summary><span class="sum-left"><span class="sum-date">2026年第27周</span><span class="chip weekly">周榜</span></span><span class="sum-right"><span class="count">1</span><span class="chev">▾</span></span></summary><div class="group-body"><a class="card" href="周榜/2026年第27周/GitHub周榜.html" data-kind="weekly"><div class="card-top"><span class="badge b-week">周榜</span><span class="go">›</span></div><div class="card-title">AI智能体</div><div class="card-desc">一周涨星分领域榜</div></a>
 </div></details>
 
     </div>
   </section>
 
-  <div class="footer">点日期展开 · 点卡片打开报告</div>
+  <div class="footer">点日期展开 · 点卡片打开 · 详情页可返回/上下翻</div>
 </div>
 <script>
 (function(){
+  var TODAY = '2026-07-15';
+  var YDAY = '2026-07-14';
+  var BDAY = '2026-07-13';
   var q = document.getElementById('q');
   var clearBtn = document.getElementById('clear');
   var empty = document.getElementById('empty');
@@ -288,32 +300,35 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   var filter = 'all';
 
+  function pad2(n){ return (n < 10 ? '0' : '') + n; }
+
   function norm(s){
     s = (s || '').toLowerCase().trim();
-    // 统一分隔
+    if (!s) return '';
+    if (s === '今天' || s === '今日' || s === 'today') return TODAY;
+    if (s === '昨天' || s === '昨日' || s === 'yesterday') return YDAY;
+    if (s === '前天' || s === 'day before yesterday') return BDAY;
     s = s.replace(/[\/\.]/g, '-');
-    // 2026年7月14日 / 7月14日 / 07月14日
     var m = s.match(/(?:(\d{4})[-年])?\s*(\d{1,2})[-月](\d{1,2})日?/);
     if (m) {
-      var y = m[1] || '2026';
-      var mo = ('0' + m[2]).slice(-2);
-      var d = ('0' + m[3]).slice(-2);
-      return y + '-' + mo + '-' + d;
+      var y = m[1] || TODAY.slice(0,4);
+      return y + '-' + pad2(parseInt(m[2],10)) + '-' + pad2(parseInt(m[3],10));
     }
-    // 第29周 / 2026年第29周
     var w = s.match(/(?:(\d{4})年)?第?(\d{1,2})周/);
     if (w) {
-      var yy = w[1] || '2026';
+      var yy = w[1] || TODAY.slice(0,4);
       return yy + '年第' + parseInt(w[2],10) + '周';
     }
     return s;
   }
 
-  function apply(){
+  function apply(opts){
+    opts = opts || {};
     var raw = q.value || '';
     var n = norm(raw);
     var rawL = raw.toLowerCase().trim();
     var shown = 0;
+    var firstMatch = null;
     groups.forEach(function(g){
       var search = g.getAttribute('data-search') || '';
       var date = g.getAttribute('data-date') || '';
@@ -322,7 +337,6 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
       var okFilter = true;
       if (filter === 'weekly') okFilter = kind === 'week';
       else if (filter === 'top5' || filter === 'evening') okFilter = kind === 'day';
-      else okFilter = true;
 
       var okSearch = true;
       if (rawL) {
@@ -337,28 +351,59 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
         );
       }
       var show = okFilter && okSearch;
-      // 分类下再按卡片存在性裁剪（CSS 也会藏，这里保证空日期组隐藏）
-      if (show && filter === 'top5') {
-        show = !!g.querySelector('.card[data-kind="top5"]');
-      }
-      if (show && filter === 'evening') {
-        show = !!g.querySelector('.card[data-kind="evening"]');
-      }
+      if (show && filter === 'top5') show = !!g.querySelector('.card[data-kind="top5"]');
+      if (show && filter === 'evening') show = !!g.querySelector('.card[data-kind="evening"]');
       g.hidden = !show;
       if (show) {
         shown += 1;
-        // 有搜索词时自动展开匹配项
-        if (rawL) g.open = true;
+        if (!firstMatch) firstMatch = g;
+        if (rawL || opts.forceOpen) g.open = true;
       }
     });
     empty.classList.toggle('show', shown === 0);
-    meta.textContent = rawL || filter !== 'all'
-      ? ('显示 ' + shown + ' 组')
-      : ('共 15 天 · 3 周');
+    meta.textContent = (rawL || filter !== 'all') ? ('显示 ' + shown + ' 组') : ('共 15 天 · 3 周');
+    if (opts.scroll && firstMatch) {
+      groups.forEach(function(g){ g.classList.remove('flash'); });
+      firstMatch.classList.add('flash');
+      firstMatch.open = true;
+      try { firstMatch.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { firstMatch.scrollIntoView(true); }
+      setTimeout(function(){ firstMatch.classList.remove('flash'); }, 1600);
+    }
+    return firstMatch;
   }
 
-  q.addEventListener('input', apply);
-  q.addEventListener('search', apply);
+  function jumpTo(key){
+    if (!key) return;
+    var k = norm(key) || key;
+    // 直接匹配 data-date / data-date-cn / id
+    var g = null;
+    for (var i=0;i<groups.length;i++){
+      var el = groups[i];
+      if (el.getAttribute('data-date') === k || el.getAttribute('data-date-cn') === key || el.getAttribute('data-date-cn') === k || el.id === ('d-'+k) || el.id === ('w-'+k)) {
+        g = el; break;
+      }
+    }
+    if (!g) {
+      q.value = key;
+      g = apply({forceOpen:true, scroll:true});
+      return g;
+    }
+    // 清筛选干扰
+    filter = 'all';
+    document.body.className = '';
+    tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-filter')==='all'); });
+    groups.forEach(function(x){ x.hidden = false; x.classList.remove('flash'); });
+    g.hidden = false;
+    g.open = true;
+    g.classList.add('flash');
+    try { g.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { g.scrollIntoView(true); }
+    setTimeout(function(){ g.classList.remove('flash'); }, 1600);
+    meta.textContent = '已定位：' + (g.getAttribute('data-date-cn') || key);
+    return g;
+  }
+
+  q.addEventListener('input', function(){ apply(); });
+  q.addEventListener('search', function(){ apply({scroll:true}); });
   clearBtn.addEventListener('click', function(){
     q.value = '';
     apply();
@@ -379,6 +424,37 @@ body.filter-evening .day-group:not(:has(.card[data-kind="evening"])){display:non
   document.getElementById('collapse-all').addEventListener('click', function(){
     groups.forEach(function(g){ g.open = false; });
   });
+  Array.prototype.forEach.call(document.querySelectorAll('.rchip'), function(btn){
+    btn.addEventListener('click', function(){
+      var v = btn.getAttribute('data-q') || '';
+      if (v === '周榜') {
+        filter = 'weekly';
+        document.body.className = 'filter-weekly';
+        tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-filter')==='weekly'); });
+        q.value = '';
+        apply({forceOpen:true, scroll:true});
+        return;
+      }
+      q.value = v;
+      apply({forceOpen:true, scroll:true});
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.mchip'), function(btn){
+    btn.addEventListener('click', function(){
+      jumpTo(btn.getAttribute('data-jump') || '');
+    });
+  });
+
+  // 锚点直达：#2026-07-14 / #2026年07月14日 / #2026年第29周 / #d-2026-07-14
+  function applyHash(){
+    var h = (location.hash || '').replace(/^#/, '');
+    if (!h) return;
+    h = decodeURIComponent(h);
+    h = h.replace(/^d-/, '').replace(/^w-/, '');
+    jumpTo(h);
+  }
+  window.addEventListener('hashchange', applyHash);
+  applyHash();
 })();
 </script>
 </body>
