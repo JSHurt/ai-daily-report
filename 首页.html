@@ -63,13 +63,51 @@ body{
   min-height:44px; border-radius:12px; border:1px solid var(--line);
   background:var(--card2); color:var(--dim); padding:0 12px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap;
 }
-.rel-row,.month-row{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
-.rel-row::-webkit-scrollbar,.month-row::-webkit-scrollbar{display:none}
-.rchip,.mchip{
+.rel-row{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
+.rel-row::-webkit-scrollbar{display:none}
+.rchip{
   flex:0 0 auto; border:1px solid var(--line); background:var(--card);
   color:var(--dim); border-radius:999px; padding:8px 12px; font-size:12px; font-weight:600; cursor:pointer; min-height:36px;
 }
-.rchip:active,.mchip:active{background:var(--card2);color:#fff}
+.rchip:active{background:var(--card2);color:#fff}
+.datepick-row{display:flex; gap:8px; align-items:center; margin-top:10px}
+.date-input{
+  flex:1; min-height:44px; border-radius:12px; border:1px solid var(--line);
+  background:var(--card); color:var(--text); padding:8px 12px; font-size:15px;
+}
+.date-input::-webkit-calendar-picker-indicator{filter:invert(.8); opacity:.85}
+.month-wrap{position:relative; margin-top:10px}
+.month-row{
+  display:flex; gap:8px; overflow-x:auto; padding:2px 2px 6px;
+  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.month-row::-webkit-scrollbar{display:none}
+.month-wrap::before,.month-wrap::after{
+  content:""; position:absolute; top:0; bottom:6px; width:18px; z-index:2; pointer-events:none;
+}
+.month-wrap::before{left:0; background:linear-gradient(90deg, var(--bg), transparent)}
+.month-wrap::after{right:0; background:linear-gradient(270deg, var(--bg), transparent)}
+.mchip{
+  flex:0 0 auto; scroll-snap-align:start;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+  min-width:64px; min-height:56px; padding:8px 10px;
+  border:1px solid var(--line); background:var(--card); color:var(--dim);
+  border-radius:14px; cursor:pointer;
+}
+.mchip .m-day{font-size:13px; font-weight:700; color:#d7deea; line-height:1.1}
+.mchip .m-wd{font-size:11px; color:var(--mute)}
+.mchip .m-dot{
+  margin-top:2px; min-width:16px; height:16px; padding:0 5px; border-radius:999px;
+  background:#101522; border:1px solid var(--line); color:var(--mute); font-size:10px; line-height:14px;
+}
+.mchip.active{
+  background:linear-gradient(145deg,#2a3350,#1a2238); border-color:#5b7cff; color:#fff;
+  box-shadow:0 0 0 1px rgba(91,124,255,.35), 0 6px 16px rgba(0,0,0,.25);
+}
+.mchip.active .m-day{color:#fff}
+.mchip.active .m-wd{color:#b9c7ff}
+.mchip.active .m-dot{background:rgba(91,124,255,.2); border-color:#5b7cff; color:#c9d6ff}
+.mchip:active{transform:scale(.97)}
 .filters{display:flex; gap:8px; overflow-x:auto; margin-top:10px; scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
 .tab{
@@ -148,7 +186,7 @@ body.filter-evening .chip.top5{display:none}
   <header class="hero">
     <h1>🤖 AI 日报导航</h1>
     <p class="sub">按日期折叠 · 可搜索 · 支持锚点直达</p>
-    <p class="upd">最近更新：2026年7月15日 10:21</p>
+    <p class="upd">最近更新：2026年7月15日 10:32</p>
   </header>
 
   <p class="tip">示例：搜 <b>今天</b> / <b>昨天</b> / <b>2026-07-14</b> / <b>第29周</b>；链接可带 <b>#2026-07-14</b>。</p>
@@ -205,7 +243,13 @@ body.filter-evening .chip.top5{display:none}
       <button type="button" class="rchip" data-q="前天">前天</button>
       <button type="button" class="rchip" data-q="周榜">周榜</button>
     </div>
-    <div class="month-row" aria-label="日期快捷"><button type="button" class="mchip" data-jump="2026-07-15">7月15日</button><button type="button" class="mchip" data-jump="2026-07-14">7月14日</button><button type="button" class="mchip" data-jump="2026-07-13">7月13日</button><button type="button" class="mchip" data-jump="2026-07-12">7月12日</button><button type="button" class="mchip" data-jump="2026-07-11">7月11日</button><button type="button" class="mchip" data-jump="2026-07-10">7月10日</button><button type="button" class="mchip" data-jump="2026-07-09">7月9日</button><button type="button" class="mchip" data-jump="2026-07-08">7月8日</button><button type="button" class="mchip" data-jump="2026-07-07">7月7日</button><button type="button" class="mchip" data-jump="2026-07-06">7月6日</button><button type="button" class="mchip" data-jump="2026-07-05">7月5日</button><button type="button" class="mchip" data-jump="2026-07-04">7月4日</button><button type="button" class="mchip" data-jump="2026-07-03">7月3日</button><button type="button" class="mchip" data-jump="2026-07-02">7月2日</button><button type="button" class="mchip" data-jump="2026-07-01">7月1日</button></div>
+    <div class="datepick-row">
+      <input id="datepick" class="date-input" type="date" min="2026-07-01" max="2026-07-15" value="2026-07-15" aria-label="按日期跳转">
+      <button type="button" class="btn-ghost" id="go-date">跳转</button>
+    </div>
+    <div class="month-wrap">
+      <div class="month-row" id="month-row" aria-label="最近日期"><button type="button" class="mchip active" data-jump="2026-07-15" title="2026年7月15日 TOP5"><span class="m-day">7月15日</span><span class="m-wd">周三</span><span class="m-dot">1</span></button><button type="button" class="mchip" data-jump="2026-07-14" title="2026年7月14日 TOP5/晚报"><span class="m-day">7月14日</span><span class="m-wd">周二</span><span class="m-dot">2</span></button><button type="button" class="mchip" data-jump="2026-07-13" title="2026年7月13日 TOP5"><span class="m-day">7月13日</span><span class="m-wd">周一</span><span class="m-dot">1</span></button><button type="button" class="mchip" data-jump="2026-07-12" title="2026年7月12日 TOP5/晚报"><span class="m-day">7月12日</span><span class="m-wd">周日</span><span class="m-dot">2</span></button><button type="button" class="mchip" data-jump="2026-07-11" title="2026年7月11日 TOP5/晚报"><span class="m-day">7月11日</span><span class="m-wd">周六</span><span class="m-dot">2</span></button><button type="button" class="mchip" data-jump="2026-07-10" title="2026年7月10日 TOP5/晚报"><span class="m-day">7月10日</span><span class="m-wd">周五</span><span class="m-dot">2</span></button><button type="button" class="mchip" data-jump="2026-07-09" title="2026年7月9日 TOP5/晚报"><span class="m-day">7月9日</span><span class="m-wd">周四</span><span class="m-dot">2</span></button><button type="button" class="mchip" data-jump="2026-07-08" title="2026年7月8日 晚报"><span class="m-day">7月8日</span><span class="m-wd">周三</span><span class="m-dot">1</span></button></div>
+    </div>
     <div class="filters" aria-label="分类">
       <button type="button" class="tab active" data-filter="all">全部</button>
       <button type="button" class="tab" data-filter="top5">TOP5</button>
@@ -372,6 +416,22 @@ body.filter-evening .chip.top5{display:none}
     return firstMatch;
   }
 
+  function setActiveChip(iso){
+    var chips = document.querySelectorAll('.mchip');
+    var active = null;
+    chips.forEach(function(c){
+      var on = c.getAttribute('data-jump') === iso;
+      c.classList.toggle('active', on);
+      if (on) active = c;
+    });
+    if (active) {
+      try { active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'}); }
+      catch(e) { active.scrollIntoView(true); }
+    }
+    var dp = document.getElementById('datepick');
+    if (dp && iso && /^\d{4}-\d{2}-\d{2}$/.test(iso)) dp.value = iso;
+  }
+
   function jumpTo(key){
     if (!key) return;
     var k = norm(key) || key;
@@ -386,6 +446,7 @@ body.filter-evening .chip.top5{display:none}
     if (!g) {
       q.value = key;
       g = apply({forceOpen:true, scroll:true});
+      if (g) setActiveChip(g.getAttribute('data-date') || k);
       return g;
     }
     // 清筛选干扰
@@ -399,6 +460,7 @@ body.filter-evening .chip.top5{display:none}
     try { g.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e) { g.scrollIntoView(true); }
     setTimeout(function(){ g.classList.remove('flash'); }, 1600);
     meta.textContent = '已定位：' + (g.getAttribute('data-date-cn') || key);
+    setActiveChip(g.getAttribute('data-date') || k);
     return g;
   }
 
@@ -436,7 +498,9 @@ body.filter-evening .chip.top5{display:none}
         return;
       }
       q.value = v;
-      apply({forceOpen:true, scroll:true});
+      var g = apply({forceOpen:true, scroll:true});
+      if (g) setActiveChip(g.getAttribute('data-date') || norm(v));
+      else setActiveChip(norm(v));
     });
   });
   Array.prototype.forEach.call(document.querySelectorAll('.mchip'), function(btn){
@@ -444,6 +508,17 @@ body.filter-evening .chip.top5{display:none}
       jumpTo(btn.getAttribute('data-jump') || '');
     });
   });
+
+  var datepick = document.getElementById('datepick');
+  var goDate = document.getElementById('go-date');
+  function goPickedDate(){
+    if (!datepick || !datepick.value) return;
+    jumpTo(datepick.value);
+  }
+  if (goDate) goDate.addEventListener('click', goPickedDate);
+  if (datepick) {
+    datepick.addEventListener('change', goPickedDate);
+  }
 
   // 锚点直达：#2026-07-14 / #2026年07月14日 / #2026年第29周 / #d-2026-07-14
   function applyHash(){
@@ -455,6 +530,13 @@ body.filter-evening .chip.top5{display:none}
   }
   window.addEventListener('hashchange', applyHash);
   applyHash();
+  // 无锚点时也把最新日期 chip 滚到可视区
+  if (!location.hash) {
+    var first = document.querySelector('.mchip.active');
+    if (first) {
+      try { first.scrollIntoView({inline:'start', block:'nearest'}); } catch(e) {}
+    }
+  }
 })();
 </script>
 </body>
