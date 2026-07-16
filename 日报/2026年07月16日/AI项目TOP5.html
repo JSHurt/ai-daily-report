@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>AI项目TOP5 · 2026年7月15日</title>
+<title>AI项目TOP5 · 2026年7月16日</title>
 <style>
 :root {
   --bg: #0d1117;
@@ -210,117 +210,99 @@ a{ word-break:break-word; }
 </head>
 <body>
 <div class="container">
-<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月15日 · TOP5</div><div class="nav-side"><a href="../2026年07月14日/AI项目TOP5.html">← 上篇</a><a href="../2026年07月16日/AI项目TOP5.html">下篇 →</a></div></nav><!--hermes-nav-end-->
+<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月16日 · TOP5</div><div class="nav-side"><a href="../2026年07月15日/AI项目TOP5.html">← 上篇</a><span class="disabled">下篇 →</span></div></nav><!--hermes-nav-end-->
 
 <h1>📊 AI实用项目 TOP5</h1>
-<p class="subtitle">2026年7月15日 · 个人助手 · 本地聊天台 · SuperAgent · 私有知识库 · 上下文压缩</p>
+<p class="subtitle">2026年7月16日 · 可视化编排 · AI网关 · 企业问答 · LLM可观测 · 生成式前端</p>
 
-<div class="banner">📡 本次基于 GitHub API 实时抓取（2026年07月15日 北京时间上午）：优先「本周有重大更新 / 高星且仍在活跃」的实用项目，与近几日「编码 Agent / 私有化推理 / MCP 工具」形成互补——今天把镜头对准「个人能天天用的 AI 助手全栈」。</div>
+<div class="banner">📡 本次基于 GitHub API 实时抓取（2026年07月16日 北京时间上午）：优先「本周有重大更新 / 高星且仍在活跃」的实用项目。昨日聚焦「个人助手全栈」，今日镜头切到「从 Demo 到生产」——编排、网关、企业入口、可观测、产品内嵌前端。</div>
 
 <div class="theme-box">
-<div class="theme-title">🎯 今日主题：个人 AI 助手从「能聊」到「能干活、能省钱」</div>
-<div class="theme-desc">前几天讲了「Agent 怎么写代码」「怎么接工具」「怎么私有化跑模型」——但多数人真正每天碰的是另一层：有一个常驻助手、有一个好用的聊天台、有能做长任务的 SuperAgent、有能读自己文档的知识库，以及别把 Token 账单烧穿。本期 5 个项目串起这条「个人可用」链路：OpenClaw 把助手接到你已有的 IM 通道；Open WebUI 把多模型聊天做成自托管工作台；DeerFlow 2.0 用子 Agent + 沙箱做长程研究/编码；AnythingLLM 一站搞定文档对话与本地 Agent；Headroom 在进模型前把工具输出/日志/RAG 块压掉 20%～95% 的 Token。一句话：助手要常驻、要私有、要能干重活，还要算得过账。</div>
+<div class="theme-title">🎯 今日主题：从 Demo 到生产——编排 · 网关 · 企业入口 · 可观测 · 生成式 UI</div>
+<div class="theme-desc">个人助手能聊天、能干活之后，下一关是工程化：谁来搭工作流？多模型怎么统一入口和控成本？企业知识怎么变成可权限管控的产品？上线后怎么追踪与评测？最后如何嵌进自家 SaaS 而不是再开一个聊天页？本期 5 个项目串起这条「生产链路」：Langflow 可视化构建可部署 Agent；LiteLLM 把 100+ 模型收成网关；Onyx 给出企业级问答入口；Langfuse 负责 traces/evals/prompt 版本；CopilotKit 把 Agent 变成产品里的 Generative UI。一句话：能跑 demo 不够，要能编排、能运维、能嵌产品。</div>
 </div>
 
-<!-- 1. OpenClaw -->
+<!-- 01 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">01</div>
-<div class="card-name">OpenClaw — 跨平台个人 AI 助手</div>
-<div class="card-stars">⭐ ~383K</div>
+<div class="card-name">Langflow — 可视化构建与部署 AI Agent</div>
+<div class="card-stars">⭐ ~152K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>在你自己设备上跑的「个人 AI 助手」——Gateway 做控制面，产品形态是「常驻助手」：接 WhatsApp / Telegram / Slack / Discord / 飞书 / 企业微信 / QQ / Teams 等你已经在用的通道；支持 macOS/iOS/Android 语音对话，还能渲染可交互的 live Canvas。<br>
-<strong>解决什么：</strong>ChatGPT/Claude 网页是「你去找它」；企业 Bot 往往绑死供应商或内网审批。OpenClaw 反过来：助手住在你设备上，消息从你日常 IM 进来，回复也回同一通道——单用户、本地优先、随时在线，而不是再开一个新 App 聊天窗口。<br>
-<strong>适用场景：</strong>想把 AI 嵌进日常沟通流的个人/小团队；需要跨端（手机+电脑）常驻助手；对「数据走自己设备、通道自己控」有要求的自托管用户。<br>
-<strong>怎么用：</strong>按官方 Getting Started 安装 Gateway → 绑定至少一个消息通道与模型供应商 → 在 IM 里直接对话；更新走官方 release（本周已发 v2026.7.1）。详见 docs.openclaw.ai。
+<strong>是什么：</strong>开源可视化 AI Agent / 工作流构建与部署平台——拖拽组件把 LLM、工具、记忆、向量库串成可运行流程，覆盖 multi-agent、RAG、API 暴露；面向「从草图到可上线服务」而不是只画架构图。<br><strong>解决什么：</strong>写 Agent 最痛的是胶水代码：接模型、写工具调用、调重试、做流式输出、再包一层 API。Langflow 用 React Flow 画布把这些变成可复用节点，改完即可部署成服务，降低「只会 demo、上不了线」的落差。<br><strong>适用场景：</strong>产品/算法快速验证 Agent 链路；中小团队要可维护的可视化编排；需要把工作流一键暴露为 API 给业务系统调用的场景。<br><strong>怎么用：</strong>Docker / pip 安装后打开 Web UI → 从模板或空白画布搭流程 → 配置模型与工具 → 发布为 endpoint；本周活跃推送，最新正式版 v1.10.2。详见 langflow.org。
 </div>
-<div class="card-update">🔥 近期亮点：v2026.7.1（7/13）；多通道 IM 原生接入；自设备常驻 + live Canvas</div>
+<div class="card-update">🔥 近期亮点：v1.10.2（7/7）；全局变量模型覆盖；本周持续推送（7/15）</div>
 <div class="card-links">
-<a href="https://github.com/openclaw/openclaw" target="_blank">GitHub ↗</a>
-<a href="https://openclaw.ai" target="_blank">官网 ↗</a>
-<a href="https://docs.openclaw.ai" target="_blank">文档 ↗</a>
+<a href="https://github.com/langflow-ai/langflow" target="_blank">GitHub ↗</a>
+<a href="https://www.langflow.org" target="_blank">官网 ↗</a>
+<a href="https://docs.langflow.org" target="_blank">文档 ↗</a>
 </div>
 </div>
-
-<!-- 2. Open WebUI -->
+<!-- 02 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">02</div>
-<div class="card-name">Open WebUI — 人人会用的自托管 AI 工作台</div>
-<div class="card-stars">⭐ ~145K</div>
+<div class="card-name">LiteLLM — 100+ 模型统一 AI 网关</div>
+<div class="card-stars">⭐ ~54K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>功能完整、可完全离线运行的开源 AI 界面平台——对接 Ollama 与任意 OpenAI 兼容 API，内置 RAG 推理引擎、插件扩展、多用户权限；安装路径覆盖 pip / uv / Docker / K8s。<br>
-<strong>解决什么：</strong>本地跑了 Ollama / vLLM / LocalAI 之后，缺的往往不是模型，而是「家人同事也能点开就用」的界面：多会话、知识库上传、工具/插件、模型切换、权限隔离。Open WebUI 把「自托管 ChatGPT 体验」做成开箱即用，而不是再写一坨 Gradio 原型。<br>
-<strong>适用场景：</strong>家庭实验室/小团队统一聊天入口；企业内网要一套可审计的多模型前端；把 Ollama 从「命令行玩具」升级成「全员可用服务」。<br>
-<strong>怎么用：</strong>`docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main`（或官方 `:ollama` / `:cuda` 镜像）→ 浏览器打开 → 配置 Ollama 地址或 OpenAI 兼容端点 → 上传文档开 RAG。
+<strong>是什么：</strong>生产向 LLM 网关（SDK + Proxy）——用 OpenAI 兼容格式统一调用 100+ 供应商（OpenAI / Anthropic / Azure / Bedrock / Vertex / vLLM / NIM…），内置计费追踪、负载均衡、护栏与日志。<br><strong>解决什么：</strong>业务一旦接第二家模型，SDK 分叉、鉴权分叉、账单分叉立刻爆炸。LiteLLM 把「换模型 / 限流 / 回退 / 记成本」收成一层网关：应用只认一个 endpoint，运维在网关层做路由与可观测接入。<br><strong>适用场景：</strong>多模型混部与成本优化；把自建 vLLM/Ollama 和云 API 统一入口；需要 guardrails、预算控制、团队密钥托管的中台团队。<br><strong>怎么用：</strong><code>pip install litellm</code> 或跑官方 Proxy Docker → 配 model_list 与密钥 → 客户端指向网关的 OpenAI base_url；可对接 Langfuse 等日志后端。最新 v1.92.0（7/12），今日仍在活跃推送。
 </div>
-<div class="card-update">🔥 近期亮点：v0.10.2；插件可扩展；Ollama + OpenAI 兼容双轨；Docker/K8s 一键</div>
+<div class="card-update">🔥 近期亮点：v1.92.0；AI Gateway + 成本追踪；Docker 镜像 cosign 签名校验</div>
 <div class="card-links">
-<a href="https://github.com/open-webui/open-webui" target="_blank">GitHub ↗</a>
-<a href="https://openwebui.com" target="_blank">官网 ↗</a>
-<a href="https://docs.openwebui.com/" target="_blank">文档 ↗</a>
+<a href="https://github.com/BerriAI/litellm" target="_blank">GitHub ↗</a>
+<a href="https://docs.litellm.ai/docs/" target="_blank">文档 ↗</a>
 </div>
 </div>
-
-<!-- 3. DeerFlow -->
+<!-- 03 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">03</div>
-<div class="card-name">DeerFlow — 字节开源长程 SuperAgent 编排</div>
-<div class="card-stars">⭐ ~77K</div>
+<div class="card-name">Onyx — 企业开源 AI 问答平台</div>
+<div class="card-stars">⭐ ~31K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>字节跳动开源的 Super Agent harness（Deep Exploration and Efficient Research Flow）——2.0 为完全重写：用可扩展 skills 编排 sub-agents、memory、sandbox，覆盖研究、编码、创作等长程任务；Python 3.12+ / Node 22+。<br>
-<strong>解决什么：</strong>单轮聊天 Agent 做「写一段代码」够用，但「调研竞品 → 读代码 → 出方案 → 写实现 → 验证」这种跨小时任务会丢上下文、缺隔离执行环境。DeerFlow 把「长程 harness」产品化：子 Agent 分工、记忆跨步、沙箱跑命令，技能可插拔——从 demo Agent 走向能扛复杂目标的 SuperAgent。<br>
-<strong>适用场景：</strong>需要开源 Deep Research / 多步编码编排的团队；想在火山引擎/自有模型上跑长任务的业务方；研究 multi-agent + sandbox 工程实践的开发者。<br>
-<strong>怎么用：</strong>克隆仓库按 Makefile/文档起 backend + 前端 → 配置模型（官方推荐 Doubao-Seed-2.0-Code / DeepSeek / Kimi 等）→ 选择 skill 发起长程任务；旧版 Deep Research 仍在 `1.x` 分支维护。
+<strong>是什么：</strong>面向企业的开源 AI 平台——自托管 AI Chat + 企业搜索/RAG，兼容几乎所有主流 LLM，强调「接公司知识源就能问」，而不是再做一个玩具聊天框。<br><strong>解决什么：</strong>Open WebUI 偏个人/小团队聊天台；企业要的是权限、连接器、索引迁移、审计与「搜内部文档真能答对」。Onyx 把聊天 UI、文档索引、企业连接器收成可部署产品，适合作为内网统一 AI 入口。<br><strong>适用场景：</strong>中大型团队私有知识问答；要自托管且能接多种 LLM 的企业 IT；从 ChatGPT 迁移到「公司数据不出域」的合规场景。<br><strong>怎么用：</strong>按官方 Docker Compose 部署 → 配置 LLM 与向量/索引后端 → 接入文档源与权限 → 开放给员工使用。最新 v4.3.6（7/15 发布，升级前请阅读索引迁移说明）。官网 onyx.app。
 </div>
-<div class="card-update">🔥 近期亮点：DeerFlow 2.0 全面重写；sub-agent + memory + sandbox；skills 可扩展</div>
+<div class="card-update">🔥 近期亮点：v4.3.6（7/15）；企业搜索 + 多 LLM；自托管一站式</div>
 <div class="card-links">
-<a href="https://github.com/bytedance/deer-flow" target="_blank">GitHub ↗</a>
-<a href="https://deerflow.tech" target="_blank">官网 ↗</a>
+<a href="https://github.com/onyx-dot-app/onyx" target="_blank">GitHub ↗</a>
+<a href="https://onyx.app" target="_blank">官网 ↗</a>
+<a href="https://docs.onyx.app" target="_blank">文档 ↗</a>
 </div>
 </div>
-
-<!-- 4. AnythingLLM -->
+<!-- 04 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">04</div>
-<div class="card-name">AnythingLLM — 本地优先的文档对话 + Agent 一体舱</div>
-<div class="card-stars">⭐ ~63K</div>
+<div class="card-name">Langfuse — LLM 可观测与评测平台</div>
+<div class="card-stars">⭐ ~31K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>All-in-one 的本地优先 AI 应用——聊天、文档 RAG、Agent、多用户、高度可配置，强调「Stop renting your intelligence」：模型/嵌入/向量库可换，桌面与服务端双形态，几乎零折磨安装。<br>
-<strong>解决什么：</strong>很多人要的不是「再接一个 LangChain 脚本」，而是：把 PDF/Notion/仓库丢进去就能问、还能让 Agent 代办任务、数据默认不离开自己机器。AnythingLLM 把工作区（workspace）、文档管线、Agent 工具链收成一个产品，省掉自建 RAG 的拼装税；团队还在推进 Open Computer，给 Agent 完整电脑环境。<br>
-<strong>适用场景：</strong>个人/小团队私有知识库问答；合规要求下的本地文档 AI；想「一个 App 覆盖聊天+RAG+Agent」而非十几个服务拼盘的场景。<br>
-<strong>怎么用：</strong>官网下载桌面版，或 Docker 起服务端 → 创建 Workspace → 上传/连接文档源 → 选 LLM 与 embedder → 开启 Agent 工具按需执行；多用户权限在服务端形态配置。
+<strong>是什么：</strong>开源 AI 工程平台——LLM 链路追踪、指标、评测、Prompt 管理、Playground、数据集；对接 OpenTelemetry / LangChain / OpenAI SDK / LiteLLM 等，可云可自托管（YC W23）。<br><strong>解决什么：</strong>Agent/工作流上线后最怕「黑盒」：慢在哪、贵在哪、哪次工具调用翻车、Prompt 改完有没有回退。Langfuse 把 traces、scores、prompt 版本收成一套工程面板，让优化有数据而不是靠感觉。<br><strong>适用场景：</strong>RAG/Agent 质量回归；多团队共享 Prompt 版本；要自建 LLMOps（观测+评测+数据集）而不是只接云厂商 dashboard 的团队。<br><strong>怎么用：</strong>Docker/K8s 自托管或使用云版 → 在应用侧加 SDK/OTel exporter → 看 traces、建 eval、管 prompt。最新 v3.214.0（7/15），持续高频发版。
 </div>
-<div class="card-update">🔥 近期亮点：v1.15.0；本地优先 Agent；多用户与超可配置；Open Computer 在研</div>
+<div class="card-update">🔥 近期亮点：v3.214.0（7/15）；Evals + Monitors + OTel 增强</div>
 <div class="card-links">
-<a href="https://github.com/Mintplex-Labs/anything-llm" target="_blank">GitHub ↗</a>
-<a href="https://anythingllm.com" target="_blank">官网 ↗</a>
+<a href="https://github.com/langfuse/langfuse" target="_blank">GitHub ↗</a>
+<a href="https://langfuse.com" target="_blank">官网 ↗</a>
+<a href="https://langfuse.com/docs" target="_blank">文档 ↗</a>
 </div>
 </div>
-
-<!-- 5. Headroom -->
+<!-- 05 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">05</div>
-<div class="card-name">Headroom — Agent 上下文压缩中间层</div>
-<div class="card-stars">⭐ ~59K</div>
+<div class="card-name">CopilotKit — Agent 与生成式 UI 前端栈</div>
+<div class="card-stars">⭐ ~36K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>面向 AI Agent 的上下文压缩层——在工具输出、日志、文件、RAG chunk 进入 LLM 之前做内容感知压缩；提供 library / proxy / MCP 三种接入，本地优先、可逆；宣称 JSON 类数据可少 60–95% Token，编码 Agent 场景约 15–20%。<br>
-<strong>解决什么：</strong>Agent 越能干，上下文越容易被「一次 cat 大文件 / 一次跑测日志 / 一坨 RAG 召回」灌满——结果是贵、慢、还更容易丢重点。Headroom 不改你的 Agent 逻辑，只在进模型前把噪声压掉，让同样的上下文窗口装更多有效信息，账单和延迟一起降。<br>
-<strong>适用场景：</strong>Coding Agent / 工具调用密集的工作流；RAG 管道里 chunk 过胖的应用；想用 MCP 给现有 Claude Code / Cursor / 自研 Agent 统一加「省 Token 层」的团队。<br>
-<strong>怎么用：</strong>`pip install headroom-ai` 或 npm 装同名包 → 以库调用压缩函数，或以 proxy/MCP server 挂到 Agent；配置 content-aware compressor，对 JSON/日志/代码输出走不同策略（详见官方 docs）。
+<strong>是什么：</strong>面向 Agents & Generative UI 的前端技术栈——React / Angular / Mobile / Slack 等，并推动 AG-UI 协议：让 Agent 不只回一段文字，而是驱动可交互界面（表单、表格、步骤条、人机共驾）。<br><strong>解决什么：</strong>后端 Agent 写好了，产品侧还卡在「右侧聊天气泡」。CopilotKit 提供可嵌入的 copilot 组件与 Generative UI 模式，把 Agent 状态映射成真正的产品交互，而不是再包一层 iframe 聊天窗。<br><strong>适用场景：</strong>SaaS 要内嵌 AI 副驾驶；需要人机确认/可编辑生成结果的工作流；多端（Web/移动/协作工具）统一 Agent 前端体验的团队。<br><strong>怎么用：</strong>在 Next/React 项目安装 CopilotKit → 接后端 Agent runtime → 用组件挂载侧边栏/内联 copilot 与 Generative UI actions。最新 v1.63.0（7/15）。文档 docs.copilotkit.ai。
 </div>
-<div class="card-update">🔥 近期亮点：v0.31.0（7/9）；library + proxy + MCP 三形态；JSON 最高省 95% Token</div>
+<div class="card-update">🔥 近期亮点：v1.63.0（7/15）；AG-UI 协议；多端 Generative UI</div>
 <div class="card-links">
-<a href="https://github.com/headroomlabs-ai/headroom" target="_blank">GitHub ↗</a>
-<a href="https://headroom-docs.vercel.app/docs" target="_blank">文档 ↗</a>
+<a href="https://github.com/CopilotKit/CopilotKit" target="_blank">GitHub ↗</a>
+<a href="https://docs.copilotkit.ai" target="_blank">文档 ↗</a>
 </div>
 </div>
 
