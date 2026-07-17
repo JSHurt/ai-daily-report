@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>AI项目TOP5 · 2026年7月16日</title>
+<title>AI项目TOP5 · 2026年7月17日</title>
 <style>
 :root {
   --bg: #0d1117;
@@ -210,99 +210,104 @@ a{ word-break:break-word; }
 </head>
 <body>
 <div class="container">
-<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月16日 · TOP5</div><div class="nav-side"><a href="../2026年07月15日/AI项目TOP5.html">← 上篇</a><a href="../2026年07月17日/AI项目TOP5.html">下篇 →</a></div></nav><!--hermes-nav-end-->
+<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月17日 · TOP5</div><div class="nav-side"><a href="../2026年07月16日/AI项目TOP5.html">← 上篇</a><span class="disabled">下篇 →</span></div></nav><!--hermes-nav-end-->
 
 <h1>📊 AI实用项目 TOP5</h1>
-<p class="subtitle">2026年7月16日 · 可视化编排 · AI网关 · 企业问答 · LLM可观测 · 生成式前端</p>
+<p class="subtitle">2026年7月17日 · 屏幕记忆 · 计算机操控 · 工具生态 · 深度研究 · 安全评测</p>
 
-<div class="banner">📡 本次基于 GitHub API 实时抓取（2026年07月16日 北京时间上午）：优先「本周有重大更新 / 高星且仍在活跃」的实用项目。昨日聚焦「个人助手全栈」，今日镜头切到「从 Demo 到生产」——编排、网关、企业入口、可观测、产品内嵌前端。</div>
+<div class="banner">📡 本次基于 GitHub API 实时抓取（2026年07月17日 北京时间上午）：优先「本周有重大更新 / 高星且仍在活跃」的实用项目。昨日聚焦「从 Demo 到生产」的编排/网关/可观测，今日镜头切到 Agent 的「感官、手脚与护栏」——看见工作现场、操控桌面、接上真实业务工具、做深度调研，再把安全评测做进交付链路。</div>
 
 <div class="theme-box">
-<div class="theme-title">🎯 今日主题：从 Demo 到生产——编排 · 网关 · 企业入口 · 可观测 · 生成式 UI</div>
-<div class="theme-desc">个人助手能聊天、能干活之后，下一关是工程化：谁来搭工作流？多模型怎么统一入口和控成本？企业知识怎么变成可权限管控的产品？上线后怎么追踪与评测？最后如何嵌进自家 SaaS 而不是再开一个聊天页？本期 5 个项目串起这条「生产链路」：Langflow 可视化构建可部署 Agent；LiteLLM 把 100+ 模型收成网关；Onyx 给出企业级问答入口；Langfuse 负责 traces/evals/prompt 版本；CopilotKit 把 Agent 变成产品里的 Generative UI。一句话：能跑 demo 不够，要能编排、能运维、能嵌产品。</div>
+<div class="theme-title">🎯 今日主题：Agent 的感官 · 手脚 · 护栏——从看见、动手到可验收</div>
+<div class="theme-desc">Agent 只会聊天不够：它要看见你怎么工作、能操作真实电脑、能调用 Gmail/Slack/CRM 等业务系统、能替你做跨源调研，还要在上线前扛住红队与回归评测。本期 5 个项目串起这条链路：screenpipe 把本地屏幕/语音变成可检索记忆；Cua 提供 Computer-Use 沙箱与评测基建；Composio 一站接入 1000+ 预鉴权工具；GPT Researcher 做自主深度研究；Promptfoo 把 Prompt/Agent/RAG 的评测与红队做成工程化流水线。一句话：能感知、能动手、能连业务、能深挖，还能过安全关。</div>
 </div>
 
 <!-- 01 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">01</div>
-<div class="card-name">Langflow — 可视化构建与部署 AI Agent</div>
-<div class="card-stars">⭐ ~152K</div>
+<div class="card-name">screenpipe — 本地录屏记忆，把工作现场交给 Agent</div>
+<div class="card-stars">⭐ ~20.2K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>开源可视化 AI Agent / 工作流构建与部署平台——拖拽组件把 LLM、工具、记忆、向量库串成可运行流程，覆盖 multi-agent、RAG、API 暴露；面向「从草图到可上线服务」而不是只画架构图。<br><strong>解决什么：</strong>写 Agent 最痛的是胶水代码：接模型、写工具调用、调重试、做流式输出、再包一层 API。Langflow 用 React Flow 画布把这些变成可复用节点，改完即可部署成服务，降低「只会 demo、上不了线」的落差。<br><strong>适用场景：</strong>产品/算法快速验证 Agent 链路；中小团队要可维护的可视化编排；需要把工作流一键暴露为 API 给业务系统调用的场景。<br><strong>怎么用：</strong>Docker / pip 安装后打开 Web UI → 从模板或空白画布搭流程 → 配置模型与工具 → 发布为 endpoint；本周活跃推送，最新正式版 v1.10.2。详见 langflow.org。
+<strong>是什么：</strong>YC S26 开源项目——在本地持续捕获你看到、说到、做到的内容，再变成可搜索记忆、SOP 与自动化素材，供 AI Agent 调用；强调本地、私有、安全，可对接 OpenClaw、Hermes Agent 及 100+ 应用。<br><strong>解决什么：</strong>多数 Agent 只「听你口述」或「读你贴的文件」，看不到真实工作现场：浏览器标签、会议纪要、重复操作路径全丢了。screenpipe 把「你怎么干活」录成可检索上下文，让助手基于真实行为生成流程与自动化，而不是空想 prompt。<br><strong>适用场景：</strong>个人/小团队要给 Agent 补「屏幕记忆」；需要本地优先、数据不出机的知识沉淀；想把日常操作沉淀为 SOP/自动化的效率玩家。<br><strong>怎么用：</strong>官网下载桌面端 onboarding → 开启本地捕获 → 在 Agent/应用侧连接 screenpipe 记忆与自动化接口；本周持续发桌面版（app-v2.5.112，7/15）。详见 screenpipe.com / screenpi.pe。
 </div>
-<div class="card-update">🔥 近期亮点：v1.10.2（7/7）；全局变量模型覆盖；本周持续推送（7/15）</div>
+<div class="card-update">🔥 近期亮点：app-v2.5.112（7/15）；YC S26；本地私有记忆 + 对接 OpenClaw/Hermes；今日仍在推送</div>
 <div class="card-links">
-<a href="https://github.com/langflow-ai/langflow" target="_blank">GitHub ↗</a>
-<a href="https://www.langflow.org" target="_blank">官网 ↗</a>
-<a href="https://docs.langflow.org" target="_blank">文档 ↗</a>
+<a href="https://github.com/screenpipe/screenpipe" target="_blank">GitHub ↗</a>
+<a href="https://screenpipe.com" target="_blank">官网 ↗</a>
 </div>
 </div>
+
 <!-- 02 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">02</div>
-<div class="card-name">LiteLLM — 100+ 模型统一 AI 网关</div>
-<div class="card-stars">⭐ ~54K</div>
+<div class="card-name">Cua — Computer-Use Agent 的沙箱与评测基建</div>
+<div class="card-stars">⭐ ~20.0K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>生产向 LLM 网关（SDK + Proxy）——用 OpenAI 兼容格式统一调用 100+ 供应商（OpenAI / Anthropic / Azure / Bedrock / Vertex / vLLM / NIM…），内置计费追踪、负载均衡、护栏与日志。<br><strong>解决什么：</strong>业务一旦接第二家模型，SDK 分叉、鉴权分叉、账单分叉立刻爆炸。LiteLLM 把「换模型 / 限流 / 回退 / 记成本」收成一层网关：应用只认一个 endpoint，运维在网关层做路由与可观测接入。<br><strong>适用场景：</strong>多模型混部与成本优化；把自建 vLLM/Ollama 和云 API 统一入口；需要 guardrails、预算控制、团队密钥托管的中台团队。<br><strong>怎么用：</strong><code>pip install litellm</code> 或跑官方 Proxy Docker → 配 model_list 与密钥 → 客户端指向网关的 OpenAI base_url；可对接 Langfuse 等日志后端。最新 v1.92.0（7/12），今日仍在活跃推送。
+<strong>是什么：</strong>面向 Computer-Use Agents 的开源基础设施——提供可操控完整桌面的沙箱、SDK 与 benchmark，用于训练、评测与部署「会点鼠标、会开应用」的 AI Agent（官网口号：Build, benchmark, and deploy agents that use computers）。<br><strong>解决什么：</strong>纯 API 工具调用解决不了「填表、改设置、拖文件、跨应用点选」；直接让模型操作本机又危险且难复现。Cua 把「可控桌面环境 + 开发 SDK + 评测基准」打包，让 Computer-Use 从 demo 变成可迭代工程。<br><strong>适用场景：</strong>研发桌面自动化 / RPA+LLM；需要隔离沙箱跑 Agent 的安全团队；做 Computer-Use 模型训练与基准对比的实验室/创业团队。<br><strong>怎么用：</strong>按 cua.ai/docs 选路径（本地/云沙箱）→ 用 SDK 驱动 Agent 操作桌面 → 用官方 benchmark 回归；本周发布 fleet / driver 相关包（7/15），仓库今日仍活跃。
 </div>
-<div class="card-update">🔥 近期亮点：v1.92.0；AI Gateway + 成本追踪；Docker 镜像 cosign 签名校验</div>
+<div class="card-update">🔥 近期亮点：fleet / cua-driver 更新（7/15）；沙箱 + SDK + Benchmark 一体；Computer-Use 基建</div>
 <div class="card-links">
-<a href="https://github.com/BerriAI/litellm" target="_blank">GitHub ↗</a>
-<a href="https://docs.litellm.ai/docs/" target="_blank">文档 ↗</a>
+<a href="https://github.com/trycua/cua" target="_blank">GitHub ↗</a>
+<a href="https://cua.ai" target="_blank">官网 ↗</a>
+<a href="https://cua.ai/docs" target="_blank">文档 ↗</a>
 </div>
 </div>
+
 <!-- 03 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">03</div>
-<div class="card-name">Onyx — 企业开源 AI 问答平台</div>
-<div class="card-stars">⭐ ~31K</div>
+<div class="card-name">Composio — 1000+ 预鉴权工具包，给 Agent 接真实业务</div>
+<div class="card-stars">⭐ ~29.3K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>面向企业的开源 AI 平台——自托管 AI Chat + 企业搜索/RAG，兼容几乎所有主流 LLM，强调「接公司知识源就能问」，而不是再做一个玩具聊天框。<br><strong>解决什么：</strong>Open WebUI 偏个人/小团队聊天台；企业要的是权限、连接器、索引迁移、审计与「搜内部文档真能答对」。Onyx 把聊天 UI、文档索引、企业连接器收成可部署产品，适合作为内网统一 AI 入口。<br><strong>适用场景：</strong>中大型团队私有知识问答；要自托管且能接多种 LLM 的企业 IT；从 ChatGPT 迁移到「公司数据不出域」的合规场景。<br><strong>怎么用：</strong>按官方 Docker Compose 部署 → 配置 LLM 与向量/索引后端 → 接入文档源与权限 → 开放给员工使用。最新 v4.3.6（7/15 发布，升级前请阅读索引迁移说明）。官网 onyx.app。
+<strong>是什么：</strong>Agent 工具层平台——提供 1000+ 预鉴权 toolkits、按用户会话的鉴权、工具检索、上下文管理、触发器与沙箱工作台，让 Agent 直接操作 Gmail、Slack、GitHub、Notion、CRM 等真实系统（Python / TypeScript SDK）。<br><strong>解决什么：</strong>自写 OAuth、维护上百个 API 适配、处理 token 刷新与权限边界，是 Agent 产品最吃工期的部分。Composio 把「接工具」产品化：Agent 专注规划与推理，业务动作走统一、可管的工具层。<br><strong>适用场景：</strong>要做能改业务系统的生产 Agent；多租户按用户授权工具；需要工具搜索/上下文裁剪以控制 Token 与权限面的中台团队。<br><strong>怎么用：</strong><code>pip install composio</code> 或 npm 装 <code>@composio/core</code> → 在控制台配置 toolkit 与用户鉴权 → SDK 里检索/调用工具；本周持续发 monorepo 包（@composio/slim 等，7/16）。文档 docs.composio.dev。
 </div>
-<div class="card-update">🔥 近期亮点：v4.3.6（7/15）；企业搜索 + 多 LLM；自托管一站式</div>
+<div class="card-update">🔥 近期亮点：@composio/slim 0.14.0 等（7/16）；1000+ toolkits + 沙箱 workbench；TS/Python 双栈</div>
 <div class="card-links">
-<a href="https://github.com/onyx-dot-app/onyx" target="_blank">GitHub ↗</a>
-<a href="https://onyx.app" target="_blank">官网 ↗</a>
-<a href="https://docs.onyx.app" target="_blank">文档 ↗</a>
+<a href="https://github.com/ComposioHQ/composio" target="_blank">GitHub ↗</a>
+<a href="https://composio.dev" target="_blank">官网 ↗</a>
+<a href="https://docs.composio.dev" target="_blank">文档 ↗</a>
 </div>
 </div>
+
 <!-- 04 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">04</div>
-<div class="card-name">Langfuse — LLM 可观测与评测平台</div>
-<div class="card-stars">⭐ ~31K</div>
+<div class="card-name">GPT Researcher — 自主深度研究 Agent</div>
+<div class="card-stars">⭐ ~28.3K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>开源 AI 工程平台——LLM 链路追踪、指标、评测、Prompt 管理、Playground、数据集；对接 OpenTelemetry / LangChain / OpenAI SDK / LiteLLM 等，可云可自托管（YC W23）。<br><strong>解决什么：</strong>Agent/工作流上线后最怕「黑盒」：慢在哪、贵在哪、哪次工具调用翻车、Prompt 改完有没有回退。Langfuse 把 traces、scores、prompt 版本收成一套工程面板，让优化有数据而不是靠感觉。<br><strong>适用场景：</strong>RAG/Agent 质量回归；多团队共享 Prompt 版本；要自建 LLMOps（观测+评测+数据集）而不是只接云厂商 dashboard 的团队。<br><strong>怎么用：</strong>Docker/K8s 自托管或使用云版 → 在应用侧加 SDK/OTel exporter → 看 traces、建 eval、管 prompt。最新 v3.214.0（7/15），持续高频发版。
+<strong>是什么：</strong>自主深度研究 Agent——给定主题后规划检索、多源抓取、汇总与报告生成，兼容多种 LLM 供应商；提供 Python 库、Docker、Web UI 与 MCP Server，面向「Deep Research」而不是单轮问答。<br><strong>解决什么：</strong>人工调研要开十几个标签页、反复改搜索词、最后还得自己拼报告。GPT Researcher 把「规划 → 检索 → 交叉验证 → 成稿」编排成可复用 Agent，适合竞品分析、技术选型、行业简报等长任务。<br><strong>适用场景：</strong>产品/分析师要可自托管的深度调研流水线；把 Research Agent 嵌进内部知识中台；需要 MCP 把研究能力挂到 Cursor/Claude 等客户端的开发者。<br><strong>怎么用：</strong><code>pip install gpt-researcher</code> 或 Docker 起服务 → 配置 LLM 与搜索后端 → 发起 research 任务出报告；也可走官方 MCP/Skill 接入。仓库 7/16 仍在活跃推送，官网 gptr.dev。
 </div>
-<div class="card-update">🔥 近期亮点：v3.214.0（7/15）；Evals + Monitors + OTel 增强</div>
+<div class="card-update">🔥 近期亮点：Deep Research + 多 LLM；MCP Server；Docker/库双形态；本周持续活跃</div>
 <div class="card-links">
-<a href="https://github.com/langfuse/langfuse" target="_blank">GitHub ↗</a>
-<a href="https://langfuse.com" target="_blank">官网 ↗</a>
-<a href="https://langfuse.com/docs" target="_blank">文档 ↗</a>
+<a href="https://github.com/assafelovic/gpt-researcher" target="_blank">GitHub ↗</a>
+<a href="https://gptr.dev" target="_blank">官网 ↗</a>
+<a href="https://docs.gptr.dev" target="_blank">文档 ↗</a>
 </div>
 </div>
+
 <!-- 05 -->
 <div class="project-card">
 <div class="card-header">
 <div class="card-rank">05</div>
-<div class="card-name">CopilotKit — Agent 与生成式 UI 前端栈</div>
-<div class="card-stars">⭐ ~36K</div>
+<div class="card-name">Promptfoo — LLM / Agent / RAG 评测与红队</div>
+<div class="card-stars">⭐ ~23.3K</div>
 </div>
 <div class="card-desc">
-<strong>是什么：</strong>面向 Agents & Generative UI 的前端技术栈——React / Angular / Mobile / Slack 等，并推动 AG-UI 协议：让 Agent 不只回一段文字，而是驱动可交互界面（表单、表格、步骤条、人机共驾）。<br><strong>解决什么：</strong>后端 Agent 写好了，产品侧还卡在「右侧聊天气泡」。CopilotKit 提供可嵌入的 copilot 组件与 Generative UI 模式，把 Agent 状态映射成真正的产品交互，而不是再包一层 iframe 聊天窗。<br><strong>适用场景：</strong>SaaS 要内嵌 AI 副驾驶；需要人机确认/可编辑生成结果的工作流；多端（Web/移动/协作工具）统一 Agent 前端体验的团队。<br><strong>怎么用：</strong>在 Next/React 项目安装 CopilotKit → 接后端 Agent runtime → 用组件挂载侧边栏/内联 copilot 与 Generative UI actions。最新 v1.63.0（7/15）。文档 docs.copilotkit.ai。
+<strong>是什么：</strong>面向 LLM 应用的评测与红队工具（CLI + 库）——对比 Prompt/模型/RAG/Agent 表现，做 CI 回归与漏洞扫描；MIT 开源，现为 OpenAI 生态一员但仍保持开源（官网称 part of OpenAI）。<br><strong>解决什么：</strong>Agent 接了屏幕、桌面、业务工具之后，失败从「答错一句」升级为「乱发邮件、越权读库、被 prompt 注入」。Promptfoo 把评测与红队做成可进 CI 的工程步骤：上线前有数据集、有断言、有攻击用例，而不是靠人工点几下聊天框。<br><strong>适用场景：</strong>Prompt/RAG 质量回归；Agent 安全红队与合规扫描；多模型选型 A/B；要把 eval 嵌进 GitHub Actions 的工程团队。<br><strong>怎么用：</strong><code>npx promptfoo@latest init</code> → 写测试用例与断言 → <code>promptfoo eval</code> / red team 命令跑报告；可进 CI。最新 0.121.19（7/14），今日仓库仍在推送。文档 promptfoo.dev。
 </div>
-<div class="card-update">🔥 近期亮点：v1.63.0（7/15）；AG-UI 协议；多端 Generative UI</div>
+<div class="card-update">🔥 近期亮点：0.121.19（7/14）；Evals + Red Team + CI；Prompt/Agent/RAG 统一评测</div>
 <div class="card-links">
-<a href="https://github.com/CopilotKit/CopilotKit" target="_blank">GitHub ↗</a>
-<a href="https://docs.copilotkit.ai" target="_blank">文档 ↗</a>
+<a href="https://github.com/promptfoo/promptfoo" target="_blank">GitHub ↗</a>
+<a href="https://www.promptfoo.dev" target="_blank">官网 ↗</a>
+<a href="https://www.promptfoo.dev/docs/getting-started/" target="_blank">文档 ↗</a>
 </div>
 </div>
 
