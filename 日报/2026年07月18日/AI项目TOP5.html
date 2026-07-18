@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月18日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f0883e;
+  --accent3: #3fb950;
+  --tag-bg: #1c2128;
+  --warn-bg: #0a1f2a;
+  --warn-border: #1f6feb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#79b8ff;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}
+.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto;white-space:nowrap}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links{margin-top:10px}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.card-links a:hover{text-decoration:underline}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}
+.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px;line-height:1.7;text-align:left}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+@media(max-width:600px){
+  .container{padding:8px}
+  h1{font-size:19px}
+  .project-card{padding:14px}
+  .card-desc{font-size:13px}
+  .card-update{font-size:11px}
+}
+
+/* hermes-nav */
+.hermes-nav{
+  position:sticky; top:0; z-index:100;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;
+  margin:0 0 16px; padding:10px 12px;
+  border-radius:16px;
+  border:1px solid rgba(150,170,255,.28);
+  background:linear-gradient(135deg, rgba(20,24,52,.95), rgba(36,22,64,.93));
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 12px 32px rgba(0,0,0,.32), 0 0 0 1px rgba(255,255,255,.03) inset;
+}
+.hermes-nav::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 48%, transparent 65%);
+  transform:translateX(-120%); animation:hermesNavShine 5.5s ease-in-out infinite;
+}
+@keyframes hermesNavShine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.hermes-nav{ position:sticky; overflow:hidden; }
+.hermes-nav a{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:36px; padding:8px 12px; border-radius:11px;
+  color:#e5eeff; text-decoration:none; font-size:13px; font-weight:800;
+  border:1px solid rgba(130,160,255,.22);
+  background:rgba(90,140,255,.12);
+  box-shadow:0 0 0 rgba(0,240,255,0);
+  transition: transform .12s ease, box-shadow .15s ease, background .15s ease;
+}
+.hermes-nav a:active{ background:rgba(90,168,255,.24); transform:scale(.97); }
+.hermes-nav .nav-home{
+  background:linear-gradient(135deg, rgba(0,240,255,.20), rgba(122,92,255,.22));
+  border-color:rgba(0,240,255,.35); color:#f2ffff;
+  box-shadow:0 0 16px rgba(0,240,255,.18);
+}
+.hermes-nav .nav-mid{
+  flex:1 1 auto; text-align:center;
+  font-size:12px; font-weight:800; color:#c3d0f5;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(150,170,255,.16);
+}
+.hermes-nav .nav-side{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.hermes-nav .disabled{
+  color:#667089; font-size:13px; font-weight:700; padding:8px 10px; pointer-events:none;
+}
+
+/* hermes-detail-theme + effects */
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  position:relative;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  padding-left:max(12px, env(safe-area-inset-left));
+  padding-right:max(12px, env(safe-area-inset-right));
+  padding-bottom:calc(28px + env(safe-area-inset-bottom)) !important;
+  line-height:1.65;
+}
+body::before{
+  content:""; pointer-events:none; position:fixed; inset:0; z-index:0; opacity:.55;
+  background:
+    radial-gradient(700px 360px at 12% -8%, rgba(109,92,255,.22), transparent 60%),
+    radial-gradient(560px 300px at 100% 0%, rgba(0,229,255,.14), transparent 55%),
+    radial-gradient(520px 280px at 70% 100%, rgba(255,78,205,.10), transparent 50%);
+}
+body > *{ position:relative; z-index:1; }
+img,video{ max-width:100%; height:auto; }
+a{ word-break:break-word; }
+.container, .main, .wrap{ max-width:860px; margin-left:auto; margin-right:auto; }
+
+/* cards / common */
+.project-card, .card, .project{
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, filter .16s ease;
+}
+.project-card, .card, .project{
+  border-radius:14px !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
+.project-card:hover, .card:hover, .project:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(0,0,0,.26), 0 0 0 1px rgba(120,160,255,.14);
+}
+.project-card:active, .card:active, .project:active{ transform:translateY(0); }
+.theme-box, .banner, .insight{
+  border-radius:14px !important;
+  box-shadow:0 10px 26px rgba(0,0,0,.16);
+}
+.theme-box{
+  position:relative; overflow:hidden;
+}
+.theme-box::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(110deg, transparent 35%, rgba(255,255,255,.08) 50%, transparent 65%);
+  transform:translateX(-130%); animation:hermesSweep 6s ease-in-out infinite;
+}
+@keyframes hermesSweep{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+.card-name, .card-title, .project-name, .theme, h1, h2{ letter-spacing:.2px; }
+.card-links a, .card-link, .project-name a{
+  border-radius:10px; padding:6px 10px; display:inline-block;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.card-links a:hover, .card-link:hover{ box-shadow:0 0 14px rgba(90,168,255,.2); }
+
+/* 晚报 */
+.hero{
+  border-radius:0 0 22px 22px;
+  box-shadow:0 18px 44px rgba(0,0,0,.28);
+  position:relative; overflow:hidden;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(500px 220px at 70% 0%, rgba(255,255,255,.14), transparent 60%);
+}
+.nav{ gap:8px !important; }
+.nav-pill{
+  min-height:34px !important; border-radius:999px !important;
+  transition: transform .12s ease, border-color .15s ease, background .15s ease;
+}
+.nav-pill:hover{ transform:translateY(-1px); }
+.card-grid{ gap:14px !important; }
+.card{ border-radius:14px !important; }
+.card-link{ min-height:34px !important; border-radius:10px !important; }
+
+/* 周榜 */
+.domain-title{
+  border-radius:0 10px 10px 0;
+  padding:6px 10px !important;
+  background:linear-gradient(90deg, rgba(108,92,231,.16), rgba(108,92,231,.04));
+  box-shadow:0 0 18px rgba(108,92,231,.08);
+}
+.project{
+  border:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+}
+.project-header{ gap:12px; }
+.project-stars{
+  background:rgba(243,156,18,.12);
+  border:1px solid rgba(243,156,18,.28);
+  border-radius:999px;
+  padding:4px 10px;
+  box-shadow:0 0 12px rgba(243,156,18,.12);
+}
+
+/* rank pulse */
+.card-rank, .card-idx, .rank-num{
+  text-shadow:0 0 12px rgba(255,180,80,.25);
+}
+
+@media (max-width:480px){
+  .hermes-nav{ padding:8px 10px; border-radius:14px; }
+  .hermes-nav a{ min-height:34px; padding:7px 10px; font-size:12px; }
+  .hermes-nav .nav-mid{ font-size:11px; width:100%; order:3; }
+  .card-grid{ grid-template-columns:1fr !important; }
+  .hero-title{ font-size:28px !important; }
+  body{ font-size:15px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .hermes-nav::before, .theme-box::after{ animation:none !important; }
+  .project-card, .card, .project, .nav-pill{ transition:none !important; }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月18日 · TOP5</div><div class="nav-side"><a href="../2026年07月17日/AI项目TOP5.html">← 上篇</a><span class="disabled">下篇 →</span></div></nav><!--hermes-nav-end-->
+
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月18日 · 网页抓取 · 浏览器操控 · 文档解析 · 开发交付 · 长期记忆</p>
+
+<div class="banner">📡 本次基于 GitHub API 实时抓取（2026年07月18日 北京时间上午）：优先「本周有重大更新 / 高星且仍在活跃」的实用项目。昨日聚焦 Agent 的感官、手脚与护栏，今日镜头切到「把外部世界喂进 Agent」——上网读内容、动手操作站点、解析本地脏文档、把调研变成可交付代码，再用记忆层把结果留住。</div>
+
+<div class="theme-box">
+<div class="theme-title">🎯 今日主题：把世界喂给 Agent——读网 · 动手 · 读档 · 交付 · 记住</div>
+<div class="theme-desc">Agent 再聪明，没有可靠输入与记忆也只能空想。本期 5 个项目串起「外部世界 → 可执行改动」链路：Firecrawl 负责搜索与抓取网页；browser-use 让 Agent 像人一样操作真实网站；MinerU 把 PDF/Office 变成 LLM 就绪 Markdown；OpenHands 在沙箱里把需求落地成代码改动；Mem0 把跨会话事实与偏好沉淀成可召回记忆。一句话：能读网、能点网页、能读文档、能交代码，还能记得住。</div>
+</div>
+
+<!-- 01 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">Firecrawl — 给 Agent 的网页搜索与抓取 API</div>
+<div class="card-stars">⭐ ~152.4K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>面向 AI 的网页数据层——提供搜索、抓取、批量爬取与「和网页交互」能力，把站点内容转成干净 Markdown/结构化数据，方便 Agent 与 RAG 直接消费（官网：The API to search, scrape, and interact with the web at scale）。<br><strong>解决什么：</strong>Agent 需要「上网查资料」时，自写爬虫要处理反爬、JS 渲染、分页与清洗；Firecrawl 把「搜 → 抓 → 结构化」做成统一 API，让模型专注推理与决策，而不是和 HTML 搏斗。<br><strong>适用场景：</strong>竞品/行业调研 Agent；需要实时网页上下文的 RAG；自动化监控公开页面变化；给 Coding/Research Agent 补「可读网」能力。<br><strong>怎么用：</strong>注册 firecrawl.dev 拿 API Key → SDK/HTTP 调用 search、scrape、crawl；也可对接常见 Agent 框架。本周仓库仍在活跃推送（7/17 有 API/计费相关提交）。文档见 firecrawl.dev。
+</div>
+<div class="card-update">🔥 近期亮点：~152K⭐；Search/Scrape/Crawl 一体；本周持续推送；Agent 读网首选基建</div>
+<div class="card-links">
+<a href="https://github.com/firecrawl/firecrawl" target="_blank">GitHub ↗</a>
+<a href="https://firecrawl.dev" target="_blank">官网 ↗</a>
+</div>
+</div>
+<!-- 02 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">browser-use — 让网站对 AI Agent 可操作</div>
+<div class="card-stars">⭐ ~105.3K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>浏览器操控 Agent 库——把网页变成 AI 可理解、可点击、可填写的操作界面，用于「像人一样」完成在线任务（口号：Make websites accessible for AI agents）。Python 生态，活跃社区。<br><strong>解决什么：</strong>纯 API 工具覆盖不了「后台配置页、多步表单、无开放接口的 SaaS」。browser-use 让 Agent 直接操作真实浏览器：导航、点击、输入、读 DOM，把「能打开网页」升级为「能办完事」。<br><strong>适用场景：</strong>RPA+LLM 混合自动化；测试/运维需要 Agent 登录后台点流程；给 Research/Ops Agent 补「动手上网」能力；与 Firecrawl「读内容」形成「读 + 操作」闭环。<br><strong>怎么用：</strong><code>pip install browser-use</code> → 配置 LLM 与浏览器驱动 → 用 Agent 描述任务并运行；最新发布 <strong>0.13.6</strong>（含 Browser Harness 0.1.6，7/17）。详见 browser-use.com。
+</div>
+<div class="card-update">🔥 近期亮点：0.13.6（7/17）；~105K⭐；Browser Harness；本周持续发布</div>
+<div class="card-links">
+<a href="https://github.com/browser-use/browser-use" target="_blank">GitHub ↗</a>
+<a href="https://browser-use.com" target="_blank">官网 ↗</a>
+</div>
+</div>
+<!-- 03 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">MinerU — 复杂文档转 LLM 就绪 Markdown</div>
+<div class="card-stars">⭐ ~74.9K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>文档智能解析引擎——把 PDF、Office 等复杂版式文档转成 LLM 友好的 Markdown/JSON，处理多栏、表格、公式、图片等「脏文档」结构（Transforms complex documents into LLM-ready markdown/JSON）。<br><strong>解决什么：</strong>企业知识库里最多的是扫描 PDF 与排版混乱的报告；直接丢给模型会丢表格、乱公式、断段落。MinerU 把「文档 → 干净上下文」工程化，是 RAG/Agent 读本地资料前的关键预处理层。<br><strong>适用场景：</strong>企业知识库/合同/研报入库；学术论文与技术手册结构化；给 Deep Research / 客服 Agent 喂高质量文档块；与 Firecrawl（网）形成「网 + 档」双源输入。<br><strong>怎么用：</strong>按 opendatalab.github.io/MinerU 安装（pip/Docker）→ 对 PDF/Office 跑解析 → 输出 Markdown/JSON 进向量库或 Agent 上下文；最新发布线 <strong>3.4.4</strong>（7/10），仓库本周仍在维护。
+</div>
+<div class="card-update">🔥 近期亮点：3.4.4（7/10）；~75K⭐；PDF/Office→LLM Markdown；文档解析刚需</div>
+<div class="card-links">
+<a href="https://github.com/opendatalab/MinerU" target="_blank">GitHub ↗</a>
+<a href="https://opendatalab.github.io/MinerU/" target="_blank">文档 ↗</a>
+</div>
+</div>
+<!-- 04 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">OpenHands — AI 驱动的软件开发 Agent</div>
+<div class="card-stars">⭐ ~81.1K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>开源 AI 软件工程 Agent 平台——在受控环境中读代码、改文件、跑命令、提 PR，面向「从需求到可交付改动」的开发工作流（OpenHands: AI-Driven Development）。支持本地/云与多种模型后端。<br><strong>解决什么：</strong>Chat 式编程只能给建议；真正落地要 clone、改、测、修失败。OpenHands 把「会写代码的 Agent」做成可部署产品：沙箱执行 + 工具链 + 协作界面，让 Agent 从「说代码」变成「交改动」。<br><strong>适用场景：</strong>团队要自托管 Coding Agent；需要可审计的自动化改仓/修 bug；与浏览器/文档 Agent 串联成「调研 → 实现」流水线；内部开发助手平台。<br><strong>怎么用：</strong>按 openhands.dev 选 Docker/本地安装 → 配置 LLM 与仓库权限 → 下发任务让 Agent 在沙箱中迭代；Cloud 发布线 <strong>1.46.2</strong>（7/15），7/17 仍有功能与稳定性提交。
+</div>
+<div class="card-update">🔥 近期亮点：cloud-1.46.2（7/15）；~81K⭐；沙箱开发 Agent；本周持续活跃</div>
+<div class="card-links">
+<a href="https://github.com/OpenHands/OpenHands" target="_blank">GitHub ↗</a>
+<a href="https://openhands.dev" target="_blank">官网 ↗</a>
+</div>
+</div>
+<!-- 05 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Mem0 — Agent 通用记忆层</div>
+<div class="card-stars">⭐ ~61.1K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>面向 AI Agent 的通用记忆层——跨会话抽取、存储与检索用户/任务偏好与事实，让 Agent「记得上次说过什么」（Universal memory layer for AI Agents）。提供 SDK、平台与多后端存储。<br><strong>解决什么：</strong>Agent 读完网页、解析完文档、改完代码之后，上下文窗口一关就全忘。Mem0 把长期记忆做成可插拔中间层：写入结构化记忆、按需召回，避免每次从零自我介绍与重复调研。<br><strong>适用场景：</strong>个人助理要记住偏好与项目背景；客服/销售 Agent 跨对话连贯；多 Agent 共享用户画像；与 Firecrawl/MinerU/OpenHands 组合时作为「记得住」的底座。<br><strong>怎么用：</strong><code>pip install mem0ai</code> 或接入官方平台 → 在对话循环中 add/search 记忆 → 把召回片段注入 system/prompt；CLI/Node 线近期有 <strong>v0.2.11</strong>（7/13），7/17 仍在修 LLM provider 与文档。
+</div>
+<div class="card-update">🔥 近期亮点：~61K⭐；跨会话记忆；SDK+平台；本周持续维护</div>
+<div class="card-links">
+<a href="https://github.com/mem0ai/mem0" target="_blank">GitHub ↗</a>
+<a href="https://mem0.ai" target="_blank">官网 ↗</a>
+</div>
+</div>
+
+<div class="footer">
+由AI自动生成 · 每日更新 · GitHub API 实时筛选 · <a href="https://jshurt.github.io/ai-daily-report/" style="color:var(--accent)">查看更多</a>
+</div>
+</div>
+</body>
+</html>
