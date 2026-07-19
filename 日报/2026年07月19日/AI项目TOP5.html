@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年7月19日</title>
+<style>
+:root{--bg:#0d1117;--bg-card:#161b22;--border:#30363d;--text:#c9d1d9;--text-dim:#8b949e;--accent:#58a6ff;--accent2:#f0883e;--tag-bg:#1c2128;--warn-bg:#0a1f2a;--warn-border:#1f6feb}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#79b8ff;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto;white-space:nowrap}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px;line-height:1.7;text-align:left}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+
+/* hermes-nav */
+.hermes-nav{
+  position:sticky; top:0; z-index:100;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;
+  margin:0 0 16px; padding:10px 12px;
+  border-radius:16px;
+  border:1px solid rgba(150,170,255,.28);
+  background:linear-gradient(135deg, rgba(20,24,52,.95), rgba(36,22,64,.93));
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 12px 32px rgba(0,0,0,.32), 0 0 0 1px rgba(255,255,255,.03) inset;
+}
+.hermes-nav::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 48%, transparent 65%);
+  transform:translateX(-120%); animation:hermesNavShine 5.5s ease-in-out infinite;
+}
+@keyframes hermesNavShine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.hermes-nav{ position:sticky; overflow:hidden; }
+.hermes-nav a{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:36px; padding:8px 12px; border-radius:11px;
+  color:#e5eeff; text-decoration:none; font-size:13px; font-weight:800;
+  border:1px solid rgba(130,160,255,.22);
+  background:rgba(90,140,255,.12);
+  box-shadow:0 0 0 rgba(0,240,255,0);
+  transition: transform .12s ease, box-shadow .15s ease, background .15s ease;
+}
+.hermes-nav a:active{ background:rgba(90,168,255,.24); transform:scale(.97); }
+.hermes-nav .nav-home{
+  background:linear-gradient(135deg, rgba(0,240,255,.20), rgba(122,92,255,.22));
+  border-color:rgba(0,240,255,.35); color:#f2ffff;
+  box-shadow:0 0 16px rgba(0,240,255,.18);
+}
+.hermes-nav .nav-mid{
+  flex:1 1 auto; text-align:center;
+  font-size:12px; font-weight:800; color:#c3d0f5;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(150,170,255,.16);
+}
+.hermes-nav .nav-side{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.hermes-nav .disabled{
+  color:#667089; font-size:13px; font-weight:700; padding:8px 10px; pointer-events:none;
+}
+
+/* hermes-detail-theme + effects */
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  position:relative;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  padding-left:max(12px, env(safe-area-inset-left));
+  padding-right:max(12px, env(safe-area-inset-right));
+  padding-bottom:calc(28px + env(safe-area-inset-bottom)) !important;
+  line-height:1.65;
+}
+body::before{
+  content:""; pointer-events:none; position:fixed; inset:0; z-index:0; opacity:.55;
+  background:
+    radial-gradient(700px 360px at 12% -8%, rgba(109,92,255,.22), transparent 60%),
+    radial-gradient(560px 300px at 100% 0%, rgba(0,229,255,.14), transparent 55%),
+    radial-gradient(520px 280px at 70% 100%, rgba(255,78,205,.10), transparent 50%);
+}
+body > *{ position:relative; z-index:1; }
+img,video{ max-width:100%; height:auto; }
+a{ word-break:break-word; }
+.container, .main, .wrap{ max-width:860px; margin-left:auto; margin-right:auto; }
+
+/* cards / common */
+.project-card, .card, .project{
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, filter .16s ease;
+}
+.project-card, .card, .project{
+  border-radius:14px !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
+.project-card:hover, .card:hover, .project:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(0,0,0,.26), 0 0 0 1px rgba(120,160,255,.14);
+}
+.project-card:active, .card:active, .project:active{ transform:translateY(0); }
+.theme-box, .banner, .insight{
+  border-radius:14px !important;
+  box-shadow:0 10px 26px rgba(0,0,0,.16);
+}
+.theme-box{
+  position:relative; overflow:hidden;
+}
+.theme-box::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(110deg, transparent 35%, rgba(255,255,255,.08) 50%, transparent 65%);
+  transform:translateX(-130%); animation:hermesSweep 6s ease-in-out infinite;
+}
+@keyframes hermesSweep{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+.card-name, .card-title, .project-name, .theme, h1, h2{ letter-spacing:.2px; }
+.card-links a, .card-link, .project-name a{
+  border-radius:10px; padding:6px 10px; display:inline-block;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.card-links a:hover, .card-link:hover{ box-shadow:0 0 14px rgba(90,168,255,.2); }
+
+/* 晚报 */
+.hero{
+  border-radius:0 0 22px 22px;
+  box-shadow:0 18px 44px rgba(0,0,0,.28);
+  position:relative; overflow:hidden;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(500px 220px at 70% 0%, rgba(255,255,255,.14), transparent 60%);
+}
+.nav{ gap:8px !important; }
+.nav-pill{
+  min-height:34px !important; border-radius:999px !important;
+  transition: transform .12s ease, border-color .15s ease, background .15s ease;
+}
+.nav-pill:hover{ transform:translateY(-1px); }
+.card-grid{ gap:14px !important; }
+.card{ border-radius:14px !important; }
+.card-link{ min-height:34px !important; border-radius:10px !important; }
+
+/* 周榜 */
+.domain-title{
+  border-radius:0 10px 10px 0;
+  padding:6px 10px !important;
+  background:linear-gradient(90deg, rgba(108,92,231,.16), rgba(108,92,231,.04));
+  box-shadow:0 0 18px rgba(108,92,231,.08);
+}
+.project{
+  border:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+}
+.project-header{ gap:12px; }
+.project-stars{
+  background:rgba(243,156,18,.12);
+  border:1px solid rgba(243,156,18,.28);
+  border-radius:999px;
+  padding:4px 10px;
+  box-shadow:0 0 12px rgba(243,156,18,.12);
+}
+
+/* rank pulse */
+.card-rank, .card-idx, .rank-num{
+  text-shadow:0 0 12px rgba(255,180,80,.25);
+}
+
+@media (max-width:480px){
+  .hermes-nav{ padding:8px 10px; border-radius:14px; }
+  .hermes-nav a{ min-height:34px; padding:7px 10px; font-size:12px; }
+  .hermes-nav .nav-mid{ font-size:11px; width:100%; order:3; }
+  .card-grid{ grid-template-columns:1fr !important; }
+  .hero-title{ font-size:28px !important; }
+  body{ font-size:15px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .hermes-nav::before, .theme-box::after{ animation:none !important; }
+  .project-card, .card, .project, .nav-pill{ transition:none !important; }
+}
+
+</style></head><body><div class="container">
+<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月19日 · TOP5</div><div class="nav-side"><a href="../2026年07月18日/AI项目TOP5.html">← 上篇</a><span class="disabled">下篇 →</span></div></nav><!--hermes-nav-end-->
+
+<h1>📊 AI实用项目 TOP5</h1>
+<p class="subtitle">2026年7月19日 · 长程编排 · 记忆 · 电脑操控 · 工作流MCP · 轻量Agent</p>
+<div class="banner">📡 本次基于 GitHub API 实时抓取（2026年07月19日）：优先今日仍在推送、高星可落地的实用项目。主题：让 Agent 扛得住长任务。</div>
+<div class="theme-box"><div class="theme-title">🎯 今日主题：让 Agent 扛得住长任务——编排 · 记忆 · 手脚 · 连接 · 轻装</div>
+<div class="theme-desc">本期 5 个项目：deer-flow 做长程 harness；memU 做跨 Agent 记忆；cua 给 computer-use；activepieces 用 MCP/工作流接业务；nanobot 轻量落地。</div></div>
+
+<div class="project-card">
+<div class="card-header"><div class="card-rank">01</div><div class="card-name">deer-flow — 长程 SuperAgent Harness</div><div class="card-stars">⭐ 77,384</div></div>
+<div class="card-desc"><strong>是什么：</strong>字节开源长程 SuperAgent 编排框架：把调研、规划、执行串成可运行 harness。<br><strong>解决什么：</strong>单轮 Chat 只能给建议；复杂任务需要多步工具调用与状态保持。<br><strong>适用场景：</strong>深度调研、多步骤自动化、内部 Agent 平台底座。<br><strong>怎么用：</strong>按 README 配置模型与工具后运行长链路任务。</div>
+<div class="card-update">🔥 近期亮点：长程 harness · 推送 2026-07-19 · Python</div>
+<div class="card-links"><a href="https://github.com/bytedance/deer-flow" target="_blank">GitHub ↗</a></div>
+</div>
+<div class="project-card">
+<div class="card-header"><div class="card-rank">02</div><div class="card-name">memU — 跨 Agent 个人记忆层</div><div class="card-stars">⭐ 14,046</div></div>
+<div class="card-desc"><strong>是什么：</strong>多 Agent 共享的个人记忆层，跨会话保存与检索上下文。<br><strong>解决什么：</strong>窗口一关就失忆，多 Agent 协作记忆割裂。<br><strong>适用场景：</strong>个人助理、多 Agent 协作、连续对话业务。<br><strong>怎么用：</strong>SDK/服务接入，对话循环中写入与检索记忆。</div>
+<div class="card-update">🔥 近期亮点：记忆层 · 推送 2026-07-19 · Python</div>
+<div class="card-links"><a href="https://github.com/NevaMind-AI/memU" target="_blank">GitHub ↗</a></div>
+</div>
+<div class="project-card">
+<div class="card-header"><div class="card-rank">03</div><div class="card-name">cua — Computer-Use 开源驱动</div><div class="card-stars">⭐ 20,178</div></div>
+<div class="card-desc"><strong>是什么：</strong>开源 computer-use 驱动，跨系统桌面/应用操控。<br><strong>解决什么：</strong>纯 API 覆盖不了 GUI 与后台操作。<br><strong>适用场景：</strong>RPA+LLM、桌面自动化、运维助手。<br><strong>怎么用：</strong>安装驱动与运行时，自然语言下发操作任务。</div>
+<div class="card-update">🔥 近期亮点：computer-use · 推送 2026-07-19 · HTML</div>
+<div class="card-links"><a href="https://github.com/trycua/cua" target="_blank">GitHub ↗</a></div>
+</div>
+<div class="project-card">
+<div class="card-header"><div class="card-rank">04</div><div class="card-name">activepieces — AI 工作流与 MCP</div><div class="card-stars">⭐ 23,329</div></div>
+<div class="card-desc"><strong>是什么：</strong>自托管 AI Agents/MCP/工作流自动化平台。<br><strong>解决什么：</strong>模型会说不会连业务系统。<br><strong>适用场景：</strong>业务自动化、内部集成、低代码 AI 流程。<br><strong>怎么用：</strong>Docker 自托管，编排连接器与 MCP。</div>
+<div class="card-update">🔥 近期亮点：工作流+MCP · 推送 2026-07-19 · TypeScript</div>
+<div class="card-links"><a href="https://github.com/activepieces/activepieces" target="_blank">GitHub ↗</a></div>
+</div>
+<div class="project-card">
+<div class="card-header"><div class="card-rank">05</div><div class="card-name">nanobot — 轻量开源工具型 Agent</div><div class="card-stars">⭐ 45,883</div></div>
+<div class="card-desc"><strong>是什么：</strong>轻量开源 AI Agent，接工具与聊天，部署成本低。<br><strong>解决什么：</strong>重型平台学习与运维成本高。<br><strong>适用场景：</strong>个人助手、IM 机器人、小团队原型。<br><strong>怎么用：</strong>安装配置模型与工具后接入聊天渠道。</div>
+<div class="card-update">🔥 近期亮点：轻量 Agent · 推送 2026-07-19 · Python</div>
+<div class="card-links"><a href="https://github.com/HKUDS/nanobot" target="_blank">GitHub ↗</a></div>
+</div>
+<div class="footer">由AI自动生成 · 每日更新 · GitHub API 实时筛选</div>
+</div></body></html>
