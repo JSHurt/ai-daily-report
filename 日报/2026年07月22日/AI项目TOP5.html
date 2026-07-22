@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<title>AI项目TOP5 · 2026年07月22日</title>
+<style>
+:root{--bg:#0d1117;--bg-card:#161b22;--border:#30363d;--text:#c9d1d9;--text-dim:#8b949e;--accent:#58a6ff;--accent2:#f0883e;--tag-bg:#1c2128;--warn-bg:#0a1f2a;--warn-border:#1f6feb}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.container{max-width:720px;margin:0 auto}h1{font-size:22px;text-align:center;color:#fff;margin:20px 0 8px}
+.subtitle{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;font-size:12px;color:#79b8ff;margin-bottom:20px;line-height:1.6}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-rank{font-size:22px;font-weight:bold;color:var(--accent2);min-width:28px;text-align:center}
+.card-name{font-size:17px;color:#fff;font-weight:600}.card-stars{font-size:13px;color:var(--text-dim);margin-left:auto;white-space:nowrap}
+.card-desc{font-size:14px;color:var(--text);line-height:1.6;margin:8px 0}
+.card-update{background:var(--tag-bg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--accent);margin-top:10px;display:inline-block}
+.card-links a{color:var(--accent);text-decoration:none;font-size:13px;margin-right:14px}
+.theme-box{background:linear-gradient(135deg,#1a2332 0%,#161b22 100%);border:1px solid var(--accent);border-radius:10px;padding:14px 18px;margin-bottom:24px;text-align:center}
+.theme-title{font-size:16px;color:#fff;font-weight:600}.theme-desc{font-size:13px;color:var(--text-dim);margin-top:6px;line-height:1.7;text-align:left}
+.footer{text-align:center;color:#555;font-size:12px;margin-top:40px;padding:16px}
+
+/* hermes-nav */
+.hermes-nav{
+  position:sticky; top:0; z-index:100;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;
+  margin:0 0 16px; padding:10px 12px;
+  border-radius:16px;
+  border:1px solid rgba(150,170,255,.28);
+  background:linear-gradient(135deg, rgba(20,24,52,.95), rgba(36,22,64,.93));
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 12px 32px rgba(0,0,0,.32), 0 0 0 1px rgba(255,255,255,.03) inset;
+}
+.hermes-nav::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 48%, transparent 65%);
+  transform:translateX(-120%); animation:hermesNavShine 5.5s ease-in-out infinite;
+}
+@keyframes hermesNavShine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.hermes-nav{ position:sticky; overflow:hidden; }
+.hermes-nav a{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:36px; padding:8px 12px; border-radius:11px;
+  color:#e5eeff; text-decoration:none; font-size:13px; font-weight:800;
+  border:1px solid rgba(130,160,255,.22);
+  background:rgba(90,140,255,.12);
+  box-shadow:0 0 0 rgba(0,240,255,0);
+  transition: transform .12s ease, box-shadow .15s ease, background .15s ease;
+}
+.hermes-nav a:active{ background:rgba(90,168,255,.24); transform:scale(.97); }
+.hermes-nav .nav-home{
+  background:linear-gradient(135deg, rgba(0,240,255,.20), rgba(122,92,255,.22));
+  border-color:rgba(0,240,255,.35); color:#f2ffff;
+  box-shadow:0 0 16px rgba(0,240,255,.18);
+}
+.hermes-nav .nav-mid{
+  flex:1 1 auto; text-align:center;
+  font-size:12px; font-weight:800; color:#c3d0f5;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(150,170,255,.16);
+}
+.hermes-nav .nav-side{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.hermes-nav .disabled{
+  color:#667089; font-size:13px; font-weight:700; padding:8px 10px; pointer-events:none;
+}
+
+/* hermes-detail-theme + effects */
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  position:relative;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  padding-left:max(12px, env(safe-area-inset-left));
+  padding-right:max(12px, env(safe-area-inset-right));
+  padding-bottom:calc(28px + env(safe-area-inset-bottom)) !important;
+  line-height:1.65;
+}
+body::before{
+  content:""; pointer-events:none; position:fixed; inset:0; z-index:0; opacity:.55;
+  background:
+    radial-gradient(700px 360px at 12% -8%, rgba(109,92,255,.22), transparent 60%),
+    radial-gradient(560px 300px at 100% 0%, rgba(0,229,255,.14), transparent 55%),
+    radial-gradient(520px 280px at 70% 100%, rgba(255,78,205,.10), transparent 50%);
+}
+body > *{ position:relative; z-index:1; }
+img,video{ max-width:100%; height:auto; }
+a{ word-break:break-word; }
+.container, .main, .wrap{ max-width:860px; margin-left:auto; margin-right:auto; }
+
+/* cards / common */
+.project-card, .card, .project{
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, filter .16s ease;
+}
+.project-card, .card, .project{
+  border-radius:14px !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
+.project-card:hover, .card:hover, .project:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(0,0,0,.26), 0 0 0 1px rgba(120,160,255,.14);
+}
+.project-card:active, .card:active, .project:active{ transform:translateY(0); }
+.theme-box, .banner, .insight{
+  border-radius:14px !important;
+  box-shadow:0 10px 26px rgba(0,0,0,.16);
+}
+.theme-box{
+  position:relative; overflow:hidden;
+}
+.theme-box::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(110deg, transparent 35%, rgba(255,255,255,.08) 50%, transparent 65%);
+  transform:translateX(-130%); animation:hermesSweep 6s ease-in-out infinite;
+}
+@keyframes hermesSweep{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+.card-name, .card-title, .project-name, .theme, h1, h2{ letter-spacing:.2px; }
+.card-links a, .card-link, .project-name a{
+  border-radius:10px; padding:6px 10px; display:inline-block;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.card-links a:hover, .card-link:hover{ box-shadow:0 0 14px rgba(90,168,255,.2); }
+
+/* 晚报 */
+.hero{
+  border-radius:0 0 22px 22px;
+  box-shadow:0 18px 44px rgba(0,0,0,.28);
+  position:relative; overflow:hidden;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(500px 220px at 70% 0%, rgba(255,255,255,.14), transparent 60%);
+}
+.nav{ gap:8px !important; }
+.nav-pill{
+  min-height:34px !important; border-radius:999px !important;
+  transition: transform .12s ease, border-color .15s ease, background .15s ease;
+}
+.nav-pill:hover{ transform:translateY(-1px); }
+.card-grid{ gap:14px !important; }
+.card{ border-radius:14px !important; }
+.card-link{ min-height:34px !important; border-radius:10px !important; }
+
+/* 周榜 */
+.domain-title{
+  border-radius:0 10px 10px 0;
+  padding:6px 10px !important;
+  background:linear-gradient(90deg, rgba(108,92,231,.16), rgba(108,92,231,.04));
+  box-shadow:0 0 18px rgba(108,92,231,.08);
+}
+.project{
+  border:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+}
+.project-header{ gap:12px; }
+.project-stars{
+  background:rgba(243,156,18,.12);
+  border:1px solid rgba(243,156,18,.28);
+  border-radius:999px;
+  padding:4px 10px;
+  box-shadow:0 0 12px rgba(243,156,18,.12);
+}
+
+/* rank pulse */
+.card-rank, .card-idx, .rank-num{
+  text-shadow:0 0 12px rgba(255,180,80,.25);
+}
+
+@media (max-width:480px){
+  .hermes-nav{ padding:8px 10px; border-radius:14px; }
+  .hermes-nav a{ min-height:34px; padding:7px 10px; font-size:12px; }
+  .hermes-nav .nav-mid{ font-size:11px; width:100%; order:3; }
+  .card-grid{ grid-template-columns:1fr !important; }
+  .hero-title{ font-size:28px !important; }
+  body{ font-size:15px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .hermes-nav::before, .theme-box::after{ animation:none !important; }
+  .project-card, .card, .project, .nav-pill{ transition:none !important; }
+}
+</style></head>
+<body>
+<div class="container">
+<!--hermes-nav-start--><nav class="hermes-nav" aria-label="页面导航"><div class="nav-side"><a class="nav-home" href="../../首页.html">🏠 首页</a></div><div class="nav-mid">2026年7月22日 · TOP5</div><div class="nav-side"><a href="../2026年07月21日/AI项目TOP5.html">← 上篇</a><span class="disabled">下篇 →</span></div></nav><!--hermes-nav-end-->
+
+<h1>AI实用项目 TOP5</h1>
+<div class="subtitle">2026年07月22日 · 模型网关 · 可视化编排 · 业务自动化</div>
+<div class="banner">数据源：GitHub Search/Repos API 实时抓取（2026-07-22 08:08 北京时间）。筛选条件：Star 1万+、本周有实质推送/发版，按「统一模型入口 → 可视化 Agent → 业务工作流 → 代码知识图谱 → 编码交付」实用链路排序。禁止离线凑数。</div>
+<div class="theme-box">
+<div class="theme-title">今日主题：模型网关 · 可视化编排 · 业务自动化</div>
+<div class="theme-desc">前两天聚焦 Agent 运行时与技能栈，今天切到「怎么把模型真正接进业务」：LiteLLM 用一个网关吃下 100+ 模型；Langflow 让产品/开发一起画 Agent；n8n 把 AI 嵌进 400+ 业务集成；Graphify 把仓库变成可解释知识图谱喂给 Coding Agent；Cline 在 IDE/CLI/SDK 里把改码跑通。一句话：先进得去、画得出、连得上、查得清、交得了。</div>
+</div>
+
+<!-- 01 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">01</div>
+<div class="card-name">LiteLLM — 统一多模型 AI 网关</div>
+<div class="card-stars">⭐ 54.3K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>轻量高速 AI Gateway——Rust 核心 + Python SDK，用 OpenAI 兼容（或原生）格式统一调用 <strong>100+</strong> LLM API，内置成本追踪、护栏、负载均衡与日志，覆盖 Bedrock / Azure / Anthropic / Vertex / vLLM / NIM 等；最新预发 <strong>v1.94.0-rc.2</strong>，稳定线 <strong>v1.93.0</strong>。<br><strong>解决什么：</strong>业务里模型供应商一多，SDK、鉴权、限流、账单和故障切换就变成运维泥潭。LiteLLM 把「一个入口吃下所有模型」做成可部署网关，应用只对接一种协议，后面随时换模型或加 MCP 网关能力。<br><strong>适用场景：</strong>多云/多厂商模型统一接入；需要按量计费与护栏的中台；给 Agent/工作流平台做后端路由；自建 OpenAI 兼容代理。<br><strong>怎么用：</strong>Docker/源码部署 Proxy → 配置模型与密钥 → 客户端改 base_url 指向网关；今日仓库仍有 UI/依赖推送（sharp 升级、护栏测试 mock 修复）。GitHub API 实时：2026-07-22 推送。
+</div>
+<div class="card-update">🔥 近期亮点：54.3K⭐；v1.93.0 / v1.94.0-rc.2；今日 UI 与依赖连更；Docker cosign 签名校验</div>
+<div class="card-links">
+<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">GitHub</a>
+<a href="https://docs.litellm.ai/docs/" target="_blank" rel="noopener">文档</a>
+</div>
+</div>
+<!-- 02 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">02</div>
+<div class="card-name">Langflow — 可视化构建与部署 AI Agent</div>
+<div class="card-stars">⭐ 152.2K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>面向 Agent 与工作流的可视化搭建/部署工具——拖拽组件连成多 Agent、RAG、工具调用流水线，可本地或服务端发布；正式版 <strong>v1.10.2</strong>，主线已有 <strong>v1.11.0</strong> 标签与本周发版流水线修复，仓库今日仍有推送。<br><strong>解决什么：</strong>纯代码搭 Agent 迭代慢、难给产品/运营共建。Langflow 把模型、检索、工具、记忆做成节点，让「能跑的 Agent」从画布直接部署，缩短从原型到可演示链路。<br><strong>适用场景：</strong>产品/算法共建 Agent 原型；企业内 RAG 与多 Agent 演示；需要快速换模型与全局变量覆盖的场景。<br><strong>怎么用：</strong>按 langflow.org 安装（pip/Docker）→ 画布组装流程 → 发布 API；v1.10.2 含全局变量模型覆盖、telemetry 会话修复、默认关闭 mem0 遥测等。GitHub API 实时：2026-07-22 推送。
+</div>
+<div class="card-update">🔥 近期亮点：152.2K⭐；v1.10.2 + v1.11.0 标签；可视化 Agent/工作流；今日持续活跃</div>
+<div class="card-links">
+<a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener">GitHub</a>
+<a href="http://www.langflow.org" target="_blank" rel="noopener">官网</a>
+</div>
+</div>
+<!-- 03 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">03</div>
+<div class="card-name">n8n — 原生 AI 能力的工作流自动化</div>
+<div class="card-stars">⭐ 197.4K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>Fair-code 工作流自动化平台——可视化编排 + 自定义代码，自托管或云端，400+ 集成，原生 AI / MCP 客户端与服务端能力；最新 <strong>n8n@2.32.0</strong>（2026-07-21 发布）。<br><strong>解决什么：</strong>模型会思考，业务还要接 CRM、邮件、工单、数据库。n8n 把 AI 节点嵌进真实业务流程：触发 → 调模型/Agent → 写回系统，避免「聊天很强、落地很弱」。<br><strong>适用场景：</strong>运营/客服/数据同步自动化；把 LLM 接到企业 SaaS；自托管合规环境下的 AI 工作流；MCP 工具编排。<br><strong>怎么用：</strong>Docker/npm 自托管或 n8n.io 云 → 建工作流拖节点 → 配置 AI Builder/Agent 相关节点；2.32.0 修复 ai-builder 节点版本条件与 agent chat 预览等。推送：2026-07-21。
+</div>
+<div class="card-update">🔥 近期亮点：197.4K⭐；n8n@2.32.0（7/21）；AI Builder 修复；400+ 集成 + MCP</div>
+<div class="card-links">
+<a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">GitHub</a>
+<a href="https://n8n.io" target="_blank" rel="noopener">官网</a>
+</div>
+</div>
+<!-- 04 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">04</div>
+<div class="card-name">Graphify — 代码与文档一键变知识图谱</div>
+<div class="card-stars">⭐ 93.1K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>面向 Coding Agent 的 /graphify 技能与工具链——把代码库、文档、SQL schema、配置与 PDF 转成可查询知识图谱：本地确定性 AST 解析、每条边可解释、不依赖向量库；最新 <strong>v0.9.23</strong>（7/21），仓库已 bump 向 0.9.24。<br><strong>解决什么：</strong>纯向量 RAG 对「谁调用谁、改一处影响哪」不敏感。Graphify 用图结构回答调用链、影响面与邻居节点，给 Claude Code / Cursor / Codex / Gemini CLI 更准的代码上下文。<br><strong>适用场景：</strong>大型仓库让 Agent 先建图再改代码；影响分析与 code search；无向量库的本地知识增强；MCP 查询图邻居。<br><strong>怎么用：</strong>在支持的 Agent 环境安装 graphify skill → 对仓库执行 graphify 构建/更新 → 用 explain/affected/query 提问；v0.9.23 修正 calls 边调用点行号展示（此前误指函数定义行）。推送：2026-07-21。
+</div>
+<div class="card-update">🔥 近期亮点：93.1K⭐；v0.9.23（7/21）；AST 知识图谱；调用点行号修复</div>
+<div class="card-links">
+<a href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">GitHub</a>
+<a href="https://www.graphify.com" target="_blank" rel="noopener">官网</a>
+</div>
+</div>
+<!-- 05 -->
+<div class="project-card">
+<div class="card-header">
+<div class="card-rank">05</div>
+<div class="card-name">Cline — SDK / IDE / CLI 自主编码 Agent</div>
+<div class="card-stars">⭐ 64.9K</div>
+</div>
+<div class="card-desc">
+<strong>是什么：</strong>自主编码 Agent——可作 SDK、IDE 扩展或 CLI 助手，在受控环境读改代码、跑命令、交付改动；最新扩展线 <strong>v4.0.10</strong>，SDK <strong>v0.0.65</strong>，桌面端今日发布 <strong>v0.0.2</strong>（自动更新与签名发布）。<br><strong>解决什么：</strong>「只会建议」的聊天编码难形成闭环。Cline 把 Agent 嵌进编辑器/终端/SDK，支持团队协作运行与多模型，让需求到补丁的路径可重复执行。<br><strong>适用场景：</strong>日常 IDE 内自主改码；CLI 批处理任务；把编码 Agent 嵌进自研工具（SDK）；需要桌面端调度与定时任务的场景。<br><strong>怎么用：</strong>安装 VS Code/IDE 扩展或 CLI → 配置模型与权限 → 描述任务执行；v4.0.10 增加连续错误上限遥测，SDK 0.0.65 可选 peer 依赖减小安装体积并改进 OAuth 重试。GitHub API 实时：2026-07-22 桌面端发布推送。
+</div>
+<div class="card-update">🔥 近期亮点：64.9K⭐；v4.0.10 + SDK 0.0.65；今日桌面 v0.0.2 自动更新/签名发布</div>
+<div class="card-links">
+<a href="https://github.com/cline/cline" target="_blank" rel="noopener">GitHub</a>
+<a href="https://cline.bot" target="_blank" rel="noopener">官网</a>
+</div>
+</div>
+
+<div class="footer">由AI自动生成 · GitHub API 实时 · 2026年07月22日</div>
+</div>
+</body>
+</html>
